@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for types/service/user.ts</title>
+    <title>Code coverage report for components/pages/post-meetup/modals/location-search-modal/index.tsx</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(../../../../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">types/service</a> user.ts</h1>
+        <h1><a href="../../../../../index.html">All files</a> / <a href="index.html">components/pages/post-meetup/modals/location-search-modal</a> index.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/34</span>
+                <span class='fraction'>0/35</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/34</span>
+                <span class='fraction'>0/35</span>
             </div>
         
             
@@ -97,7 +97,8 @@
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -131,40 +132,42 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >export interface User {</span></span></span>
-<span class="cstat-no" title="statement not covered" >  userId: number;</span>
-<span class="cstat-no" title="statement not covered" >  email: string;</span>
-<span class="cstat-no" title="statement not covered" >  nickName: string;</span>
-<span class="cstat-no" title="statement not covered" >  mbti: string;</span>
-<span class="cstat-no" title="statement not covered" >  profileImage: string;</span>
-<span class="cstat-no" title="statement not covered" >  profileMessage: string;</span>
-<span class="cstat-no" title="statement not covered" >  followeesCnt: number;</span>
-<span class="cstat-no" title="statement not covered" >  followersCnt: number;</span>
-<span class="cstat-no" title="statement not covered" >  groupJoinedCnt: number;</span>
-<span class="cstat-no" title="statement not covered" >  groupCreatedCnt: number;</span>
-<span class="cstat-no" title="statement not covered" >  isNotificationEnabled: boolean;</span>
-<span class="cstat-no" title="statement not covered" >  createdAt: string;</span>
-<span class="cstat-no" title="statement not covered" >  isFollowing: boolean;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >'use client';</span></span></span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >import DaumPostcodeEmbed, { Address } from 'react-daum-postcode';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >import { AnyFieldApi } from '@tanstack/react-form';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >import { ModalContent, ModalTitle, useModal } from '@/components/ui';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >interface Props {</span>
+<span class="cstat-no" title="statement not covered" >  LocationField: AnyFieldApi;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export interface GetUserPayload {</span>
-<span class="cstat-no" title="statement not covered" >  userId: number;</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+<span class="cstat-no" title="statement not covered" >export const LocationSearchModal = ({ LocationField }: Props) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const { close } = useModal();</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export type GetUserResponse = User;</span>
+<span class="cstat-no" title="statement not covered" >  const handleComplete = (data: Address) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    const fullAddress = `${data.sido} ${data.sigungu} ${data.bname}`;</span>
+<span class="cstat-no" title="statement not covered" >    LocationField.handleChange(fullAddress);</span>
+<span class="cstat-no" title="statement not covered" >    close();</span>
+<span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export interface UpdateMePayload {</span>
-<span class="cstat-no" title="statement not covered" >  nickName?: string;</span>
-<span class="cstat-no" title="statement not covered" >  profileImage?: string;</span>
-<span class="cstat-no" title="statement not covered" >  mbti?: string;</span>
-<span class="cstat-no" title="statement not covered" >  profileMessage?: string;</span>
-<span class="cstat-no" title="statement not covered" >}</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export type UpdateMeResponse = GetUserResponse;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export interface Follow {</span>
-<span class="cstat-no" title="statement not covered" >  followeeId: number;</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+<span class="cstat-no" title="statement not covered" >  return (</span>
+<span class="cstat-no" title="statement not covered" >    &lt;ModalContent className='max-w-[330px]'&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;ModalTitle&gt;모임 장소&lt;/ModalTitle&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;section className='mt-2'&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;DaumPostcodeEmbed</span>
+<span class="cstat-no" title="statement not covered" >          minWidth={200}</span>
+<span class="cstat-no" title="statement not covered" >          style={{ height: '470px' }}</span>
+<span class="cstat-no" title="statement not covered" >          autoClose={false}</span>
+<span class="cstat-no" title="statement not covered" >          onComplete={handleComplete}</span>
+<span class="cstat-no" title="statement not covered" >        /&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/section&gt;</span>
+<span class="cstat-no" title="statement not covered" >    &lt;/ModalContent&gt;</span>
+<span class="cstat-no" title="statement not covered" >  );</span>
+<span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -174,14 +177,14 @@
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at 2025-12-11T08:43:39.663Z
             </div>
-        <script src="../../prettify.js"></script>
+        <script src="../../../../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../sorter.js"></script>
-        <script src="../../block-navigation.js"></script>
+        <script src="../../../../../sorter.js"></script>
+        <script src="../../../../../block-navigation.js"></script>
     </body>
 </html>
     

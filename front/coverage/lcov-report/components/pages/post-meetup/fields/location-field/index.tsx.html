@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/38</span>
+                <span class='fraction'>0/49</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/38</span>
+                <span class='fraction'>0/49</span>
             </div>
         
             
@@ -101,7 +101,29 @@
 <a name='L36'></a><a href='#L36'>36</a>
 <a name='L37'></a><a href='#L37'>37</a>
 <a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -142,38 +164,49 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >'use client';</span></span></span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { AnyFieldApi } from '@tanstack/react-form';</span>
+<span class="cstat-no" title="statement not covered" >import clsx from 'clsx';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { Icon } from '@/components/icon';</span>
-<span class="cstat-no" title="statement not covered" >import { Input, Label } from '@/components/ui';</span>
+<span class="cstat-no" title="statement not covered" >import { LocationSearchModal } from '@/components/pages/post-meetup/modals/location-search-modal';</span>
+<span class="cstat-no" title="statement not covered" >import { Label } from '@/components/ui';</span>
+<span class="cstat-no" title="statement not covered" >import { useModal } from '@/components/ui';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >interface Props {</span>
 <span class="cstat-no" title="statement not covered" >  field: AnyFieldApi;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >export const MeetupLocationField = ({ field }: Props) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const { open } = useModal();</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const onInputClick = () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    open(&lt;LocationSearchModal LocationField={field} /&gt;);</span>
+<span class="cstat-no" title="statement not covered" >  };</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
 <span class="cstat-no" title="statement not covered" >    &lt;div className='mt-3 flex w-full flex-col gap-1'&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;Label htmlFor='post-meetup-location' required&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;Label htmlFor='post-meetup-location' required onClick={onInputClick}&gt;</span>
 <span class="cstat-no" title="statement not covered" >        모임 장소</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/Label&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;Input</span>
-<span class="cstat-no" title="statement not covered" >        id='post-meetup-location'</span>
-<span class="cstat-no" title="statement not covered" >        className='bg-mono-white focus:border-mint-500 rounded-2xl border border-gray-300'</span>
-<span class="cstat-no" title="statement not covered" >        frontIcon={</span>
-<span class="cstat-no" title="statement not covered" >          &lt;Icon</span>
-<span class="cstat-no" title="statement not covered" >            id='map-pin-1'</span>
-<span class="cstat-no" title="statement not covered" >            width={20}</span>
-<span class="cstat-no" title="statement not covered" >            className='pointer-events-none absolute top-0 left-4 flex h-full items-center text-gray-500'</span>
-<span class="cstat-no" title="statement not covered" >            height={20}</span>
-<span class="cstat-no" title="statement not covered" >          /&gt;</span>
-<span class="cstat-no" title="statement not covered" >        }</span>
-<span class="cstat-no" title="statement not covered" >        placeholder='모임 주소를 입력해주세요'</span>
-<span class="cstat-no" title="statement not covered" >        required</span>
-<span class="cstat-no" title="statement not covered" >        type='text'</span>
-<span class="cstat-no" title="statement not covered" >        value={field.state.value}</span>
-<span class="cstat-no" title="statement not covered" >        onChange={(e) =&gt; field.handleChange(e.target.value)}</span>
-<span class="cstat-no" title="statement not covered" >        onClick={() =&gt; console.log('address clicked!')}</span>
-<span class="cstat-no" title="statement not covered" >      /&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;button</span>
+<span class="cstat-no" title="statement not covered" >        className='bg-mono-white focus:border-mint-500 relative cursor-pointer rounded-2xl border border-gray-300 p-4 pl-11 focus:outline-none'</span>
+<span class="cstat-no" title="statement not covered" >        type='button'</span>
+<span class="cstat-no" title="statement not covered" >        onClick={onInputClick}</span>
+<span class="cstat-no" title="statement not covered" >      &gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;Icon</span>
+<span class="cstat-no" title="statement not covered" >          id='map-pin-1'</span>
+<span class="cstat-no" title="statement not covered" >          width={20}</span>
+<span class="cstat-no" title="statement not covered" >          className='pointer-events-none absolute top-0 left-4 flex h-full items-center text-gray-500'</span>
+<span class="cstat-no" title="statement not covered" >          height={20}</span>
+<span class="cstat-no" title="statement not covered" >        /&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;p</span>
+<span class="cstat-no" title="statement not covered" >          className={clsx(</span>
+<span class="cstat-no" title="statement not covered" >            'text-text-md-medium text-left text-gray-500',</span>
+<span class="cstat-no" title="statement not covered" >            field.state.value &amp;&amp; 'text-gray-800',</span>
+<span class="cstat-no" title="statement not covered" >          )}</span>
+<span class="cstat-no" title="statement not covered" >        &gt;</span>
+<span class="cstat-no" title="statement not covered" >          {field.state.value ? field.state.value : '모임 장소를 입력해주세요'}</span>
+<span class="cstat-no" title="statement not covered" >        &lt;/p&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/button&gt;</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >  );</span>
 <span class="cstat-no" title="statement not covered" >};</span>
@@ -184,7 +217,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-11T08:37:37.659Z
+                at 2025-12-11T08:43:39.663Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

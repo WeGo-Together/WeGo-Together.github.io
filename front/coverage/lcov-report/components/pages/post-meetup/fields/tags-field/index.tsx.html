@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/61</span>
+                <span class='fraction'>0/73</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/61</span>
+                <span class='fraction'>0/73</span>
             </div>
         
             
@@ -124,7 +124,31 @@
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -190,6 +214,7 @@
 <span class="cstat-no" title="statement not covered" >import { useState } from 'react';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { AnyFieldApi } from '@tanstack/react-form';</span>
+<span class="cstat-no" title="statement not covered" >import clsx from 'clsx';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { Icon } from '@/components/icon';</span>
 <span class="cstat-no" title="statement not covered" >import { Input, Label } from '@/components/ui';</span>
@@ -203,10 +228,13 @@
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  const onEnter = (e: React.KeyboardEvent&lt;HTMLInputElement&gt;) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (e.code !== 'Enter' &amp;&amp; e.code !== 'NumpadEnter') return;</span>
+<span class="cstat-no" title="statement not covered" >    if (e.nativeEvent.isComposing) return;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    const hasDupe = field.state.value.includes(inputValue);</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    if (!hasDupe &amp;&amp; inputValue.trim()) field.pushValue(inputValue);</span>
+<span class="cstat-no" title="statement not covered" >    if (!hasDupe &amp;&amp; inputValue.trim()) {</span>
+<span class="cstat-no" title="statement not covered" >      field.pushValue(inputValue);</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    setInputValue('');</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
@@ -231,7 +259,13 @@
 <span class="cstat-no" title="statement not covered" >        onChange={(e) =&gt; setInputValue(e.target.value)}</span>
 <span class="cstat-no" title="statement not covered" >        onKeyDown={onEnter}</span>
 <span class="cstat-no" title="statement not covered" >      /&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;ul className='mt-0.5 flex flex-wrap gap-x-1 gap-y-1.5 px-2'&gt;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >      &lt;ul</span>
+<span class="cstat-no" title="statement not covered" >        className={clsx(</span>
+<span class="cstat-no" title="statement not covered" >          'mt-0.5 flex flex-wrap gap-x-1 gap-y-1.5 px-2',</span>
+<span class="cstat-no" title="statement not covered" >          field.state.value.length ? 'block' : 'hidden',</span>
+<span class="cstat-no" title="statement not covered" >        )}</span>
+<span class="cstat-no" title="statement not covered" >      &gt;</span>
 <span class="cstat-no" title="statement not covered" >        {field.state.value.map((tag: string, idx: number) =&gt; (</span>
 <span class="cstat-no" title="statement not covered" >          &lt;li</span>
 <span class="cstat-no" title="statement not covered" >            key={tag}</span>
@@ -243,6 +277,8 @@
 <span class="cstat-no" title="statement not covered" >          &lt;/li&gt;</span>
 <span class="cstat-no" title="statement not covered" >        ))}</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/ul&gt;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >      &lt;p className='text-text-sm-medium px-2 text-gray-500'&gt;최대 10개까지 업로드할 수 있어요.&lt;/p&gt;</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >  );</span>
 <span class="cstat-no" title="statement not covered" >};</span>
@@ -253,7 +289,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-11T08:37:37.659Z
+                at 2025-12-11T08:43:39.663Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>50/50</span>
+                <span class='fraction'>72/72</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>50/50</span>
+                <span class='fraction'>72/72</span>
             </div>
         
             
@@ -113,7 +113,29 @@
 <a name='L48'></a><a href='#L48'>48</a>
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -150,6 +172,28 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
@@ -169,33 +213,49 @@ import { cva } from 'class-variance-authority';
 &nbsp;
 import { cn } from '@/lib/utils';
 &nbsp;
-const buttonVariants = cva(
-  'bg-mono-white w-full border transition hover:cursor-pointer hover:opacity-80 disabled:cursor-not-allowed',
-  {
-    variants: {
-      variant: {
-        primary: 'bg-mint-400 text-mono-white disabled:bg-gray-400',
-        secondary: 'border-mint-500 text-mint-500 disabled:border-gray-400 disabled:text-gray-400',
-        tertiary: 'border-gray-400 text-gray-600 disabled:text-gray-400',
-        leave: 'border-gray-200 bg-mono-white text-gray-600 text-text-sm-semibold',
-        chat: 'border-mint-500 bg-mint-500 text-mono-white text-text-sm-bold',
-      },
-      size: {
-        md: 'text-text-md-bold h-14 rounded-[16px]',
-        sm: 'text-text-sm-semibold h-11 max-w-[112px] rounded-[16px]',
-        xs: 'h-10 rounded-xl',
-      },
+const buttonVariants = cva('bg-mono-white w-full border transition', {
+  variants: {
+    variant: {
+      primary: 'bg-mint-400 text-text-md-bold text-mono-white',
+      secondary: 'border-mint-500 text-text-sm-semibold text-mint-500',
+      tertiary: 'border-gray-400 text-text-sm-semibold text-gray-600',
     },
-    defaultVariants: {
-      variant: 'primary',
-      size: 'md',
+    size: {
+      md: 'h-13 rounded-2xl',
+      sm: 'h-10 rounded-xl',
+    },
+    disabled: {
+      true: '!cursor-not-allowed',
+      false: 'hover:opacity-80',
     },
   },
-);
+  compoundVariants: [
+    {
+      variant: 'primary',
+      disabled: true,
+      class: 'bg-gray-400',
+    },
+    {
+      variant: 'secondary',
+      disabled: true,
+      class: 'border-gray-400 text-gray-400',
+    },
+    {
+      variant: 'tertiary',
+      disabled: true,
+      class: 'text-gray-400',
+    },
+  ],
+  defaultVariants: {
+    variant: 'primary',
+    size: 'md',
+    disabled: false,
+  },
+});
 &nbsp;
 interface ButtonProps extends React.ButtonHTMLAttributes&lt;HTMLButtonElement&gt; {
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'leave' | 'chat';
-  size?: 'md' | 'sm' | 'xs';
+  variant?: 'primary' | 'secondary' | 'tertiary';
+  size?: 'md' | 'sm';
   type?: 'button' | 'submit' | 'reset';
 }
 &nbsp;
@@ -203,12 +263,18 @@ export const Button = ({
   className,
   variant,
   size,
+  disabled = false,
   children,
   type = 'button',
   ...props
 }: ButtonProps) =&gt; {
   return (
-    &lt;button className={cn(buttonVariants({ variant, size }), className)} type={type} {...props}&gt;
+    &lt;button
+      className={cn(buttonVariants({ variant, size, disabled: !!disabled }), className)}
+      disabled={disabled}
+      type={type}
+      {...props}
+    &gt;
       {children}
     &lt;/button&gt;
   );
@@ -220,7 +286,7 @@ export const Button = ({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-10T23:57:12.548Z
+                at 2025-12-11T00:35:18.091Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

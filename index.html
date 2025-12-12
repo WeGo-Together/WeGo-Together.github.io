@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeGo - Development Portal</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+          'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+          'Helvetica Neue', sans-serif;
+        background: linear-gradient(180deg, #f8fafb 0%, #edf1f4 100%);
+        min-height: 100vh;
+        padding: 24px 16px;
+      }
+
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 32px;
+        padding: 0 4px;
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 700;
+        color: #1a1a1a;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+      }
+
+      .logo .w {
+        color: #1a1a1a;
+      }
+
+      .logo .e {
+        color: #00c9b9;
+      }
+
+      .logo .go {
+        color: #1a1a1a;
+      }
+
+      .subtitle {
+        font-size: 14px;
+        color: #6b7280;
+        margin-top: 4px;
+      }
+
+      .card-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .card {
+        background: white;
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        transition: all 0.2s ease;
+        text-decoration: none;
+        display: block;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      }
+
+      .card-header {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .card-image {
+        width: 88px;
+        height: 88px;
+        border-radius: 12px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 36px;
+        font-weight: 600;
+      }
+
+      .card-image.primary {
+        background: linear-gradient(135deg, #00c9b9 0%, #00a89a 100%);
+        color: white;
+      }
+
+      .card-image.secondary {
+        background: linear-gradient(135deg, #ffb84d 0%, #ff9b1a 100%);
+        color: white;
+      }
+
+      .card-image.tertiary {
+        background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        color: white;
+      }
+
+      .card-image.quaternary {
+        background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+        color: white;
+      }
+
+      .card-content {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .card-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 8px;
+      }
+
+      .card-tags {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+      }
+
+      .tag {
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 600;
+        background: #e0f8f6;
+        color: #00a89a;
+      }
+
+      .tag.orange {
+        background: #fff3e0;
+        color: #ff9b1a;
+      }
+
+      .tag.purple {
+        background: #f3e8ff;
+        color: #7c3aed;
+      }
+
+      .tag.pink {
+        background: #fce7f3;
+        color: #db2777;
+      }
+
+      .card-description {
+        font-size: 14px;
+        color: #6b7280;
+        line-height: 1.5;
+        margin-bottom: 12px;
+      }
+
+      .card-meta {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 13px;
+        color: #9ca3af;
+      }
+
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .status-indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #10b981;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 32px;
+        padding: 20px;
+        color: #9ca3af;
+        font-size: 14px;
+      }
+
+      .footer a {
+        color: #00a89a;
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 480px) {
+        .card-header {
+          flex-direction: column;
+        }
+
+        .card-image {
+          width: 100%;
+          height: 120px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div>
+          <div class="logo">
+            <span class="w">W</span><span class="e">E</span
+            ><span class="go">GO</span>
+          </div>
+          <div class="subtitle">Development Portal</div>
+        </div>
+      </header>
+
+      <div class="card-list">
+        <a href="https://wego.monster" class="card">
+          <div class="card-header">
+            <div class="card-image primary">🚀</div>
+            <div class="card-content">
+              <h2 class="card-title">배포 사이트</h2>
+              <div class="card-tags">
+                <span class="tag">Production</span>
+                <span class="tag">Next.js</span>
+              </div>
+              <p class="card-description">
+                프로덕션 환경에서 실행 중인 WeGo 애플리케이션
+              </p>
+              <div class="card-meta">
+                <span class="meta-item">
+                  <span class="status-indicator"></span>
+                  Live
+                </span>
+                <span class="meta-item"> 🌐 wego.monster </span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a
+          href="https://main--6921b0f53b7a664723f48704.chromatic.com/"
+          class="card"
+        >
+          <div class="card-header">
+            <div class="card-image secondary">📚</div>
+            <div class="card-content">
+              <h2 class="card-title">Storybook</h2>
+              <div class="card-tags">
+                <span class="tag orange">Components</span>
+                <span class="tag orange">Design System</span>
+              </div>
+              <p class="card-description">UI 컴포넌트 라이브러리와 문서화</p>
+              <div class="card-meta">
+                <span class="meta-item">
+                  <span class="status-indicator"></span>
+                  Live
+                </span>
+                <span class="meta-item"> 📦 Component Docs </span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a
+          href="https://wego-together.github.io/front/playwright-report/"
+          class="card"
+        >
+          <div class="card-header">
+            <div class="card-image tertiary">🎭</div>
+            <div class="card-content">
+              <h2 class="card-title">Playwright</h2>
+              <div class="card-tags">
+                <span class="tag purple">E2E Testing</span>
+                <span class="tag purple">Reports</span>
+              </div>
+              <p class="card-description">
+                End-to-End 테스트 실행 결과 및 리포트
+              </p>
+              <div class="card-meta">
+                <span class="meta-item">
+                  <span class="status-indicator"></span>
+                  Updated
+                </span>
+                <span class="meta-item"> ✅ Test Reports </span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a
+          href="https://wego-together.github.io/front/coverage/lcov-report/"
+          class="card"
+        >
+          <div class="card-header">
+            <div class="card-image quaternary">📊</div>
+            <div class="card-content">
+              <h2 class="card-title">Coverage</h2>
+              <div class="card-tags">
+                <span class="tag pink">Test Coverage</span>
+                <span class="tag pink">Reports</span>
+              </div>
+              <p class="card-description">코드 커버리지 분석 및 상세 리포트</p>
+              <div class="card-meta">
+                <span class="meta-item">
+                  <span class="status-indicator"></span>
+                  Updated
+                </span>
+                <span class="meta-item"> 📈 Coverage Stats </span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="footer">
+        <p>© 2024 WeGo Team. Built with ❤️</p>
+        <p>
+          <a href="https://github.com/WeGo-Together" target="_blank"
+            >GitHub Repository</a
+          >
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

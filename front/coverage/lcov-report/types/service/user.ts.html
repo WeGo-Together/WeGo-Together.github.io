@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/36</span>
+                <span class='fraction'>0/37</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/36</span>
+                <span class='fraction'>0/37</span>
             </div>
         
             
@@ -99,7 +99,9 @@
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
 <a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -136,40 +138,41 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >export interface User {</span></span></span>
-<span class="cstat-no" title="statement not covered" >  id: number;</span>
+<span class="cstat-no" title="statement not covered" >  userId: number;</span>
 <span class="cstat-no" title="statement not covered" >  email: string;</span>
 <span class="cstat-no" title="statement not covered" >  nickName: string;</span>
-<span class="cstat-no" title="statement not covered" >  profileImage: string;</span>
-<span class="cstat-no" title="statement not covered" >  notification_enabled: boolean;</span>
 <span class="cstat-no" title="statement not covered" >  mbti: string;</span>
-<span class="cstat-no" title="statement not covered" >  phoneNumber: string; // 삭제</span>
+<span class="cstat-no" title="statement not covered" >  profileImage: string;</span>
 <span class="cstat-no" title="statement not covered" >  profileMessage: string;</span>
-<span class="cstat-no" title="statement not covered" >  // 아래는 추가되어야 할 것들</span>
-<span class="cstat-no" title="statement not covered" >  followeesCount: number;</span>
-<span class="cstat-no" title="statement not covered" >  followersCount: number;</span>
+<span class="cstat-no" title="statement not covered" >  followeesCnt: number;</span>
+<span class="cstat-no" title="statement not covered" >  followersCnt: number;</span>
+<span class="cstat-no" title="statement not covered" >  groupJoinedCnt: number;</span>
+<span class="cstat-no" title="statement not covered" >  groupCreatedCnt: number;</span>
+<span class="cstat-no" title="statement not covered" >  isNotificationEnabled: boolean;</span>
 <span class="cstat-no" title="statement not covered" >  createdAt: string;</span>
-<span class="cstat-no" title="statement not covered" >  joinedCount: number;</span>
-<span class="cstat-no" title="statement not covered" >  createdCount: number;</span>
+<span class="cstat-no" title="statement not covered" >  isFollowing: boolean;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export interface GetUserPayload {</span>
+<span class="cstat-no" title="statement not covered" >export interface GetUserParams {</span>
 <span class="cstat-no" title="statement not covered" >  userId: number;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export type GetUserResponse = User;</span>
-<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >export interface UpdateMePayload {</span>
 <span class="cstat-no" title="statement not covered" >  nickName?: string;</span>
-<span class="cstat-no" title="statement not covered" >  profileImage?: string;</span>
 <span class="cstat-no" title="statement not covered" >  mbti?: string;</span>
-<span class="cstat-no" title="statement not covered" >  phoneNumber?: string;</span>
 <span class="cstat-no" title="statement not covered" >  profileMessage?: string;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export type UpdateMeResponse = GetUserResponse;</span>
+<span class="cstat-no" title="statement not covered" >export interface UpdateMyImagePayload {</span>
+<span class="cstat-no" title="statement not covered" >  file: File;</span>
+<span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export interface Follow {</span>
-<span class="cstat-no" title="statement not covered" >  followeeId: number;</span>
+<span class="cstat-no" title="statement not covered" >export interface UpdateMyNotiParams {</span>
+<span class="cstat-no" title="statement not covered" >  isNotificationEnabled: boolean;</span>
+<span class="cstat-no" title="statement not covered" >}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >export interface FollowParams {</span>
+<span class="cstat-no" title="statement not covered" >  followNickname: string;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;</pre></td></tr></table></pre>
 
@@ -178,7 +181,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-10T00:09:37.715Z
+                at 2025-12-12T15:02:32.117Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

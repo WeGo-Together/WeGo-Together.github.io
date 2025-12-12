@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/69</span>
+                <span class='fraction'>0/63</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/69</span>
+                <span class='fraction'>0/63</span>
             </div>
         
             
@@ -126,19 +126,7 @@
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a>
 <a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L64'></a><a href='#L64'>64</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -203,46 +191,40 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >'use client';</span></span></span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import { useEffect } from 'react';</span>
-<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import {</span>
 <span class="cstat-no" title="statement not covered" >  useContextCalendars,</span>
 <span class="cstat-no" title="statement not covered" >  useContextDatePickerOffsetPropGetters,</span>
-<span class="cstat-no" title="statement not covered" >  useContextDays,</span>
 <span class="cstat-no" title="statement not covered" >  useContextDaysPropGetters,</span>
 <span class="cstat-no" title="statement not covered" >} from '@rehookify/datepicker';</span>
 <span class="cstat-no" title="statement not covered" >import clsx from 'clsx';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { Icon } from '@/components/icon';</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >interface Props {</span>
-<span class="cstat-no" title="statement not covered" >  handleDateChange: (selectedDate: string) =&gt; void;</span>
-<span class="cstat-no" title="statement not covered" >}</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export const DatePicker = ({ handleDateChange }: Props) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const { formattedDates } = useContextDays();</span>
+<span class="cstat-no" title="statement not covered" >export const DatePicker = () =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const { calendars, weekDays } = useContextCalendars();</span>
 <span class="cstat-no" title="statement not covered" >  const { addOffset, subtractOffset } = useContextDatePickerOffsetPropGetters();</span>
 <span class="cstat-no" title="statement not covered" >  const { dayButton } = useContextDaysPropGetters();</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const { month, days } = calendars[0];</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  useEffect(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    handleDateChange(formattedDates[0].toString());</span>
-<span class="cstat-no" title="statement not covered" >  }, [formattedDates]);</span>
+<span class="cstat-no" title="statement not covered" >  const { year, month, days } = calendars[0];</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;div&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className='flex justify-end gap-4'&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;button {...subtractOffset({ months: 1 })} aria-label='Previous month'&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;Icon id='chevron-left-1' className='text-gray-600' /&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/button&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;button {...addOffset({ months: 1 })} aria-label='Next month'&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;Icon id='chevron-right-1' className='text-gray-600' /&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/button&gt;</span>
+<span class="cstat-no" title="statement not covered" >    &lt;div className='border-b-1 pb-3'&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;div className='flex-between px-2'&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;p className='text-text-md-semibold text-gray-800'&gt;</span>
+<span class="cstat-no" title="statement not covered" >          {year} {month}</span>
+<span class="cstat-no" title="statement not covered" >        &lt;/p&gt;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >        &lt;div className='flex justify-end gap-4'&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;button {...subtractOffset({ months: 1 })} aria-label='Previous month'&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;Icon id='chevron-left-1' className='text-gray-600' /&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;/button&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;button {...addOffset({ months: 1 })} aria-label='Next month'&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;Icon id='chevron-right-1' className='text-gray-600' /&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;/button&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className='mt-2 border-b-1 border-gray-200 pb-3'&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;div className='mt-2 border-gray-200'&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;ul className='grid grid-cols-7 text-gray-800'&gt;</span>
 <span class="cstat-no" title="statement not covered" >          {weekDays.map((day) =&gt; (</span>
 <span class="cstat-no" title="statement not covered" >            &lt;li key={`${month}-${day}`} className='flex-center size-10'&gt;</span>
@@ -261,7 +243,7 @@
 <span class="cstat-no" title="statement not covered" >                  !d.inCurrentMonth &amp;&amp; 'text-gray-600',</span>
 <span class="cstat-no" title="statement not covered" >                )}</span>
 <span class="cstat-no" title="statement not covered" >              &gt;</span>
-<span class="cstat-no" title="statement not covered" >                {d.day}</span>
+<span class="cstat-no" title="statement not covered" >                {d.day.replace('일', '')}</span>
 <span class="cstat-no" title="statement not covered" >              &lt;/button&gt;</span>
 <span class="cstat-no" title="statement not covered" >            &lt;/li&gt;</span>
 <span class="cstat-no" title="statement not covered" >          ))}</span>
@@ -277,7 +259,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-10T00:09:37.715Z
+                at 2025-12-12T15:02:32.117Z
             </div>
         <script src="../../../../../../../prettify.js"></script>
         <script>

@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/68</span>
+                <span class='fraction'>0/62</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/68</span>
+                <span class='fraction'>0/62</span>
             </div>
         
             
@@ -125,19 +125,7 @@
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -208,13 +196,14 @@
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { Icon } from '@/components/icon';</span>
 <span class="cstat-no" title="statement not covered" >import { Calendar } from '@/components/pages/post-meetup/modals/date-picker-modal/calendar';</span>
-<span class="cstat-no" title="statement not covered" >import { ModalContent, ModalTitle } from '@/components/ui';</span>
+<span class="cstat-no" title="statement not covered" >import { Button, ModalContent, ModalTitle, useModal } from '@/components/ui';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >interface Props {</span>
 <span class="cstat-no" title="statement not covered" >  dateField: AnyFieldApi;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >export const DatePickerModal = ({ dateField }: Props) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const { close } = useModal();</span>
 <span class="cstat-no" title="statement not covered" >  const [tabMenu, setTabMenu] = useState&lt;'date' | 'time'&gt;('date');</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
@@ -246,17 +235,10 @@
 <span class="cstat-no" title="statement not covered" >          updateDateField={(selectedDate: string) =&gt; dateField.handleChange(selectedDate)}</span>
 <span class="cstat-no" title="statement not covered" >        /&gt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        &lt;div className='flex-center mt-5 gap-2'&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;button</span>
-<span class="cstat-no" title="statement not covered" >            className='text-text-md-semibold grow-1 rounded-2xl border-1 border-gray-400 bg-white py-3.25 text-gray-600'</span>
-<span class="cstat-no" title="statement not covered" >            type='button'</span>
-<span class="cstat-no" title="statement not covered" >            onClick={close}</span>
-<span class="cstat-no" title="statement not covered" >          &gt;</span>
-<span class="cstat-no" title="statement not covered" >            취소</span>
-<span class="cstat-no" title="statement not covered" >          &lt;/button&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;button className='text-text-md-bold bg-mint-400 grow-1 rounded-2xl py-3.5 text-white disabled:bg-gray-500'&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;div className='mt-5'&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;Button className='text-text-md-bold bg-mint-400' onClick={close}&gt;</span>
 <span class="cstat-no" title="statement not covered" >            확인</span>
-<span class="cstat-no" title="statement not covered" >          &lt;/button&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;/Button&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/section&gt;</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/ModalContent&gt;</span>
@@ -274,7 +256,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-14T14:23:00.538Z
+                at 2025-12-14T14:37:52.271Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

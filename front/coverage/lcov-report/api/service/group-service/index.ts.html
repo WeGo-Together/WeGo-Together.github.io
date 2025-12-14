@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">37.93% </span>
+                <span class="strong">49.25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>33/87</span>
+                <span class='fraction'>33/67</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">37.93% </span>
+                <span class="strong">49.25% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>33/87</span>
+                <span class='fraction'>33/67</span>
             </div>
         
             
@@ -130,27 +130,7 @@
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
 <a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a>
-<a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a>
-<a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a>
-<a name='L77'></a><a href='#L77'>77</a>
-<a name='L78'></a><a href='#L78'>78</a>
-<a name='L79'></a><a href='#L79'>79</a>
-<a name='L80'></a><a href='#L80'>80</a>
-<a name='L81'></a><a href='#L81'>81</a>
-<a name='L82'></a><a href='#L82'>82</a>
-<a name='L83'></a><a href='#L83'>83</a>
-<a name='L84'></a><a href='#L84'>84</a>
-<a name='L85'></a><a href='#L85'>85</a>
-<a name='L86'></a><a href='#L86'>86</a>
-<a name='L87'></a><a href='#L87'>87</a>
-<a name='L88'></a><a href='#L88'>88</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -192,26 +172,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -278,30 +238,10 @@ export const groupServiceRemote = () =&gt; ({
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   // 모임 이미지 사전 업로드 (POST /groups/images/upload) - multipart/form-data
-  uploadGroupImages: <span class="fstat-no" title="function not covered" >async (</span>
-<span class="cstat-no" title="statement not covered" >    payload: PreUploadGroupImagePayload,</span>
-<span class="cstat-no" title="statement not covered" >  ): Promise&lt;PreUploadGroupImageResponse&gt; =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const formData = new FormData();</span>
-<span class="cstat-no" title="statement not covered" >    payload.images.forEach((file) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      if (file instanceof File) {</span>
-<span class="cstat-no" title="statement not covered" >        formData.append('images', file);</span>
-<span class="cstat-no" title="statement not covered" >      } else {</span>
-<span class="cstat-no" title="statement not covered" >        console.error('[이미지 업로드 오류] File 객체가 아닌 값이 포함됨:', file);</span>
-<span class="cstat-no" title="statement not covered" >        throw new Error('이미지 파일은 File 객체여야 합니다.');</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
+  uploadGroupImages: <span class="fstat-no" title="function not covered" >(payload: PreUploadGroupImagePayload) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return api.post&lt;PreUploadGroupImageResponse&gt;('/groups/images/upload', payload, {</span>
+<span class="cstat-no" title="statement not covered" >      headers: { 'Content-Type': 'multipart/form-data' },</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const response = await api.post&lt;PreUploadGroupImageResponse&gt;(</span>
-<span class="cstat-no" title="statement not covered" >      '/groups/images/upload',</span>
-<span class="cstat-no" title="statement not covered" >      formData,</span>
-<span class="cstat-no" title="statement not covered" >      {</span>
-<span class="cstat-no" title="statement not covered" >        headers: {</span>
-<span class="cstat-no" title="statement not covered" >          'Content-Type': 'multipart/form-data',</span>
-<span class="cstat-no" title="statement not covered" >        },</span>
-<span class="cstat-no" title="statement not covered" >      },</span>
-<span class="cstat-no" title="statement not covered" >    );</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    return response;</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   createGroup: <span class="fstat-no" title="function not covered" >(payload: CreateGroupPayload) =&gt; {</span>
@@ -331,7 +271,7 @@ export const groupServiceRemote = () =&gt; ({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-14T14:23:00.538Z
+                at 2025-12-14T14:37:52.271Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

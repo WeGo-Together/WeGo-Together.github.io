@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/66</span>
+                <span class='fraction'>0/81</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/66</span>
+                <span class='fraction'>0/81</span>
             </div>
         
             
@@ -129,7 +129,37 @@
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -197,68 +227,83 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >'use client';</span></span></span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import { useState } from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import { useRouter } from 'next/navigation';</span>
 <span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >import { Button } from '@/components/ui';</span>
 <span class="cstat-no" title="statement not covered" >import { ModalContent, ModalDescription, ModalTitle, useModal } from '@/components/ui/modal';</span>
+<span class="cstat-no" title="statement not covered" >import { useAttendGroup } from '@/hooks/use-group/use-group-attend';</span>
+<span class="cstat-no" title="statement not covered" >import { useCancelGroup } from '@/hooks/use-group/use-group-cancel';</span>
+<span class="cstat-no" title="statement not covered" >import { useDeleteGroup } from '@/hooks/use-group/use-group-delete';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >interface Props {</span>
-<span class="cstat-no" title="statement not covered" >  type: 'join' | 'leave' | 'cancel';</span>
+<span class="cstat-no" title="statement not covered" >  type: 'attend' | 'cancel' | 'delete';</span>
+<span class="cstat-no" title="statement not covered" >  groupId: string;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export const MeetupModal = ({ type }: Props) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >export const MeetupModal = ({ type, groupId }: Props) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const { replace } = useRouter();</span>
 <span class="cstat-no" title="statement not covered" >  const { close } = useModal();</span>
-<span class="cstat-no" title="statement not covered" >  const [isPending, setIsPending] = useState(false);</span>
+<span class="cstat-no" title="statement not covered" >  const { mutate: attendMutate, isPending: isAttending } = useAttendGroup({ groupId }, close);</span>
+<span class="cstat-no" title="statement not covered" >  const { mutate: cancelMutate, isPending: isCanceling } = useCancelGroup({ groupId }, close);</span>
+<span class="cstat-no" title="statement not covered" >  const { mutate: deleteMutate, isPending: isDeleting } = useDeleteGroup({ groupId }, () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    close();</span>
+<span class="cstat-no" title="statement not covered" >    replace('/');</span>
+<span class="cstat-no" title="statement not covered" >  });</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const handleConfirm = () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    setIsPending(true);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    setTimeout(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      setIsPending(false);</span>
-<span class="cstat-no" title="statement not covered" >      close();</span>
-<span class="cstat-no" title="statement not covered" >    }, 1000);</span>
-<span class="cstat-no" title="statement not covered" >  };</span>
+<span class="cstat-no" title="statement not covered" >  const isPending = isAttending || isCanceling || isDeleting;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  const { title, description, confirm } = MODAL_MESSAGE[type];</span>
 <span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const handleConfirmClick = () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (type === 'attend') attendMutate();</span>
+<span class="cstat-no" title="statement not covered" >    else if (type === 'cancel') cancelMutate();</span>
+<span class="cstat-no" title="statement not covered" >    else if (type === 'delete') deleteMutate();</span>
+<span class="cstat-no" title="statement not covered" >  };</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;ModalContent&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;ModalTitle className='pt-8 text-center'&gt;{title}&lt;/ModalTitle&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;ModalDescription className='mb-6 text-center'&gt;{description}&lt;/ModalDescription&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className='flex flex-row gap-2'&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;button</span>
-<span class="cstat-no" title="statement not covered" >          className='typo-text-sm-semibold w-34 cursor-pointer rounded-2xl border-1 border-gray-400 bg-white py-3 text-gray-600'</span>
-<span class="cstat-no" title="statement not covered" >          type='button'</span>
+<span class="cstat-no" title="statement not covered" >    &lt;ModalContent className='max-w-80'&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;ModalTitle className='pt-8 text-center break-keep'&gt;{title}&lt;/ModalTitle&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;ModalDescription className='text-center break-keep'&gt;{description}&lt;/ModalDescription&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;div className='mt-6 flex gap-2'&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;Button</span>
+<span class="cstat-no" title="statement not covered" >          className='!text-text-sm-semibold w-[50%]'</span>
+<span class="cstat-no" title="statement not covered" >          size='sm'</span>
+<span class="cstat-no" title="statement not covered" >          variant='tertiary'</span>
 <span class="cstat-no" title="statement not covered" >          onClick={close}</span>
 <span class="cstat-no" title="statement not covered" >        &gt;</span>
 <span class="cstat-no" title="statement not covered" >          취소</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/button&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;button</span>
-<span class="cstat-no" title="statement not covered" >          className='typo-text-sm-bold bg-mint-400 w-34 cursor-pointer rounded-2xl py-3 text-white disabled:bg-gray-500'</span>
+<span class="cstat-no" title="statement not covered" >        &lt;/Button&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;Button</span>
+<span class="cstat-no" title="statement not covered" >          className='!text-text-sm-bold w-[50%]'</span>
 <span class="cstat-no" title="statement not covered" >          disabled={isPending}</span>
-<span class="cstat-no" title="statement not covered" >          onClick={handleConfirm}</span>
+<span class="cstat-no" title="statement not covered" >          size='sm'</span>
+<span class="cstat-no" title="statement not covered" >          onClick={handleConfirmClick}</span>
 <span class="cstat-no" title="statement not covered" >        &gt;</span>
 <span class="cstat-no" title="statement not covered" >          {isPending ? '로딩중...' : confirm}</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/button&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;/Button&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/ModalContent&gt;</span>
 <span class="cstat-no" title="statement not covered" >  );</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >const MODAL_MESSAGE = {</span>
-<span class="cstat-no" title="statement not covered" >  join: {</span>
+<span class="cstat-no" title="statement not covered" >  attend: {</span>
 <span class="cstat-no" title="statement not covered" >    title: '모임에 참여하시겠어요?',</span>
 <span class="cstat-no" title="statement not covered" >    description: '참여 후 바로 그룹채팅에 참여할 수 있어요!',</span>
 <span class="cstat-no" title="statement not covered" >    confirm: '참여하기',</span>
+<span class="cstat-no" title="statement not covered" >    onConfirm: (attendMutate: () =&gt; void) =&gt; attendMutate(),</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
-<span class="cstat-no" title="statement not covered" >  leave: {</span>
+<span class="cstat-no" title="statement not covered" >  cancel: {</span>
 <span class="cstat-no" title="statement not covered" >    title: '모임을 정말 탈퇴하시겠어요?',</span>
 <span class="cstat-no" title="statement not covered" >    description: '탈퇴 시 그룹채팅과 모임 활동이 종료돼요.',</span>
 <span class="cstat-no" title="statement not covered" >    confirm: '탈퇴하기',</span>
+<span class="cstat-no" title="statement not covered" >    onConfirm: (cancelMutate: () =&gt; void) =&gt; cancelMutate(),</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
-<span class="cstat-no" title="statement not covered" >  cancel: {</span>
+<span class="cstat-no" title="statement not covered" >  delete: {</span>
 <span class="cstat-no" title="statement not covered" >    title: '모임을 정말 취소하시겠어요?',</span>
 <span class="cstat-no" title="statement not covered" >    description: '취소 후에는 다시 복구할 수 없어요.',</span>
 <span class="cstat-no" title="statement not covered" >    confirm: '취소하기',</span>
+<span class="cstat-no" title="statement not covered" >    onConfirm: (deleteMutate: () =&gt; void) =&gt; deleteMutate(),</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;</pre></td></tr></table></pre>
@@ -268,7 +313,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-14T14:03:44.618Z
+                at 2025-12-14T14:23:00.538Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

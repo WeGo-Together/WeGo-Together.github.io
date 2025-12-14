@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/69</span>
+                <span class='fraction'>0/53</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/69</span>
+                <span class='fraction'>0/53</span>
             </div>
         
             
@@ -116,39 +116,7 @@
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -210,6 +178,7 @@
 <span class="cstat-no" title="statement not covered" >import { DatePickerModal } from '@/components/pages/post-meetup/modals/date-picker-modal';</span>
 <span class="cstat-no" title="statement not covered" >import { Label } from '@/components/ui';</span>
 <span class="cstat-no" title="statement not covered" >import { useModal } from '@/components/ui';</span>
+<span class="cstat-no" title="statement not covered" >import { formatDateTime } from '@/lib/formatDateTime';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >interface Props {</span>
 <span class="cstat-no" title="statement not covered" >  field: AnyFieldApi;</span>
@@ -217,7 +186,9 @@
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >export const MeetupDateField = ({ field }: Props) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const { open } = useModal();</span>
-<span class="cstat-no" title="statement not covered" >  const formattedDate = formatDate(new Date(field.state.value), 'YY.MM.DD - HH:mm');</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const hasValue = Boolean(field.state.value);</span>
+<span class="cstat-no" title="statement not covered" >  const formattedDate = formatDateTime(field.state.value);</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  const onInputClick = () =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    open(&lt;DatePickerModal dateField={field} /&gt;);</span>
@@ -242,33 +213,14 @@
 <span class="cstat-no" title="statement not covered" >        &lt;p</span>
 <span class="cstat-no" title="statement not covered" >          className={clsx(</span>
 <span class="cstat-no" title="statement not covered" >            'text-text-md-medium text-left text-gray-500',</span>
-<span class="cstat-no" title="statement not covered" >            formattedDate &amp;&amp; 'text-gray-800',</span>
+<span class="cstat-no" title="statement not covered" >            hasValue &amp;&amp; 'text-gray-800',</span>
 <span class="cstat-no" title="statement not covered" >          )}</span>
 <span class="cstat-no" title="statement not covered" >        &gt;</span>
-<span class="cstat-no" title="statement not covered" >          {formattedDate ? formattedDate : '날짜와 시간을 선택해주세요'}</span>
+<span class="cstat-no" title="statement not covered" >          {hasValue ? formattedDate : '날짜와 시간을 선택해주세요'}</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/p&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/button&gt;</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" >};</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >const formatDate = (date: Date, formatString: string) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  if (isNaN(date.getTime())) return false;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const year = date.getFullYear().toString().substring(2, 4);</span>
-<span class="cstat-no" title="statement not covered" >  const month = (date.getMonth() + 1).toString().padStart(2, '0');</span>
-<span class="cstat-no" title="statement not covered" >  const day = date.getDate().toString().padStart(2, '0');</span>
-<span class="cstat-no" title="statement not covered" >  const hours = date.getHours().toString().padStart(2, '0');</span>
-<span class="cstat-no" title="statement not covered" >  const minutes = date.getMinutes().toString().padStart(2, '0');</span>
-<span class="cstat-no" title="statement not covered" >  const seconds = date.getSeconds().toString().padStart(2, '0');</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  return formatString</span>
-<span class="cstat-no" title="statement not covered" >    .replace(/YY/g, year)</span>
-<span class="cstat-no" title="statement not covered" >    .replace(/MM/g, month)</span>
-<span class="cstat-no" title="statement not covered" >    .replace(/DD/g, day)</span>
-<span class="cstat-no" title="statement not covered" >    .replace(/HH/g, hours)</span>
-<span class="cstat-no" title="statement not covered" >    .replace(/mm/g, minutes)</span>
-<span class="cstat-no" title="statement not covered" >    .replace(/ss/g, seconds);</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;</pre></td></tr></table></pre>
 
@@ -277,7 +229,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-14T14:03:44.618Z
+                at 2025-12-14T14:23:00.538Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

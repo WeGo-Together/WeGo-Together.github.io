@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">53.33% </span>
+                <span class="strong">46% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>48/90</span>
+                <span class='fraction'>46/100</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">53.33% </span>
+                <span class="strong">46% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>48/90</span>
+                <span class='fraction'>46/100</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -153,9 +153,17 @@
 <a name='L88'></a><a href='#L88'>88</a>
 <a name='L89'></a><a href='#L89'>89</a>
 <a name='L90'></a><a href='#L90'>90</a>
-<a name='L91'></a><a href='#L91'>91</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -213,6 +221,18 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -243,9 +263,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { notFound, redirect } from 'next/navigation';
-&nbsp;
-import axios from 'axios';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import axios from 'axios';
 &nbsp;
 import { CommonErrorResponse, CommonSuccessResponse } from '@/types/service/common';
 &nbsp;
@@ -282,16 +300,6 @@ baseAPI.interceptors.response.use(
     return response;
   },
   async (error) =&gt; {
-<span class="cstat-no" title="statement not covered" >    const status = error.response?.status;</span>
-<span class="cstat-no" title="statement not covered" >    if (status) {</span>
-<span class="cstat-no" title="statement not covered" >      if (status === 401) {</span>
-<span class="cstat-no" title="statement not covered" >        redirect('/signin?error=unauthorized');</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
-<span class="cstat-no" title="statement not covered" >      if (status === 404) {</span>
-<span class="cstat-no" title="statement not covered" >        notFound();</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    const errorResponse: CommonErrorResponse = error.response?.data || {</span>
 <span class="cstat-no" title="statement not covered" >      type: 'about:blank',</span>
 <span class="cstat-no" title="statement not covered" >      title: 'Network Error',</span>
@@ -300,6 +308,28 @@ baseAPI.interceptors.response.use(
 <span class="cstat-no" title="statement not covered" >      instance: error.config?.url || '',</span>
 <span class="cstat-no" title="statement not covered" >      errorCode: 'NETWORK_ERROR',</span>
 <span class="cstat-no" title="statement not covered" >    };</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    const status = error.response?.status ?? errorResponse.status;</span>
+<span class="cstat-no" title="statement not covered" >    const isServer = typeof window === 'undefined';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    if (status === 401) {</span>
+<span class="cstat-no" title="statement not covered" >      if (isServer) {</span>
+<span class="cstat-no" title="statement not covered" >        const { redirect } = await import('next/navigation');</span>
+<span class="cstat-no" title="statement not covered" >        redirect('/login');</span>
+<span class="cstat-no" title="statement not covered" >      } else {</span>
+<span class="cstat-no" title="statement not covered" >        if (window.location.pathname === '/login') {</span>
+<span class="cstat-no" title="statement not covered" >          throw errorResponse;</span>
+<span class="cstat-no" title="statement not covered" >        }</span>
+<span class="cstat-no" title="statement not covered" >        const currentPath = window.location.pathname + window.location.search;</span>
+<span class="cstat-no" title="statement not covered" >        window.location.href = `/login?error=unauthorized&amp;path=${encodeURIComponent(currentPath)}`;</span>
+<span class="cstat-no" title="statement not covered" >      }</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >    if (status === 404) {</span>
+<span class="cstat-no" title="statement not covered" >      if (isServer) {</span>
+<span class="cstat-no" title="statement not covered" >        const { notFound } = await import('next/navigation');</span>
+<span class="cstat-no" title="statement not covered" >        notFound();</span>
+<span class="cstat-no" title="statement not covered" >      }</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    throw errorResponse;</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
@@ -340,7 +370,7 @@ export const api = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-14T14:03:44.618Z
+                at 2025-12-14T14:23:00.538Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

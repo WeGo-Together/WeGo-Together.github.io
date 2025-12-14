@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">22.22% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/42</span>
+                <span class='fraction'>12/54</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">22.22% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/42</span>
+                <span class='fraction'>12/54</span>
             </div>
         
             
@@ -105,7 +105,19 @@
 <a name='L40'></a><a href='#L40'>40</a>
 <a name='L41'></a><a href='#L41'>41</a>
 <a name='L42'></a><a href='#L42'>42</a>
-<a name='L43'></a><a href='#L43'>43</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -138,6 +150,18 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -156,20 +180,20 @@
 };
 &nbsp;
 export const formatTimeAgo = <span class="fstat-no" title="function not covered" >(isoString: string) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const dateInput = new Date(isoString);</span>
+<span class="cstat-no" title="statement not covered" >  const dateInput = new Date(isoString.endsWith('Z') ? isoString : `${isoString}Z`);</span>
 <span class="cstat-no" title="statement not covered" >  const dateNow = new Date();</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const diffPerSec = (dateNow.getTime() - dateInput.getTime()) / 1000;</span>
-<span class="cstat-no" title="statement not covered" >  if (diffPerSec &lt; 60) return `${Math.ceil(diffPerSec)}초 전`;</span>
+<span class="cstat-no" title="statement not covered" >  const diffPerSec = Math.floor((dateNow.getTime() - dateInput.getTime()) / 1000);</span>
+<span class="cstat-no" title="statement not covered" >  if (diffPerSec &lt; 60) return `${diffPerSec}초 전`;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const diffPerMin = diffPerSec / 60;</span>
-<span class="cstat-no" title="statement not covered" >  if (diffPerMin &lt; 60) return `${Math.ceil(diffPerMin)}분 전`;</span>
+<span class="cstat-no" title="statement not covered" >  const diffPerMin = Math.floor(diffPerSec / 60);</span>
+<span class="cstat-no" title="statement not covered" >  if (diffPerMin &lt; 60) return `${diffPerMin}분 전`;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const diffPerHour = diffPerMin / 60;</span>
-<span class="cstat-no" title="statement not covered" >  if (diffPerHour &lt; 24) return `${Math.ceil(diffPerHour)}시간 전`;</span>
+<span class="cstat-no" title="statement not covered" >  const diffPerHour = Math.floor(diffPerMin / 60);</span>
+<span class="cstat-no" title="statement not covered" >  if (diffPerHour &lt; 24) return `${diffPerHour}시간 전`;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const diffPerDay = diffPerHour / 30;</span>
-<span class="cstat-no" title="statement not covered" >  if (diffPerDay &lt; 30) return `${Math.ceil(diffPerDay)}일 전`;</span>
+<span class="cstat-no" title="statement not covered" >  const diffPerDay = Math.floor(diffPerHour / 24);</span>
+<span class="cstat-no" title="statement not covered" >  if (diffPerDay &lt; 30) return `${diffPerDay}일 전`;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  const yearDiff = dateNow.getFullYear() - dateInput.getFullYear();</span>
 <span class="cstat-no" title="statement not covered" >  const monthDiff = dateNow.getMonth() - dateInput.getMonth();</span>
@@ -179,15 +203,27 @@ export const formatTimeAgo = <span class="fstat-no" title="function not covered"
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
 // 모임 시작 시간을 Card 컴포넌트용 형식으로 변환 (예: "25. 12. 25 - 19:00")
-export const formatDateTime = <span class="fstat-no" title="function not covered" >(startTime: string, _endTime?: string | null): string =&gt; {</span>
+export const formatDateTime = <span class="fstat-no" title="function not covered" >(startTime: string, customFormat?: string): string =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const start = new Date(startTime);</span>
-<span class="cstat-no" title="statement not covered" >  const year = start.getFullYear().toString().slice(-2);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const fullYear = start.getFullYear().toString();</span>
+<span class="cstat-no" title="statement not covered" >  const shortYear = fullYear.slice(-2);</span>
 <span class="cstat-no" title="statement not covered" >  const month = String(start.getMonth() + 1).padStart(2, '0');</span>
 <span class="cstat-no" title="statement not covered" >  const day = String(start.getDate()).padStart(2, '0');</span>
 <span class="cstat-no" title="statement not covered" >  const hours = String(start.getHours()).padStart(2, '0');</span>
 <span class="cstat-no" title="statement not covered" >  const minutes = String(start.getMinutes()).padStart(2, '0');</span>
+<span class="cstat-no" title="statement not covered" >  const seconds = String(start.getSeconds()).padStart(2, '0');</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  return `${year}. ${month}. ${day} - ${hours}:${minutes}`;</span>
+<span class="cstat-no" title="statement not covered" >  if (!customFormat) return `${shortYear}. ${month}. ${day} - ${hours}:${minutes}`;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  return customFormat</span>
+<span class="cstat-no" title="statement not covered" >    .replace(/yyyy/g, fullYear)</span>
+<span class="cstat-no" title="statement not covered" >    .replace(/yy/g, shortYear)</span>
+<span class="cstat-no" title="statement not covered" >    .replace(/MM/g, month)</span>
+<span class="cstat-no" title="statement not covered" >    .replace(/dd/g, day)</span>
+<span class="cstat-no" title="statement not covered" >    .replace(/HH/g, hours)</span>
+<span class="cstat-no" title="statement not covered" >    .replace(/mm/g, minutes)</span>
+<span class="cstat-no" title="statement not covered" >    .replace(/ss/g, seconds);</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;</pre></td></tr></table></pre>
 
@@ -196,7 +232,7 @@ export const formatDateTime = <span class="fstat-no" title="function not covered
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-14T14:03:44.618Z
+                at 2025-12-14T14:23:00.538Z
             </div>
         <script src="../prettify.js"></script>
         <script>

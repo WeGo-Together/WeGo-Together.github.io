@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/91</span>
+                <span class='fraction'>0/96</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/91</span>
+                <span class='fraction'>0/96</span>
             </div>
         
             
@@ -154,7 +154,17 @@
 <a name='L89'></a><a href='#L89'>89</a>
 <a name='L90'></a><a href='#L90'>90</a>
 <a name='L91'></a><a href='#L91'>91</a>
-<a name='L92'></a><a href='#L92'>92</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -254,48 +264,53 @@
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import clsx from 'clsx';</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import type { DUMMY_MEETUP_DATA } from '@/app/meetup/[groupId]/page';</span>
 <span class="cstat-no" title="statement not covered" >import { Icon } from '@/components/icon';</span>
+<span class="cstat-no" title="statement not covered" >import { AnimateDynamicHeight } from '@/components/shared';</span>
 <span class="cstat-no" title="statement not covered" >import { Button } from '@/components/ui';</span>
+<span class="cstat-no" title="statement not covered" >import { GetGroupDetailsResponse } from '@/types/service/group';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >interface Props {</span>
-<span class="cstat-no" title="statement not covered" >  members: typeof DUMMY_MEETUP_DATA.members;</span>
+<span class="cstat-no" title="statement not covered" >  members: GetGroupDetailsResponse['joinedMembers'];</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >export const MeetupMembers = ({ members }: Props) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const [showMore, setShowMore] = useState(false);</span>
+<span class="cstat-no" title="statement not covered" >  const [expand, setExpand] = useState(false);</span>
 <span class="cstat-no" title="statement not covered" >  const [coverMember, setCoverMember] = useState(2 &lt; Math.ceil(members.length / 3));</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  const hasMoreMember = 2 &lt; Math.ceil(members.length / 3);</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const onShowMoreClick = () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    setShowMore((prev) =&gt; !prev);</span>
+<span class="cstat-no" title="statement not covered" >  const defaultProfileImageUrl =</span>
+<span class="cstat-no" title="statement not covered" >    'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&amp;w=717&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const onExpandClick = () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    setExpand((prev) =&gt; !prev);</span>
 <span class="cstat-no" title="statement not covered" >    setCoverMember((prev) =&gt; !prev);</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;section className='relative bg-gray-50 px-4 pt-6 pb-4'&gt;</span>
+<span class="cstat-no" title="statement not covered" >    &lt;section className='relative space-y-5 bg-gray-50 px-4 py-6 select-none'&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;h3 className='text-text-md-semibold px-2 text-gray-800'&gt;참여자 정보&lt;/h3&gt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className='mt-5'&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;ul className='flex-center flex-wrap'&gt;</span>
-<span class="cstat-no" title="statement not covered" >          {members.map(({ name, profileImage }, idx) =&gt; (</span>
+<span class="cstat-no" title="statement not covered" >      &lt;AnimateDynamicHeight&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;ul className='grid grid-cols-[repeat(auto-fill,minmax(115px,1fr))] gap-y-4'&gt;</span>
+<span class="cstat-no" title="statement not covered" >          {members.map(({ nickName, profileImage, userId }, idx) =&gt; (</span>
 <span class="cstat-no" title="statement not covered" >            &lt;li</span>
-<span class="cstat-no" title="statement not covered" >              key={name}</span>
+<span class="cstat-no" title="statement not covered" >              key={nickName}</span>
 <span class="cstat-no" title="statement not covered" >              className={clsx(</span>
-<span class="cstat-no" title="statement not covered" >                'relative h-25 w-34 shrink-0',</span>
-<span class="cstat-no" title="statement not covered" >                hasMoreMember &amp;&amp; !showMore ? '[&amp;:nth-child(n+7)]:hidden' : 'block',</span>
+<span class="cstat-no" title="statement not covered" >                'relative',</span>
+<span class="cstat-no" title="statement not covered" >                hasMoreMember &amp;&amp; !expand ? '[&amp;:nth-child(n+7)]:hidden' : 'block',</span>
 <span class="cstat-no" title="statement not covered" >              )}</span>
 <span class="cstat-no" title="statement not covered" >            &gt;</span>
-<span class="cstat-no" title="statement not covered" >              &lt;div className='flex-col-center gap-[6px]'&gt;</span>
-<span class="cstat-no" title="statement not covered" >                &lt;Link href={'#'} className='select-none'&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;div className='flex-col-center gap-1.5'&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;Link href={`/profile/${userId}`}&gt;</span>
 <span class="cstat-no" title="statement not covered" >                  &lt;Image</span>
 <span class="cstat-no" title="statement not covered" >                    width={64}</span>
 <span class="cstat-no" title="statement not covered" >                    className='h-16 w-16 rounded-full'</span>
 <span class="cstat-no" title="statement not covered" >                    alt='프로필 사진'</span>
+<span class="cstat-no" title="statement not covered" >                    draggable={false}</span>
 <span class="cstat-no" title="statement not covered" >                    height={64}</span>
 <span class="cstat-no" title="statement not covered" >                    objectFit='cover'</span>
-<span class="cstat-no" title="statement not covered" >                    src={profileImage}</span>
+<span class="cstat-no" title="statement not covered" >                    src={profileImage ?? defaultProfileImageUrl}</span>
 <span class="cstat-no" title="statement not covered" >                  /&gt;</span>
 <span class="cstat-no" title="statement not covered" >                &lt;/Link&gt;</span>
 <span class="cstat-no" title="statement not covered" >                &lt;p</span>
@@ -304,7 +319,7 @@
 <span class="cstat-no" title="statement not covered" >                    coverMember &amp;&amp; idx === 5 ? 'hidden' : 'block',</span>
 <span class="cstat-no" title="statement not covered" >                  )}</span>
 <span class="cstat-no" title="statement not covered" >                &gt;</span>
-<span class="cstat-no" title="statement not covered" >                  {name}</span>
+<span class="cstat-no" title="statement not covered" >                  {nickName}</span>
 <span class="cstat-no" title="statement not covered" >                &lt;/p&gt;</span>
 <span class="cstat-no" title="statement not covered" >              &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -318,7 +333,7 @@
 <span class="cstat-no" title="statement not covered" >            &lt;/li&gt;</span>
 <span class="cstat-no" title="statement not covered" >          ))}</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/ul&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/AnimateDynamicHeight&gt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >      {hasMoreMember &amp;&amp; (</span>
 <span class="cstat-no" title="statement not covered" >        &lt;div className='flex-center'&gt;</span>
@@ -326,10 +341,10 @@
 <span class="cstat-no" title="statement not covered" >            className='flex-center h-9 w-auto border-none bg-gray-50 px-4'</span>
 <span class="cstat-no" title="statement not covered" >            size='sm'</span>
 <span class="cstat-no" title="statement not covered" >            variant='secondary'</span>
-<span class="cstat-no" title="statement not covered" >            onClick={onShowMoreClick}</span>
+<span class="cstat-no" title="statement not covered" >            onClick={onExpandClick}</span>
 <span class="cstat-no" title="statement not covered" >          &gt;</span>
-<span class="cstat-no" title="statement not covered" >            {showMore ? '접기' : '더보기'}</span>
-<span class="cstat-no" title="statement not covered" >            &lt;Icon id={showMore ? 'arrow-up' : 'arrow-down'} width={16} height={16} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >            {expand ? '접기' : '더보기'}</span>
+<span class="cstat-no" title="statement not covered" >            &lt;Icon id={expand ? 'arrow-up' : 'arrow-down'} width={16} height={16} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;/Button&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >      )}</span>
@@ -343,7 +358,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-14T14:03:44.618Z
+                at 2025-12-14T14:23:00.538Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

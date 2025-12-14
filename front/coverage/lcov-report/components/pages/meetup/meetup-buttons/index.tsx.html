@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/66</span>
+                <span class='fraction'>0/77</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/66</span>
+                <span class='fraction'>0/77</span>
             </div>
         
             
@@ -129,7 +129,29 @@
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -199,27 +221,33 @@
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { useRouter } from 'next/navigation';</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import { useState } from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import { useEffect, useState } from 'react';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >import Cookies from 'js-cookie';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { MeetupModal } from '@/components/pages/meetup/meetup-modal';</span>
 <span class="cstat-no" title="statement not covered" >import { Button } from '@/components/ui/button';</span>
 <span class="cstat-no" title="statement not covered" >import { useModal } from '@/components/ui/modal';</span>
+<span class="cstat-no" title="statement not covered" >import { GetGroupDetailsResponse } from '@/types/service/group';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >interface Props {</span>
-<span class="cstat-no" title="statement not covered" >  progress: {</span>
-<span class="cstat-no" title="statement not covered" >    current: number;</span>
-<span class="cstat-no" title="statement not covered" >    max: number;</span>
-<span class="cstat-no" title="statement not covered" >  };</span>
-<span class="cstat-no" title="statement not covered" >  ownerInfo: {</span>
-<span class="cstat-no" title="statement not covered" >    name: string;</span>
-<span class="cstat-no" title="statement not covered" >  };</span>
-<span class="cstat-no" title="statement not covered" >  members: {</span>
-<span class="cstat-no" title="statement not covered" >    name: string;</span>
-<span class="cstat-no" title="statement not covered" >  }[];</span>
+<span class="cstat-no" title="statement not covered" >  conditions: Pick&lt;</span>
+<span class="cstat-no" title="statement not covered" >    GetGroupDetailsResponse,</span>
+<span class="cstat-no" title="statement not covered" >    'userStatus' | 'createdBy' | 'participantCount' | 'maxParticipants'</span>
+<span class="cstat-no" title="statement not covered" >  &gt;;</span>
+<span class="cstat-no" title="statement not covered" >  groupId: string;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export const MeetupButtons = ({ progress: { current, max }, ownerInfo }: Props) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const [isJoined, _] = useState(true);</span>
+<span class="cstat-no" title="statement not covered" >export const MeetupButtons = ({</span>
+<span class="cstat-no" title="statement not covered" >  conditions: {</span>
+<span class="cstat-no" title="statement not covered" >    userStatus: { isJoined },</span>
+<span class="cstat-no" title="statement not covered" >    createdBy,</span>
+<span class="cstat-no" title="statement not covered" >    participantCount,</span>
+<span class="cstat-no" title="statement not covered" >    maxParticipants,</span>
+<span class="cstat-no" title="statement not covered" >  },</span>
+<span class="cstat-no" title="statement not covered" >  groupId,</span>
+<span class="cstat-no" title="statement not covered" >}: Props) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const [isHost, setIsHost] = useState&lt;boolean | null&gt;(null);</span>
 <span class="cstat-no" title="statement not covered" >  const { open } = useModal();</span>
 <span class="cstat-no" title="statement not covered" >  const { push } = useRouter();</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -228,36 +256,41 @@
 <span class="cstat-no" title="statement not covered" >    push('/message/id');</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  // 방 주인이냐</span>
-<span class="cstat-no" title="statement not covered" >  const isOwner = ownerInfo.name === '본인 계정 닉네임 ㅇㅇ';</span>
+<span class="cstat-no" title="statement not covered" >  useEffect(() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    const sessionId = Number(Cookies.get('userId'));</span>
+<span class="cstat-no" title="statement not covered" >    // eslint-disable-next-line react-hooks/set-state-in-effect</span>
+<span class="cstat-no" title="statement not covered" >    setIsHost(sessionId === createdBy.userId);</span>
+<span class="cstat-no" title="statement not covered" >  }, [createdBy]);</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  // 모임의 참가자라면 -&gt; (모임 탈퇴 + 채팅 입장) 버튼</span>
-<span class="cstat-no" title="statement not covered" >  // 본인이 생성한 방이면 -&gt; (모임 취소 + 채팅 입장) 버튼</span>
-<span class="cstat-no" title="statement not covered" >  if (isJoined) {</span>
-<span class="cstat-no" title="statement not covered" >    return (</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className='sticky bottom-[56px] border-t-1 border-gray-200 bg-white px-4 py-3'&gt;</span>
+<span class="cstat-no" title="statement not covered" >  return (</span>
+<span class="cstat-no" title="statement not covered" >    &lt;div className='sticky bottom-[56px] border-t-1 border-gray-200 bg-white px-4 py-3'&gt;</span>
+<span class="cstat-no" title="statement not covered" >      {isJoined ? (</span>
 <span class="cstat-no" title="statement not covered" >        &lt;div className='flex gap-[10px]'&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;Button</span>
 <span class="cstat-no" title="statement not covered" >            className='flex-[1.2]'</span>
 <span class="cstat-no" title="statement not covered" >            variant='tertiary'</span>
-<span class="cstat-no" title="statement not covered" >            onClick={() =&gt; open(&lt;MeetupModal type={isOwner ? 'cancel' : 'leave'} /&gt;)}</span>
+<span class="cstat-no" title="statement not covered" >            onClick={() =&gt;</span>
+<span class="cstat-no" title="statement not covered" >              open(&lt;MeetupModal groupId={groupId} type={isHost ? 'delete' : 'cancel'} /&gt;)</span>
+<span class="cstat-no" title="statement not covered" >            }</span>
 <span class="cstat-no" title="statement not covered" >          &gt;</span>
-<span class="cstat-no" title="statement not covered" >            {isOwner ? '모임 취소' : '모임 탈퇴'}</span>
+<span class="cstat-no" title="statement not covered" >            {isHost ? '모임 취소' : '모임 탈퇴'}</span>
 <span class="cstat-no" title="statement not covered" >          &lt;/Button&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;Button className='flex-2' disabled={current &gt;= max} onClick={onEnterChatClick}&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;Button</span>
+<span class="cstat-no" title="statement not covered" >            className='flex-2'</span>
+<span class="cstat-no" title="statement not covered" >            disabled={participantCount &gt;= maxParticipants}</span>
+<span class="cstat-no" title="statement not covered" >            onClick={onEnterChatClick}</span>
+<span class="cstat-no" title="statement not covered" >          &gt;</span>
 <span class="cstat-no" title="statement not covered" >            채팅 입장</span>
 <span class="cstat-no" title="statement not covered" >          &lt;/Button&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >    );</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  // 방 주인 아니고 참가자도 아닐때 -&gt; 참여 버튼</span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;div className='sticky bottom-[56px] border-t-1 border-gray-200 bg-white px-4 py-3'&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;Button disabled={current &gt;= max} onClick={() =&gt; open(&lt;MeetupModal type='join' /&gt;)}&gt;</span>
-<span class="cstat-no" title="statement not covered" >        참여하기</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/Button&gt;</span>
+<span class="cstat-no" title="statement not covered" >      ) : (</span>
+<span class="cstat-no" title="statement not covered" >        &lt;Button</span>
+<span class="cstat-no" title="statement not covered" >          disabled={participantCount &gt;= maxParticipants}</span>
+<span class="cstat-no" title="statement not covered" >          onClick={() =&gt; open(&lt;MeetupModal groupId={groupId} type='attend' /&gt;)}</span>
+<span class="cstat-no" title="statement not covered" >        &gt;</span>
+<span class="cstat-no" title="statement not covered" >          참여하기</span>
+<span class="cstat-no" title="statement not covered" >        &lt;/Button&gt;</span>
+<span class="cstat-no" title="statement not covered" >      )}</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >  );</span>
 <span class="cstat-no" title="statement not covered" >};</span>
@@ -268,7 +301,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-14T14:03:44.618Z
+                at 2025-12-14T14:23:00.538Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

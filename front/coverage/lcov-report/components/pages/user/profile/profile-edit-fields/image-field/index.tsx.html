@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">21.81% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>16/56</span>
+                <span class='fraction'>12/55</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">21.81% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/56</span>
+                <span class='fraction'>12/55</span>
             </div>
         
             
@@ -118,8 +118,7 @@
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
 <a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -131,8 +130,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -173,14 +170,13 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Image from 'next/image';
-&nbsp;
-import { AnyFieldApi } from '@tanstack/react-form';
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { AnyFieldApi } from '@tanstack/react-form';
 &nbsp;
 import { Icon } from '@/components/icon';
-import { ImageInput, ImageInputProps } from '@/components/ui';
+import { ImageInput, ImageInputProps, ImageWithFallback } from '@/components/ui';
 import { cn } from '@/lib/utils';
 &nbsp;
 type ImageUploadPropsWithoutChildren = Omit&lt;ImageInputProps, 'children'&gt;;
@@ -188,7 +184,7 @@ type ImageUploadPropsWithoutChildren = Omit&lt;ImageInputProps, 'children'&gt;;
 interface Props extends ImageUploadPropsWithoutChildren {
   field: AnyFieldApi;
 }
-const ImageField = <span class="fstat-no" title="function not covered" >({ field, initialImages }: Props) =&gt; {</span>
+export const ImageField = <span class="fstat-no" title="function not covered" >({ field, initialImages }: Props) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
 <span class="cstat-no" title="statement not covered" >    &lt;div className='flex-center py-6'&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;ImageInput</span>
@@ -200,37 +196,38 @@ const ImageField = <span class="fstat-no" title="function not covered" >({ field
 <span class="cstat-no" title="statement not covered" >        value={field.state.value}</span>
 <span class="cstat-no" title="statement not covered" >        onChange={field.handleChange}</span>
 <span class="cstat-no" title="statement not covered" >      &gt;</span>
-<span class="cstat-no" title="statement not covered" >        {(images, _onRemoveImageClick, onFileSelectClick) =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >          &lt;&gt;</span>
-<span class="cstat-no" title="statement not covered" >            {Object.entries(images).map(([url, _file]) =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >              &lt;div key={url} className='relative aspect-square size-24'&gt;</span>
-<span class="cstat-no" title="statement not covered" >                &lt;Image</span>
-<span class="cstat-no" title="statement not covered" >                  className='rounded-full border-1 border-[rgba(0,0,0,0.04)]'</span>
-<span class="cstat-no" title="statement not covered" >                  alt='프로필 이미지'</span>
-<span class="cstat-no" title="statement not covered" >                  fill</span>
-<span class="cstat-no" title="statement not covered" >                  src={url}</span>
-<span class="cstat-no" title="statement not covered" >                /&gt;</span>
-<span class="cstat-no" title="statement not covered" >                &lt;button</span>
-<span class="cstat-no" title="statement not covered" >                  className={cn(</span>
-<span class="cstat-no" title="statement not covered" >                    'flex-center absolute -right-1.75 bottom-0 size-8 cursor-pointer rounded-full border-1 border-gray-300 bg-gray-100',</span>
-<span class="cstat-no" title="statement not covered" >                    'hover:scale-110 hover:bg-gray-200',</span>
-<span class="cstat-no" title="statement not covered" >                    'transition-all duration-300',</span>
-<span class="cstat-no" title="statement not covered" >                  )}</span>
-<span class="cstat-no" title="statement not covered" >                  type='button'</span>
-<span class="cstat-no" title="statement not covered" >                  onClick={onFileSelectClick}</span>
-<span class="cstat-no" title="statement not covered" >                &gt;</span>
-<span class="cstat-no" title="statement not covered" >                  &lt;Icon id='edit' className='size-5 text-gray-600' /&gt;</span>
-<span class="cstat-no" title="statement not covered" >                &lt;/button&gt;</span>
-<span class="cstat-no" title="statement not covered" >              &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >            ))}</span>
-<span class="cstat-no" title="statement not covered" >          &lt;/&gt;</span>
-<span class="cstat-no" title="statement not covered" >        )}</span>
+<span class="cstat-no" title="statement not covered" >        {(images, _onRemoveImageClick, onFileSelectClick) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          const nextImages = Object.keys(images).length &gt; 0 ? images : { '': null };</span>
+<span class="cstat-no" title="statement not covered" >          return (</span>
+<span class="cstat-no" title="statement not covered" >            &lt;&gt;</span>
+<span class="cstat-no" title="statement not covered" >              {Object.entries(nextImages).map(([url, _file]) =&gt; (</span>
+<span class="cstat-no" title="statement not covered" >                &lt;div key={url} className='relative aspect-square size-24'&gt;</span>
+<span class="cstat-no" title="statement not covered" >                  &lt;ImageWithFallback</span>
+<span class="cstat-no" title="statement not covered" >                    className='rounded-full border-1 border-[rgba(0,0,0,0.04)]'</span>
+<span class="cstat-no" title="statement not covered" >                    alt='프로필 이미지'</span>
+<span class="cstat-no" title="statement not covered" >                    fill</span>
+<span class="cstat-no" title="statement not covered" >                    src={url}</span>
+<span class="cstat-no" title="statement not covered" >                  /&gt;</span>
+<span class="cstat-no" title="statement not covered" >                  &lt;button</span>
+<span class="cstat-no" title="statement not covered" >                    className={cn(</span>
+<span class="cstat-no" title="statement not covered" >                      'flex-center absolute -right-1.75 bottom-0 size-8 cursor-pointer rounded-full border-1 border-gray-300 bg-gray-100',</span>
+<span class="cstat-no" title="statement not covered" >                      'hover:scale-110 hover:bg-gray-200',</span>
+<span class="cstat-no" title="statement not covered" >                      'transition-all duration-300',</span>
+<span class="cstat-no" title="statement not covered" >                    )}</span>
+<span class="cstat-no" title="statement not covered" >                    type='button'</span>
+<span class="cstat-no" title="statement not covered" >                    onClick={onFileSelectClick}</span>
+<span class="cstat-no" title="statement not covered" >                  &gt;</span>
+<span class="cstat-no" title="statement not covered" >                    &lt;Icon id='edit' className='size-5 text-gray-600' /&gt;</span>
+<span class="cstat-no" title="statement not covered" >                  &lt;/button&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >              ))}</span>
+<span class="cstat-no" title="statement not covered" >            &lt;/&gt;</span>
+<span class="cstat-no" title="statement not covered" >          );</span>
+<span class="cstat-no" title="statement not covered" >        }}</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/ImageInput&gt;</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >  );</span>
 <span class="cstat-no" title="statement not covered" >};</span>
-&nbsp;
-export default ImageField;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -238,7 +235,7 @@ export default ImageField;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-14T14:37:52.271Z
+                at 2025-12-15T00:13:17.662Z
             </div>
         <script src="../../../../../../prettify.js"></script>
         <script>

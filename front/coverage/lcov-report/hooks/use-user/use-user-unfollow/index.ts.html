@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/20</span>
+                <span class='fraction'>15/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/20</span>
+                <span class='fraction'>15/20</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -90,39 +90,39 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useMutation, useQueryClient } from '@tanstack/react-query';
 &nbsp;
 import { API } from '@/api';
 import { userKeys } from '@/lib/query-key/query-key-user';
-import { FollowParams } from '@/types/service/user';
+import { UnfollowQueryParams } from '@/types/service/user';
 &nbsp;
-export const useUnfollowUser = <span class="fstat-no" title="function not covered" >(payload: FollowParams) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const queryClient = useQueryClient();</span>
-<span class="cstat-no" title="statement not covered" >  const query = useMutation({</span>
-<span class="cstat-no" title="statement not covered" >    mutationFn: () =&gt; API.userService.unfollowUser(payload),</span>
-<span class="cstat-no" title="statement not covered" >    onSuccess: (_data, _variables, _context) =&gt; {</span>
+export const useUnfollowUser = () =&gt; {
+  const queryClient = useQueryClient();
+  const query = useMutation({
+    mutationFn: <span class="fstat-no" title="function not covered" >(params: UnfollowQueryParams) =&gt; API.userService.unfollowUser(params),</span>
+    onSuccess: <span class="fstat-no" title="function not covered" >(_data, _variables, _context) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      queryClient.invalidateQueries({ queryKey: userKeys.all });</span>
 <span class="cstat-no" title="statement not covered" >      console.log('요청 성공');</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
-<span class="cstat-no" title="statement not covered" >    onError: () =&gt; {</span>
+    onError: <span class="fstat-no" title="function not covered" >() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      console.log('요청 실패');</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
-<span class="cstat-no" title="statement not covered" >  });</span>
-<span class="cstat-no" title="statement not covered" >  return query;</span>
-<span class="cstat-no" title="statement not covered" >};</span>
+  });
+  return query;
+};
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -130,7 +130,7 @@ export const useUnfollowUser = <span class="fstat-no" title="function not covere
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-14T14:37:52.271Z
+                at 2025-12-15T00:13:17.662Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

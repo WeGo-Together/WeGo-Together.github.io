@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.45% </span>
+                <span class="strong">84.61% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>47/55</span>
+                <span class='fraction'>55/65</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/5</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.45% </span>
+                <span class="strong">84.61% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>47/55</span>
+                <span class='fraction'>55/65</span>
             </div>
         
             
@@ -118,7 +118,22 @@
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
 <a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -129,7 +144,12 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -174,16 +194,25 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use client';
+import { useState } from 'react';
+&nbsp;
 import { Icon } from '@/components/icon';
 import { Button, Input, ModalContent, ModalTitle, useModal } from '@/components/ui';
+import { useAddFollowers } from '@/hooks/use-follower';
 &nbsp;
-const FollowerModal = () =&gt; {
+const FollowerModal = ({ userId }: { userId: number }) =&gt; {
   const { close } = useModal();
+  const [nickname, setNickname] = useState('');
+  const { mutate: addFollower } = useAddFollowers({ userId });
 &nbsp;
   const handleConfirm = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    // 유저 팔로우 기능 ...</span>
-<span class="cstat-no" title="statement not covered" >    console.log('팔로우 성공');</span>
+<span class="cstat-no" title="statement not covered" >    addFollower({ followNickname: nickname });</span>
 <span class="cstat-no" title="statement not covered" >    close();</span>
+<span class="cstat-no" title="statement not covered" >  };</span>
+&nbsp;
+  const handleChange = <span class="fstat-no" title="function not covered" >(e: React.ChangeEvent&lt;HTMLInputElement&gt;) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    const value = e.target.value;</span>
+<span class="cstat-no" title="statement not covered" >    setNickname(value);</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 &nbsp;
   // 모달 모양 바뀌면 적용하기!
@@ -194,6 +223,7 @@ const FollowerModal = () =&gt; {
         className='text-text-sm-medium mb-3 w-full rounded-3xl bg-gray-100 px-4 py-2.5 text-gray-800'
         iconButton={&lt;Icon id='search' className='absolute top-2.5 right-3 size-5 text-gray-500' /&gt;}
         placeholder='nickname'
+        onChange={handleChange}
         onKeyDown={<span class="fstat-no" title="function not covered" >(e) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >          if (e.key === 'Enter') {</span>
 <span class="cstat-no" title="statement not covered" >            handleConfirm();</span>
@@ -213,12 +243,12 @@ const FollowerModal = () =&gt; {
   );
 };
 &nbsp;
-export const FollowingSearch = () =&gt; {
+export const FollowingSearch = ({ userId }: { userId: number }) =&gt; {
   const { open } = useModal();
   return (
     &lt;div
       className='flex items-center gap-5 px-5 py-4 transition-all hover:cursor-pointer hover:opacity-80'
-      onClick={() =&gt; open(&lt;FollowerModal /&gt;)}
+      onClick={() =&gt; open(&lt;FollowerModal userId={userId} /&gt;)}
     &gt;
       &lt;div className='rounded-full border-2 border-dashed border-gray-400 bg-gray-100 p-2'&gt;
         &lt;Icon id='plus' className='size-6 text-gray-700' /&gt;
@@ -235,7 +265,7 @@ export const FollowingSearch = () =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-15T05:29:30.364Z
+                at 2025-12-15T05:33:11.717Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for hooks/use-group/use-group-cancel/index.ts</title>
+    <title>Code coverage report for components/pages/group-search/index.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">hooks/use-group/use-group-cancel</a> index.ts</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">components/pages/group-search</a> index.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/22</span>
+                <span class='fraction'>0/30</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/22</span>
+                <span class='fraction'>0/30</span>
             </div>
         
             
@@ -85,7 +85,15 @@
 <a name='L20'></a><a href='#L20'>20</a>
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -107,27 +115,43 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import { useMutation, useQueryClient } from '@tanstack/react-query';</span></span></span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >'use client';</span></span></span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import { API } from '@/api';</span>
-<span class="cstat-no" title="statement not covered" >import { groupKeys } from '@/lib/query-key/query-key-group';</span>
-<span class="cstat-no" title="statement not covered" >import { GroupIdPayload } from '@/types/service/group';</span>
+<span class="cstat-no" title="statement not covered" >import { useRouter, useSearchParams } from 'next/navigation';</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export const useCancelGroup = (payload: GroupIdPayload, callback: () =&gt; void) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const queryClient = useQueryClient();</span>
+<span class="cstat-no" title="statement not covered" >import { SearchBar } from '@/components/shared';</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const query = useMutation({</span>
-<span class="cstat-no" title="statement not covered" >    mutationFn: () =&gt; API.groupService.cancelGroup(payload),</span>
-<span class="cstat-no" title="statement not covered" >    onSuccess: async () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      await queryClient.invalidateQueries({ queryKey: groupKeys.detail(payload.groupId) });</span>
-<span class="cstat-no" title="statement not covered" >      callback();</span>
-<span class="cstat-no" title="statement not covered" >      console.log('모임 탈퇴 성공.');</span>
-<span class="cstat-no" title="statement not covered" >    },</span>
-<span class="cstat-no" title="statement not covered" >    onError: () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      console.log('모임 탈퇴 실패.');</span>
-<span class="cstat-no" title="statement not covered" >    },</span>
-<span class="cstat-no" title="statement not covered" >  });</span>
-<span class="cstat-no" title="statement not covered" >  return query;</span>
+<span class="cstat-no" title="statement not covered" >export const GroupSearch = () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const router = useRouter();</span>
+<span class="cstat-no" title="statement not covered" >  const searchParams = useSearchParams();</span>
+<span class="cstat-no" title="statement not covered" >  const currentKeyword = searchParams.get('keyword') || '';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const handleSearch = (keyword: string) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    const params = new URLSearchParams(searchParams.toString());</span>
+<span class="cstat-no" title="statement not covered" >    if (keyword.trim()) {</span>
+<span class="cstat-no" title="statement not covered" >      params.set('keyword', keyword.trim());</span>
+<span class="cstat-no" title="statement not covered" >    } else {</span>
+<span class="cstat-no" title="statement not covered" >      params.delete('keyword');</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >    router.push(`/?${params.toString()}`);</span>
+<span class="cstat-no" title="statement not covered" >  };</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  return (</span>
+<span class="cstat-no" title="statement not covered" >    &lt;SearchBar</span>
+<span class="cstat-no" title="statement not covered" >      className='h-11'</span>
+<span class="cstat-no" title="statement not covered" >      defaultValue={currentKeyword}</span>
+<span class="cstat-no" title="statement not covered" >      placeholder='원하는 모임을 검색해보세요'</span>
+<span class="cstat-no" title="statement not covered" >      onSearch={handleSearch}</span>
+<span class="cstat-no" title="statement not covered" >    /&gt;</span>
+<span class="cstat-no" title="statement not covered" >  );</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;</pre></td></tr></table></pre>
 

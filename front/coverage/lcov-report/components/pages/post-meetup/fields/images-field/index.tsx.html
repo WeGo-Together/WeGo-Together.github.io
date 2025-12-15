@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/111</span>
+                <span class='fraction'>0/118</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/111</span>
+                <span class='fraction'>0/118</span>
             </div>
         
             
@@ -174,7 +174,21 @@
 <a name='L109'></a><a href='#L109'>109</a>
 <a name='L110'></a><a href='#L110'>110</a>
 <a name='L111'></a><a href='#L111'>111</a>
-<a name='L112'></a><a href='#L112'>112</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -307,8 +321,11 @@
 <span class="cstat-no" title="statement not covered" >  const { mutateAsync } = useUploadGroupImages();</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  const onUploadImage = async (e: React.ChangeEvent&lt;HTMLInputElement&gt;) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    const maxAllowed = 3 - field.state.value.length;</span>
 <span class="cstat-no" title="statement not covered" >    const files = e.target.files;</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    if (!files || files.length === 0) return;</span>
+<span class="cstat-no" title="statement not covered" >    if (files.length &gt; maxAllowed) return;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    const fileArray = Array.from(files);</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -316,7 +333,7 @@
 <span class="cstat-no" title="statement not covered" >    const invalidFile = fileArray.find((file) =&gt; !ALLOWED_IMAGE_TYPES.includes(file.type as any));</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    if (invalidFile) {</span>
-<span class="cstat-no" title="statement not covered" >      alert('jpg 또는 png 파일만 업로드 가능합니다.');</span>
+<span class="cstat-no" title="statement not covered" >      alert('jpg, png, webp 파일만 업로드 가능합니다.');</span>
 <span class="cstat-no" title="statement not covered" >      e.target.value = '';</span>
 <span class="cstat-no" title="statement not covered" >      return;</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
@@ -325,15 +342,17 @@
 <span class="cstat-no" title="statement not covered" >      images: fileArray,</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    field.handleChange([...response.images]);</span>
+<span class="cstat-no" title="statement not covered" >    field.handleChange([...field.state.value, ...response.images]);</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  const onUploadImageButtonClick = () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (!inputRef.current) {</span>
-<span class="cstat-no" title="statement not covered" >      return;</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    if (!inputRef.current) return;</span>
 <span class="cstat-no" title="statement not covered" >    inputRef.current.click();</span>
+<span class="cstat-no" title="statement not covered" >  };</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const onRemoveImageClick = (removeIdx: number) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    const removedArray = field.state.value.filter(({}, idx: number) =&gt; idx !== removeIdx);</span>
+<span class="cstat-no" title="statement not covered" >    field.handleChange(removedArray);</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  const inputRef = useRef&lt;HTMLInputElement | null&gt;(null);</span>
@@ -368,29 +387,31 @@
 <span class="cstat-no" title="statement not covered" >            onChange={(e) =&gt; onUploadImage(e)}</span>
 <span class="cstat-no" title="statement not covered" >          /&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/button&gt;</span>
-<span class="cstat-no" title="statement not covered" >        {field.state.value.map(({ imageUrl100x100 }: PreUploadGroupImageResponse['images'][0]) =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >          &lt;div key={imageUrl100x100} className='relative aspect-square w-full max-w-20'&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;Image</span>
-<span class="cstat-no" title="statement not covered" >              className='border-mono-black/5 h-full w-full rounded-2xl border-1 object-cover'</span>
-<span class="cstat-no" title="statement not covered" >              alt='썸네일 이미지'</span>
-<span class="cstat-no" title="statement not covered" >              fill</span>
-<span class="cstat-no" title="statement not covered" >              src={imageUrl100x100}</span>
-<span class="cstat-no" title="statement not covered" >            /&gt;</span>
+<span class="cstat-no" title="statement not covered" >        {field.state.value.map(</span>
+<span class="cstat-no" title="statement not covered" >          ({ imageUrl100x100 }: PreUploadGroupImageResponse['images'][0], idx: number) =&gt; (</span>
+<span class="cstat-no" title="statement not covered" >            &lt;div key={imageUrl100x100} className='relative aspect-square w-full max-w-20'&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;Image</span>
+<span class="cstat-no" title="statement not covered" >                className='border-mono-black/5 h-full w-full rounded-2xl border-1 object-cover'</span>
+<span class="cstat-no" title="statement not covered" >                alt='썸네일 이미지'</span>
+<span class="cstat-no" title="statement not covered" >                fill</span>
+<span class="cstat-no" title="statement not covered" >                src={imageUrl100x100}</span>
+<span class="cstat-no" title="statement not covered" >              /&gt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >            {/* &lt;button</span>
-<span class="cstat-no" title="statement not covered" >              className={cn(</span>
-<span class="cstat-no" title="statement not covered" >                'flex-center bg-mono-white/80 group absolute top-1.5 right-2 size-4 cursor-pointer rounded-full', // 기본 스타일</span>
-<span class="cstat-no" title="statement not covered" >                'hover:bg-mono-white hover:scale-110', // hover 스타일</span>
-<span class="cstat-no" title="statement not covered" >                'transition-all duration-300', // animation 스타일</span>
-<span class="cstat-no" title="statement not covered" >              )}</span>
-<span class="cstat-no" title="statement not covered" >              aria-label='이미지 삭제 버튼'</span>
-<span class="cstat-no" title="statement not covered" >              type='button'</span>
-<span class="cstat-no" title="statement not covered" >              onClick={() =&gt; onRemoveImageClick(url)}</span>
-<span class="cstat-no" title="statement not covered" >            &gt;</span>
-<span class="cstat-no" title="statement not covered" >              &lt;Icon id='small-x-1' className='size-1.5 text-gray-700' /&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;/button&gt; */}</span>
-<span class="cstat-no" title="statement not covered" >          &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >        ))}</span>
+<span class="cstat-no" title="statement not covered" >              &lt;button</span>
+<span class="cstat-no" title="statement not covered" >                className={cn(</span>
+<span class="cstat-no" title="statement not covered" >                  'flex-center bg-mono-white/80 group absolute top-1.5 right-2 size-4 cursor-pointer rounded-full', // 기본 스타일</span>
+<span class="cstat-no" title="statement not covered" >                  'hover:bg-mono-white hover:scale-110', // hover 스타일</span>
+<span class="cstat-no" title="statement not covered" >                  'transition-all duration-300', // animation 스타일</span>
+<span class="cstat-no" title="statement not covered" >                )}</span>
+<span class="cstat-no" title="statement not covered" >                aria-label='이미지 삭제 버튼'</span>
+<span class="cstat-no" title="statement not covered" >                type='button'</span>
+<span class="cstat-no" title="statement not covered" >                onClick={() =&gt; onRemoveImageClick(idx)}</span>
+<span class="cstat-no" title="statement not covered" >              &gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;Icon id='small-x-1' className='size-1.5 text-gray-700' /&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;/button&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >          ),</span>
+<span class="cstat-no" title="statement not covered" >        )}</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;p className='text-text-sm-medium px-2 text-gray-500'&gt;최대 3개까지 업로드할 수 있어요.&lt;/p&gt;</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
@@ -403,7 +424,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-15T08:25:17.722Z
+                at 2025-12-15T10:49:38.322Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

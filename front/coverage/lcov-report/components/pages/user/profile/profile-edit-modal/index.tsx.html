@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">19.13% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/115</span>
+                <span class='fraction'>22/110</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">19.13% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>22/115</span>
+                <span class='fraction'>22/110</span>
             </div>
         
             
@@ -173,12 +173,7 @@
 <a name='L108'></a><a href='#L108'>108</a>
 <a name='L109'></a><a href='#L109'>109</a>
 <a name='L110'></a><a href='#L110'>110</a>
-<a name='L111'></a><a href='#L111'>111</a>
-<a name='L112'></a><a href='#L112'>112</a>
-<a name='L113'></a><a href='#L113'>113</a>
-<a name='L114'></a><a href='#L114'>114</a>
-<a name='L115'></a><a href='#L115'>115</a>
-<a name='L116'></a><a href='#L116'>116</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L111'></a><a href='#L111'>111</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -200,11 +195,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -348,30 +338,25 @@ export const ProfileEditModal = <span class="fstat-no" title="function not cover
 <span class="cstat-no" title="statement not covered" >        ...(user.mbti !== value.mbti &amp;&amp; { mbti }),</span>
 <span class="cstat-no" title="statement not covered" >      };</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      const promises = [];</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      // 프로필 정보 업데이트 조건 체크</span>
-<span class="cstat-no" title="statement not covered" >      if (Object.keys(nextProfileInfo).length &gt; 0) {</span>
-<span class="cstat-no" title="statement not covered" >        promises.push(updateUser(nextProfileInfo));</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      // 프로필 이미지 업데이트 조건 체크</span>
-<span class="cstat-no" title="statement not covered" >      const imageFileObject = Object.values(profileImage)[0];</span>
-<span class="cstat-no" title="statement not covered" >      if (imageFileObject) {</span>
-<span class="cstat-no" title="statement not covered" >        promises.push(updateUserImage({ file: imageFileObject }));</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
-<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >      /*</span>
 <span class="cstat-no" title="statement not covered" >      Promise 체이닝 사용 시 catch를 먹어버리기 때문에 각 mutation의 error가 업데이트 되지않음</span>
 <span class="cstat-no" title="statement not covered" >      따라서 try catch 방식 사용</span>
 <span class="cstat-no" title="statement not covered" >      */</span>
-<span class="cstat-no" title="statement not covered" >      /*</span>
-<span class="cstat-no" title="statement not covered" >      todo: 이미지 변경과 정보 변경 중 하나라도 실패하면 각 항목에 대한 에러메시지 보여줘야함</span>
-<span class="cstat-no" title="statement not covered" >      */</span>
 <span class="cstat-no" title="statement not covered" >      try {</span>
-<span class="cstat-no" title="statement not covered" >        await Promise.all(promises);</span>
+<span class="cstat-no" title="statement not covered" >        // 프로필 정보 업데이트 조건 체크</span>
+<span class="cstat-no" title="statement not covered" >        if (Object.keys(nextProfileInfo).length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >          await updateUser(nextProfileInfo);</span>
+<span class="cstat-no" title="statement not covered" >        }</span>
+<span class="cstat-no" title="statement not covered" >        // 프로필 이미지 업데이트 조건 체크</span>
+<span class="cstat-no" title="statement not covered" >        const imageFileObject = Object.values(profileImage)[0];</span>
+<span class="cstat-no" title="statement not covered" >        if (imageFileObject) {</span>
+<span class="cstat-no" title="statement not covered" >          await updateUserImage({ file: imageFileObject });</span>
+<span class="cstat-no" title="statement not covered" >        }</span>
 <span class="cstat-no" title="statement not covered" >        close();</span>
 <span class="cstat-no" title="statement not covered" >      } catch (error) {</span>
+<span class="cstat-no" title="statement not covered" >        /*</span>
+<span class="cstat-no" title="statement not covered" >        todo: 이미지 변경과 정보 변경 중 하나라도 실패하면 각 항목에 대한 에러메시지 보여줘야함</span>
+<span class="cstat-no" title="statement not covered" >        */</span>
 <span class="cstat-no" title="statement not covered" >        console.log('요청 실패', error);</span>
 <span class="cstat-no" title="statement not covered" >      }</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
@@ -415,7 +400,7 @@ export const ProfileEditModal = <span class="fstat-no" title="function not cover
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-16T08:10:48.804Z
+                at 2025-12-16T13:11:58.891Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">15.03% </span>
+                <span class="strong">15.54% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>20/133</span>
+                <span class='fraction'>23/148</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">15.03% </span>
+                <span class="strong">15.54% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>20/133</span>
+                <span class='fraction'>23/148</span>
             </div>
         
             
@@ -196,7 +196,22 @@
 <a name='L131'></a><a href='#L131'>131</a>
 <a name='L132'></a><a href='#L132'>132</a>
 <a name='L133'></a><a href='#L133'>133</a>
-<a name='L134'></a><a href='#L134'>134</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -216,6 +231,21 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -331,6 +361,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useEffect, useRef, useState } from 'react';
 &nbsp;
+import { IMAGE_CONFIG } from '@/lib/constants/image';
+import { validateImage } from '@/lib/validateImage';
+&nbsp;
 export type ImageRecord = Record&lt;string, File | null&gt;;
 &nbsp;
 export interface ImageInputProps {
@@ -353,7 +386,7 @@ export const ImageInput = <span class="fstat-no" title="function not covered" >(
 <span class="cstat-no" title="statement not covered" >  children,</span>
 <span class="cstat-no" title="statement not covered" >  onChange,</span>
 <span class="cstat-no" title="statement not covered" >  maxFiles = 1,</span>
-<span class="cstat-no" title="statement not covered" >  accept = 'image/*',</span>
+<span class="cstat-no" title="statement not covered" >  accept = IMAGE_CONFIG.allowedTypes.join(','),</span>
 <span class="cstat-no" title="statement not covered" >  multiple = false,</span>
 <span class="cstat-no" title="statement not covered" >  mode = 'replace',</span>
 <span class="cstat-no" title="statement not covered" >  initialImages = [],</span>
@@ -432,8 +465,20 @@ export const ImageInput = <span class="fstat-no" title="function not covered" >(
 <span class="cstat-no" title="statement not covered" >    updateImages(newImages);</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const handleFileChange = (e: React.ChangeEvent&lt;HTMLInputElement&gt;) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const handleFileChange = async (e: React.ChangeEvent&lt;HTMLInputElement&gt;) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    const files = Array.from(e.target.files || []);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    for (const file of files) {</span>
+<span class="cstat-no" title="statement not covered" >      const validation = await validateImage(file);</span>
+<span class="cstat-no" title="statement not covered" >      if (!validation.valid) {</span>
+<span class="cstat-no" title="statement not covered" >        // toast.error(validation.error);</span>
+<span class="cstat-no" title="statement not covered" >        alert(validation.error);</span>
+<span class="cstat-no" title="statement not covered" >        e.target.value = '';</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+<span class="cstat-no" title="statement not covered" >      }</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    // 검증통과 하면 이미지 추가</span>
 <span class="cstat-no" title="statement not covered" >    addImages(files);</span>
 <span class="cstat-no" title="statement not covered" >    e.target.value = '';</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
@@ -469,7 +514,7 @@ export const ImageInput = <span class="fstat-no" title="function not covered" >(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-19T11:20:56.198Z
+                at 2025-12-22T00:40:09.088Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

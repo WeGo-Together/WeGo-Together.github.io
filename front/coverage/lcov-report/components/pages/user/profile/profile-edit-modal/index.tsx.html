@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">21.42% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/110</span>
+                <span class='fraction'>30/140</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">21.42% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>22/110</span>
+                <span class='fraction'>30/140</span>
             </div>
         
             
@@ -173,7 +173,37 @@
 <a name='L108'></a><a href='#L108'>108</a>
 <a name='L109'></a><a href='#L109'>109</a>
 <a name='L110'></a><a href='#L110'>110</a>
-<a name='L111'></a><a href='#L111'>111</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -195,6 +225,36 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -286,6 +346,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use client';
 import { useForm } from '@tanstack/react-form';
 &nbsp;
+import { API } from '@/api';
 import {
   Button,
   ImageRecord,
@@ -296,6 +357,13 @@ import {
 } from '@/components/ui';
 import { useUpdateUser } from '@/hooks/use-user';
 import { useUserImageUpdate } from '@/hooks/use-user/use-user-image-update';
+import {
+  mbtiOnBlurSchema,
+  mbtiOnChangeSchema,
+  nickNameOnChangeSchema,
+  profileImageOnChangeSchema,
+  profileMessageOnChangeSchema,
+} from '@/lib/schema/mypage';
 import { UpdateMyInfoPayloads, User } from '@/types/service/user';
 &nbsp;
 import { ImageField, MBTIField, MessageField, NickNameField } from '../profile-edit-fields';
@@ -309,16 +377,8 @@ export const ProfileEditModal = <span class="fstat-no" title="function not cover
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  const { close } = useModal();</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const {</span>
-<span class="cstat-no" title="statement not covered" >    mutateAsync: updateUser,</span>
-<span class="cstat-no" title="statement not covered" >    isPending: isUserInfoPending,</span>
-<span class="cstat-no" title="statement not covered" >    error: _userInfoError,</span>
-<span class="cstat-no" title="statement not covered" >  } = useUpdateUser();</span>
-<span class="cstat-no" title="statement not covered" >  const {</span>
-<span class="cstat-no" title="statement not covered" >    mutateAsync: updateUserImage,</span>
-<span class="cstat-no" title="statement not covered" >    isPending: isUserImagePending,</span>
-<span class="cstat-no" title="statement not covered" >    error: _userImageError,</span>
-<span class="cstat-no" title="statement not covered" >  } = useUserImageUpdate();</span>
+<span class="cstat-no" title="statement not covered" >  const { mutateAsync: updateUser, error: _userInfoError } = useUpdateUser();</span>
+<span class="cstat-no" title="statement not covered" >  const { mutateAsync: updateUserImage, error: _userImageError } = useUserImageUpdate();</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  const form = useForm({</span>
 <span class="cstat-no" title="statement not covered" >    defaultValues: {</span>
@@ -327,15 +387,30 @@ export const ProfileEditModal = <span class="fstat-no" title="function not cover
 <span class="cstat-no" title="statement not covered" >      profileMessage,</span>
 <span class="cstat-no" title="statement not covered" >      mbti,</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
+<span class="cstat-no" title="statement not covered" >    validators: {</span>
+<span class="cstat-no" title="statement not covered" >      onSubmitAsync: async ({ value }) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        if (value.nickName === nickName) return null;</span>
+<span class="cstat-no" title="statement not covered" >        const res = await API.userService.getNicknameAvailability({ nickName: value.nickName });</span>
+<span class="cstat-no" title="statement not covered" >        if (!res.available) {</span>
+<span class="cstat-no" title="statement not covered" >          return {</span>
+<span class="cstat-no" title="statement not covered" >            form: '입력값을 확인해주세요',</span>
+<span class="cstat-no" title="statement not covered" >            fields: {</span>
+<span class="cstat-no" title="statement not covered" >              nickName: { message: '이미 사용 중인 닉네임입니다' },</span>
+<span class="cstat-no" title="statement not covered" >            },</span>
+<span class="cstat-no" title="statement not covered" >          };</span>
+<span class="cstat-no" title="statement not covered" >        }</span>
+<span class="cstat-no" title="statement not covered" >        return null;</span>
+<span class="cstat-no" title="statement not covered" >      },</span>
+<span class="cstat-no" title="statement not covered" >    },</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    onSubmit: async ({ value }) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      const { profileImage, nickName, profileMessage, mbti } = value;</span>
-<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >      const nextMbti = mbti.toUpperCase();</span>
 <span class="cstat-no" title="statement not covered" >      // 프로필 항목 업데이트 조건 체크</span>
 <span class="cstat-no" title="statement not covered" >      const nextProfileInfo: UpdateMyInfoPayloads = {</span>
-<span class="cstat-no" title="statement not covered" >        ...(user.nickName !== value.nickName &amp;&amp; { nickName }),</span>
-<span class="cstat-no" title="statement not covered" >        ...(user.profileMessage !== value.profileMessage &amp;&amp; { profileMessage }),</span>
-<span class="cstat-no" title="statement not covered" >        ...(user.mbti !== value.mbti &amp;&amp; { mbti }),</span>
+<span class="cstat-no" title="statement not covered" >        ...(user.nickName !== nickName &amp;&amp; { nickName }),</span>
+<span class="cstat-no" title="statement not covered" >        ...(user.profileMessage !== profileMessage &amp;&amp; { profileMessage }),</span>
+<span class="cstat-no" title="statement not covered" >        ...(user.mbti !== nextMbti &amp;&amp; { mbti: nextMbti }),</span>
 <span class="cstat-no" title="statement not covered" >      };</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >      /*</span>
@@ -353,16 +428,11 @@ export const ProfileEditModal = <span class="fstat-no" title="function not cover
 <span class="cstat-no" title="statement not covered" >          await updateUserImage({ file: imageFileObject });</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
 <span class="cstat-no" title="statement not covered" >        close();</span>
-<span class="cstat-no" title="statement not covered" >      } catch (error) {</span>
-<span class="cstat-no" title="statement not covered" >        /*</span>
-<span class="cstat-no" title="statement not covered" >        todo: 이미지 변경과 정보 변경 중 하나라도 실패하면 각 항목에 대한 에러메시지 보여줘야함</span>
-<span class="cstat-no" title="statement not covered" >        */</span>
-<span class="cstat-no" title="statement not covered" >        console.log('요청 실패', error);</span>
+<span class="cstat-no" title="statement not covered" >      } catch {</span>
+<span class="cstat-no" title="statement not covered" >        alert(`업데이트에 실패했습니다. 잠시 후 다시 시도해주세요`);</span>
 <span class="cstat-no" title="statement not covered" >      }</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
 <span class="cstat-no" title="statement not covered" >  });</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const isPending = isUserInfoPending || isUserImagePending;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
 <span class="cstat-no" title="statement not covered" >    &lt;ModalContent className='max-w-82.5'&gt;</span>
@@ -377,17 +447,37 @@ export const ProfileEditModal = <span class="fstat-no" title="function not cover
 <span class="cstat-no" title="statement not covered" >          form.handleSubmit();</span>
 <span class="cstat-no" title="statement not covered" >        }}</span>
 <span class="cstat-no" title="statement not covered" >      &gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;form.Field children={(field) =&gt; &lt;ImageField field={field} /&gt;} name='profileImage' /&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;form.Field children={(field) =&gt; &lt;NickNameField field={field} /&gt;} name='nickName' /&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;form.Field children={(field) =&gt; &lt;MessageField field={field} /&gt;} name='profileMessage' /&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;form.Field children={(field) =&gt; &lt;MBTIField field={field} /&gt;} name='mbti' /&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;form.Field</span>
+<span class="cstat-no" title="statement not covered" >          validators={{ onChange: profileImageOnChangeSchema }}</span>
+<span class="cstat-no" title="statement not covered" >          children={(field) =&gt; &lt;ImageField field={field} /&gt;}</span>
+<span class="cstat-no" title="statement not covered" >          name='profileImage'</span>
+<span class="cstat-no" title="statement not covered" >        /&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;form.Field</span>
+<span class="cstat-no" title="statement not covered" >          validators={{ onChange: nickNameOnChangeSchema }}</span>
+<span class="cstat-no" title="statement not covered" >          children={(field) =&gt; &lt;NickNameField field={field} /&gt;}</span>
+<span class="cstat-no" title="statement not covered" >          name='nickName'</span>
+<span class="cstat-no" title="statement not covered" >        /&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;form.Field</span>
+<span class="cstat-no" title="statement not covered" >          validators={{ onChange: profileMessageOnChangeSchema }}</span>
+<span class="cstat-no" title="statement not covered" >          children={(field) =&gt; &lt;MessageField field={field} /&gt;}</span>
+<span class="cstat-no" title="statement not covered" >          name='profileMessage'</span>
+<span class="cstat-no" title="statement not covered" >        /&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;form.Field</span>
+<span class="cstat-no" title="statement not covered" >          validators={{ onChange: mbtiOnChangeSchema, onBlur: mbtiOnBlurSchema }}</span>
+<span class="cstat-no" title="statement not covered" >          children={(field) =&gt; &lt;MBTIField field={field} /&gt;}</span>
+<span class="cstat-no" title="statement not covered" >          name='mbti'</span>
+<span class="cstat-no" title="statement not covered" >        /&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;div className='mt-6 flex gap-2'&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;Button variant='tertiary' onClick={close}&gt;</span>
 <span class="cstat-no" title="statement not covered" >            취소</span>
 <span class="cstat-no" title="statement not covered" >          &lt;/Button&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;Button disabled={isPending} type='submit'&gt;</span>
-<span class="cstat-no" title="statement not covered" >            {isPending ? '수정 중...' : '수정하기'}</span>
-<span class="cstat-no" title="statement not covered" >          &lt;/Button&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;form.Subscribe selector={(state) =&gt; [state.canSubmit, state.isSubmitting]}&gt;</span>
+<span class="cstat-no" title="statement not covered" >            {([canSubmit, isSubmitting]) =&gt; (</span>
+<span class="cstat-no" title="statement not covered" >              &lt;Button disabled={!canSubmit} type='submit'&gt;</span>
+<span class="cstat-no" title="statement not covered" >                {isSubmitting ? '수정 중...' : '수정하기'}</span>
+<span class="cstat-no" title="statement not covered" >              &lt;/Button&gt;</span>
+<span class="cstat-no" title="statement not covered" >            )}</span>
+<span class="cstat-no" title="statement not covered" >          &lt;/form.Subscribe&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/form&gt;</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/ModalContent&gt;</span>
@@ -400,7 +490,7 @@ export const ProfileEditModal = <span class="fstat-no" title="function not cover
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-19T11:20:56.198Z
+                at 2025-12-22T00:40:09.088Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

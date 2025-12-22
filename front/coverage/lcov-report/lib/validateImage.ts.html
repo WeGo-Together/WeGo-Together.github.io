@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for mock/index.ts</title>
+    <title>Code coverage report for lib/validateImage.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">mock</a> index.ts</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">lib</a> validateImage.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">8.92% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/47</span>
+                <span class='fraction'>5/56</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">8.92% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/47</span>
+                <span class='fraction'>5/56</span>
             </div>
         
             
@@ -110,7 +110,18 @@
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -142,6 +153,8 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -157,52 +170,66 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >// src/mocks/index.ts</span></span></span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { IMAGE_CONFIG } from './constants/image';
+&nbsp;
+export const validateImage = <span class="fstat-no" title="function not covered" >async (file: File): Promise&lt;{ valid: boolean; error?: string }&gt; =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  // 1. 확장자 검증</span>
+<span class="cstat-no" title="statement not covered" >  const fileName = file.name.toLowerCase();</span>
+<span class="cstat-no" title="statement not covered" >  const hasValidExtension = IMAGE_CONFIG.allowedExtensions.some((ext) =&gt; fileName.endsWith(ext));</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import type { SetupWorker } from 'msw/browser';</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import { handlers } from './handlers';</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >// 전역 객체에 워커 인스턴스 자체를 저장</span>
-<span class="cstat-no" title="statement not covered" >declare global {</span>
-<span class="cstat-no" title="statement not covered" >  interface Window {</span>
-<span class="cstat-no" title="statement not covered" >    mswWorker?: SetupWorker;</span>
+<span class="cstat-no" title="statement not covered" >  if (!hasValidExtension) {</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+<span class="cstat-no" title="statement not covered" >      valid: false,</span>
+<span class="cstat-no" title="statement not covered" >      error: `파일 확장자가 올바르지 않습니다. \n(${IMAGE_CONFIG.allowedExtensions.join(', ')}만 가능)`,</span>
+<span class="cstat-no" title="statement not covered" >    };</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export const initMocks = async () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  // MSW 활성화 여부 확인</span>
-<span class="cstat-no" title="statement not covered" >  const shouldEnable = process.env.NEXT_PUBLIC_MSW_ENABLED === 'true';</span>
-<span class="cstat-no" title="statement not covered" >  if (!shouldEnable) return;</span>
+<span class="cstat-no" title="statement not covered" >  // 2. 파일 크기 검증</span>
+<span class="cstat-no" title="statement not covered" >  if (file.size &gt; IMAGE_CONFIG.maxSizeBytes) {</span>
+<span class="cstat-no" title="statement not covered" >    const currentSizeMB = (file.size / (1024 * 1024)).toFixed(0);</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+<span class="cstat-no" title="statement not covered" >      valid: false,</span>
+<span class="cstat-no" title="statement not covered" >      error: `이미지 크기가 너무 큽니다. 최대 20MB까지 가능합니다. \n현재: ${currentSizeMB}MB`,</span>
+<span class="cstat-no" title="statement not covered" >    };</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  if (typeof window === 'undefined') {</span>
-<span class="cstat-no" title="statement not covered" >    // Server</span>
-<span class="cstat-no" title="statement not covered" >    const { server } = await import('./server');</span>
-<span class="cstat-no" title="statement not covered" >    server.listen({</span>
-<span class="cstat-no" title="statement not covered" >      onUnhandledRequest: 'bypass',</span>
-<span class="cstat-no" title="statement not covered" >    });</span>
-<span class="cstat-no" title="statement not covered" >    console.log('🔶 MSW Server ready');</span>
-<span class="cstat-no" title="statement not covered" >  } else {</span>
-<span class="cstat-no" title="statement not covered" >    // Client</span>
-<span class="cstat-no" title="statement not covered" >    // 워커 인스턴스가 전역에 이미 존재하는지 확인</span>
-<span class="cstat-no" title="statement not covered" >    if (!window.mswWorker) {</span>
-<span class="cstat-no" title="statement not covered" >      const { worker } = await import('./browser');</span>
-<span class="cstat-no" title="statement not covered" >      // 워커 인스턴스를 전역에 저장</span>
-<span class="cstat-no" title="statement not covered" >      window.mswWorker = worker;</span>
-<span class="cstat-no" title="statement not covered" >      // 핸들러 주입</span>
-<span class="cstat-no" title="statement not covered" >      worker.use(...handlers);</span>
-<span class="cstat-no" title="statement not covered" >      // 최초 실행: start()</span>
-<span class="cstat-no" title="statement not covered" >      await worker.start({</span>
-<span class="cstat-no" title="statement not covered" >        onUnhandledRequest: 'bypass',</span>
+<span class="cstat-no" title="statement not covered" >  // 3. 파일 사이즈 검증</span>
+<span class="cstat-no" title="statement not covered" >  const { width, height } = await getImageDimensions(file);</span>
+<span class="cstat-no" title="statement not covered" >  if (width &gt; IMAGE_CONFIG.maxWidth || height &gt; IMAGE_CONFIG.maxHeight) {</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+<span class="cstat-no" title="statement not covered" >      valid: false,</span>
+<span class="cstat-no" title="statement not covered" >      error: `이미지는 ${IMAGE_CONFIG.maxWidth}x${IMAGE_CONFIG.maxHeight} 이하여야 합니다. \n현재: 너비(${width}), 높이(${height})`,</span>
+<span class="cstat-no" title="statement not covered" >    };</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  return { valid: true };</span>
+<span class="cstat-no" title="statement not covered" >};</span>
+&nbsp;
+const getImageDimensions = <span class="fstat-no" title="function not covered" >async (file: File): Promise&lt;{ width: number; height: number }&gt; =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  return new Promise((resolve, reject) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    const img = new Image();</span>
+<span class="cstat-no" title="statement not covered" >    const url = URL.createObjectURL(file);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    img.onload = () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      URL.revokeObjectURL(url); // 메모리 해제</span>
+<span class="cstat-no" title="statement not covered" >      resolve({</span>
+<span class="cstat-no" title="statement not covered" >        width: img.width,</span>
+<span class="cstat-no" title="statement not covered" >        height: img.height,</span>
 <span class="cstat-no" title="statement not covered" >      });</span>
-<span class="cstat-no" title="statement not covered" >      console.log('🔷 MSW Client ready');</span>
-<span class="cstat-no" title="statement not covered" >    } else {</span>
-<span class="cstat-no" title="statement not covered" >      // 이미 존재하는 경우 worker 재사용</span>
-<span class="cstat-no" title="statement not covered" >      const worker = window.mswWorker;</span>
-<span class="cstat-no" title="statement not covered" >      // 새로운 핸들러 주입 (기존 핸들러를 덮어씀)</span>
-<span class="cstat-no" title="statement not covered" >      worker.resetHandlers(...handlers);</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+<span class="cstat-no" title="statement not covered" >    };</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    img.onerror = () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      URL.revokeObjectURL(url);</span>
+<span class="cstat-no" title="statement not covered" >      reject(new Error('이미지 로드 실패'));</span>
+<span class="cstat-no" title="statement not covered" >    };</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    img.src = url;</span>
+<span class="cstat-no" title="statement not covered" >  });</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;</pre></td></tr></table></pre>
 

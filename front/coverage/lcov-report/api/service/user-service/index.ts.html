@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.19% </span>
+                <span class="strong">62.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>41/67</span>
+                <span class='fraction'>47/75</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">22.22% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/9</span>
+                <span class='fraction'>2/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.19% </span>
+                <span class="strong">62.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>41/67</span>
+                <span class='fraction'>47/75</span>
             </div>
         
             
@@ -130,7 +130,15 @@
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
 <a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -178,8 +186,16 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -197,7 +213,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { api } from '@/api/core';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { apiV1 } from '@/api/core';
 import {
   Availability,
   FollowPathParams,
@@ -214,52 +230,60 @@ import {
 export const userServiceRemote = () =&gt; ({
   // 1. 사용자 팔로우
   followUser: <span class="fstat-no" title="function not covered" >async (pathParams: FollowPathParams) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return api.post&lt;string&gt;(`/users/follow`, null, {</span>
+<span class="cstat-no" title="statement not covered" >    return apiV1.post&lt;string&gt;(`/users/follow`, null, {</span>
 <span class="cstat-no" title="statement not covered" >      params: { followNickname: pathParams.followNickname },</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   // 2. 유저 프로필 변경
   updateMyInfo: <span class="fstat-no" title="function not covered" >async (payloads: UpdateMyInfoPayloads) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return api.patch&lt;User&gt;('/users/profile', payloads);</span>
+<span class="cstat-no" title="statement not covered" >    return apiV1.patch&lt;User&gt;('/users/profile', payloads);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   // 3. 프로필 이미지 변경
   updateMyImage: <span class="fstat-no" title="function not covered" >async (payloads: UpdateMyImagePayloads) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    const formData = new FormData();</span>
 <span class="cstat-no" title="statement not covered" >    formData.append('file', payloads.file);</span>
-<span class="cstat-no" title="statement not covered" >    return api.patch&lt;User&gt;(`/users/profile-image`, formData);</span>
+<span class="cstat-no" title="statement not covered" >    return apiV1.patch&lt;User&gt;(`/users/profile-image`, formData);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   // 4. 알림 설정 변경
   updateMyNotification: <span class="fstat-no" title="function not covered" >async (queryParams: UpdateMyNotificationQueryParams) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return api.patch&lt;User&gt;(</span>
+<span class="cstat-no" title="statement not covered" >    return apiV1.patch&lt;User&gt;(</span>
 <span class="cstat-no" title="statement not covered" >      `/users/notification?isNotificationEnabled=${queryParams.isNotificationEnabled}`,</span>
 <span class="cstat-no" title="statement not covered" >    );</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   // 5. 유저 프로필 조회
   getUser: async (pathParams: GetUserPathParams) =&gt; {
-    return api.get&lt;User&gt;(`/users/${pathParams.userId}`);
+    return apiV1.get&lt;User&gt;(`/users/${pathParams.userId}`);
   },
 &nbsp;
-  // 6. 닉네임 중복 검사
+  // 6. 팔로우 리스트 조회
+  // getfollowUsers
+&nbsp;
+  // 7. 닉네임 중복 검사
   getNicknameAvailability: <span class="fstat-no" title="function not covered" >async (queryParams: GetNicknameAvailabilityQueryParams) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return api.get&lt;Availability&gt;(`/users/nickname/availability`, {</span>
+<span class="cstat-no" title="statement not covered" >    return apiV1.get&lt;Availability&gt;(`/users/nickname/availability`, {</span>
 <span class="cstat-no" title="statement not covered" >      params: { nickname: queryParams.nickName },</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
-  // 7. 이메일 중복 검사
+  // 8. 본인 프로필 조회
+  getMe: <span class="fstat-no" title="function not covered" >async () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return apiV1.get&lt;User&gt;(`/users/me`);</span>
+<span class="cstat-no" title="statement not covered" >  },</span>
+&nbsp;
+  // 9. 이메일 중복 검사
   getEmailAvailability: <span class="fstat-no" title="function not covered" >async (queryParams: GetEmailAvailabilityQueryParams) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return api.get&lt;Availability&gt;(`/users/email/availability`, {</span>
+<span class="cstat-no" title="statement not covered" >    return apiV1.get&lt;Availability&gt;(`/users/email/availability`, {</span>
 <span class="cstat-no" title="statement not covered" >      params: { email: queryParams.email },</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
-  // 8. 사용자 언팔로우
+  // 10. 사용자 언팔로우
   unfollowUser: <span class="fstat-no" title="function not covered" >async (params: UnfollowQueryParams) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return api.delete&lt;string&gt;(`/users/unfollow`, {</span>
+<span class="cstat-no" title="statement not covered" >    return apiV1.delete&lt;string&gt;(`/users/unfollow`, {</span>
 <span class="cstat-no" title="statement not covered" >      params: { unFollowNickname: params.unFollowNickname },</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
@@ -271,7 +295,7 @@ export const userServiceRemote = () =&gt; ({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-22T09:21:08.763Z
+                at 2025-12-22T09:24:21.566Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

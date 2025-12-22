@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/54</span>
+                <span class='fraction'>0/56</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/54</span>
+                <span class='fraction'>0/56</span>
             </div>
         
             
@@ -117,7 +117,11 @@
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -184,43 +188,45 @@
 <span class="cstat-no" title="statement not covered" >interface Props {</span>
 <span class="cstat-no" title="statement not covered" >  descriptions: Pick&lt;</span>
 <span class="cstat-no" title="statement not covered" >    GetGroupDetailsResponse,</span>
+<span class="cstat-no" title="statement not covered" >    | 'status'</span>
 <span class="cstat-no" title="statement not covered" >    | 'createdBy'</span>
 <span class="cstat-no" title="statement not covered" >    | 'createdAt'</span>
+<span class="cstat-no" title="statement not covered" >    | 'address'</span>
 <span class="cstat-no" title="statement not covered" >    | 'title'</span>
 <span class="cstat-no" title="statement not covered" >    | 'tags'</span>
 <span class="cstat-no" title="statement not covered" >    | 'description'</span>
-<span class="cstat-no" title="statement not covered" >    | 'location'</span>
 <span class="cstat-no" title="statement not covered" >    | 'startTime'</span>
+<span class="cstat-no" title="statement not covered" >    | 'myMembership'</span>
 <span class="cstat-no" title="statement not covered" >    | 'maxParticipants'</span>
 <span class="cstat-no" title="statement not covered" >    | 'participantCount'</span>
 <span class="cstat-no" title="statement not covered" >  &gt;;</span>
-<span class="cstat-no" title="statement not covered" >  conditions: {</span>
-<span class="cstat-no" title="statement not covered" >    isHost: boolean;</span>
-<span class="cstat-no" title="statement not covered" >    isPast: boolean;</span>
-<span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >export const MeetupDescriptions = ({</span>
 <span class="cstat-no" title="statement not covered" >  descriptions: {</span>
+<span class="cstat-no" title="statement not covered" >    status,</span>
 <span class="cstat-no" title="statement not covered" >    createdBy,</span>
 <span class="cstat-no" title="statement not covered" >    createdAt,</span>
+<span class="cstat-no" title="statement not covered" >    address,</span>
 <span class="cstat-no" title="statement not covered" >    title,</span>
 <span class="cstat-no" title="statement not covered" >    tags,</span>
 <span class="cstat-no" title="statement not covered" >    description,</span>
-<span class="cstat-no" title="statement not covered" >    location,</span>
 <span class="cstat-no" title="statement not covered" >    startTime,</span>
+<span class="cstat-no" title="statement not covered" >    myMembership,</span>
 <span class="cstat-no" title="statement not covered" >    maxParticipants,</span>
 <span class="cstat-no" title="statement not covered" >    participantCount,</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
-<span class="cstat-no" title="statement not covered" >  conditions,</span>
 <span class="cstat-no" title="statement not covered" >}: Props) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
 <span class="cstat-no" title="statement not covered" >    &lt;section className='bg-white px-5 pt-6 pb-4'&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;DescriptionProfile conditions={conditions} hostInfo={createdBy} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;DescriptionProfile</span>
+<span class="cstat-no" title="statement not covered" >        conditions={{ isHost: myMembership?.role === 'HOST', isPast: status === 'FINISHED' }}</span>
+<span class="cstat-no" title="statement not covered" >        hostInfo={createdBy}</span>
+<span class="cstat-no" title="statement not covered" >      /&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;DescriptionTitle title={title} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;DescriptionTags tags={tags} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;DescriptionDetail detail={description} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;DescriptionSetting setting={{ location, startTime }} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;DescriptionSetting setting={{ address, startTime }} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;DescriptionProgress createdAt={createdAt} progress={{ maxParticipants, participantCount }} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/section&gt;</span>
 <span class="cstat-no" title="statement not covered" >  );</span>
@@ -232,7 +238,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-22T05:56:43.337Z
+                at 2025-12-22T06:48:22.207Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

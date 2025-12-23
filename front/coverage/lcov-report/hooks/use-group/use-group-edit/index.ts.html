@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for hooks/use-group/use-group-attend/index.ts</title>
+    <title>Code coverage report for hooks/use-group/use-group-edit/index.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">hooks/use-group/use-group-attend</a> index.ts</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">hooks/use-group/use-group-edit</a> index.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -111,20 +111,20 @@
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { API } from '@/api';</span>
 <span class="cstat-no" title="statement not covered" >import { groupKeys } from '@/lib/query-key/query-key-group';</span>
-<span class="cstat-no" title="statement not covered" >import { GroupIdParams } from '@/types/service/group';</span>
+<span class="cstat-no" title="statement not covered" >import { CreateGroupPayload, GroupIdParams } from '@/types/service/group';</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export const useAttendGroup = (params: GroupIdParams, callback: () =&gt; void) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >export const useEditGroup = (params: GroupIdParams) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const queryClient = useQueryClient();</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  const query = useMutation({</span>
-<span class="cstat-no" title="statement not covered" >    mutationFn: () =&gt; API.groupService.attendGroup(params),</span>
+<span class="cstat-no" title="statement not covered" >    mutationFn: (payload: CreateGroupPayload) =&gt; API.groupService.editGroup(params, payload),</span>
 <span class="cstat-no" title="statement not covered" >    onSuccess: async () =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      await queryClient.invalidateQueries({ queryKey: groupKeys.detail(params.groupId) });</span>
-<span class="cstat-no" title="statement not covered" >      callback();</span>
-<span class="cstat-no" title="statement not covered" >      console.log('모임 참여 성공.');</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >      console.log('모임 생성 성공.');</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
 <span class="cstat-no" title="statement not covered" >    onError: () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      console.log('모임 참여 실패.');</span>
+<span class="cstat-no" title="statement not covered" >      console.log('모임 생성 실패.');</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
 <span class="cstat-no" title="statement not covered" >  });</span>
 <span class="cstat-no" title="statement not covered" >  return query;</span>

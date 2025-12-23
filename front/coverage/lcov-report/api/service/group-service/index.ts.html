@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50.76% </span>
+                <span class="strong">50.72% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>33/65</span>
+                <span class='fraction'>35/69</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">10% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/9</span>
+                <span class='fraction'>1/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50.76% </span>
+                <span class="strong">50.72% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>33/65</span>
+                <span class='fraction'>35/69</span>
             </div>
         
             
@@ -128,7 +128,11 @@
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -168,6 +172,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -202,7 +210,7 @@ import {
   GetGroupsResponse,
   GetMyGroupsPayload,
   GetMyGroupsResponse,
-  GroupIdPayload,
+  GroupIdParams,
   PreUploadGroupImageResponse,
 } from '@/types/service/group';
 &nbsp;
@@ -238,20 +246,24 @@ export const groupServiceRemote = () =&gt; ({
 <span class="cstat-no" title="statement not covered" >    return apiV2.post&lt;CreateGroupResponse&gt;('/groups/create', payload);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
-  getGroupDetails: <span class="fstat-no" title="function not covered" >(payload: GroupIdPayload) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return apiV2.get&lt;GetGroupDetailsResponse&gt;(`/groups/${payload.groupId}`);</span>
+  editGroup: <span class="fstat-no" title="function not covered" >(params: GroupIdParams, payload: CreateGroupPayload) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return apiV2.patch&lt;CreateGroupResponse&gt;(`/groups/${params.groupId}`, payload);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
-  attendGroup: <span class="fstat-no" title="function not covered" >(payload: GroupIdPayload) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return apiV2.post&lt;GetGroupDetailsResponse&gt;(`/groups/${payload.groupId}/attend`);</span>
+  getGroupDetails: <span class="fstat-no" title="function not covered" >(params: GroupIdParams) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return apiV2.get&lt;GetGroupDetailsResponse&gt;(`/groups/${params.groupId}`);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
-  leaveGroup: <span class="fstat-no" title="function not covered" >(payload: GroupIdPayload) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return apiV2.post&lt;GetGroupDetailsResponse&gt;(`/groups/${payload.groupId}/left`);</span>
+  attendGroup: <span class="fstat-no" title="function not covered" >(params: GroupIdParams) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return apiV2.post&lt;GetGroupDetailsResponse&gt;(`/groups/${params.groupId}/attend`);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
-  deleteGroup: <span class="fstat-no" title="function not covered" >(payload: GroupIdPayload) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return apiV2.delete(`/groups/${payload.groupId}`);</span>
+  leaveGroup: <span class="fstat-no" title="function not covered" >(params: GroupIdParams) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return apiV2.post&lt;GetGroupDetailsResponse&gt;(`/groups/${params.groupId}/left`);</span>
+<span class="cstat-no" title="statement not covered" >  },</span>
+&nbsp;
+  deleteGroup: <span class="fstat-no" title="function not covered" >(params: GroupIdParams) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return apiV2.delete(`/groups/${params.groupId}`);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   uploadGroupImages: <span class="fstat-no" title="function not covered" >(payload: FormData) =&gt; {</span>
@@ -265,7 +277,7 @@ export const groupServiceRemote = () =&gt; ({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-23T06:45:57.170Z
+                at 2025-12-23T11:01:48.997Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

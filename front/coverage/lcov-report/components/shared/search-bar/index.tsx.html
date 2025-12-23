@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">20.77% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/77</span>
+                <span class='fraction'>16/77</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">20.77% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/77</span>
+                <span class='fraction'>16/77</span>
             </div>
         
             
@@ -140,7 +140,22 @@
 <a name='L75'></a><a href='#L75'>75</a>
 <a name='L76'></a><a href='#L76'>76</a>
 <a name='L77'></a><a href='#L77'>77</a>
-<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -202,37 +217,22 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >'use client';</span></span></span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import { ChangeEvent, InputHTMLAttributes, KeyboardEvent, useState } from 'react';</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import { Icon } from '@/components/icon';</span>
-<span class="cstat-no" title="statement not covered" >import { Input } from '@/components/ui';</span>
-<span class="cstat-no" title="statement not covered" >import { cn } from '@/lib/utils';</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >interface SearchBarProps extends Omit&lt;InputHTMLAttributes&lt;HTMLInputElement&gt;, 'value' | 'onChange'&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  onSearch?: (value: string) =&gt; void;</span>
-<span class="cstat-no" title="statement not covered" >  onChange?: (value: string) =&gt; void;</span>
-<span class="cstat-no" title="statement not covered" >  value?: string;</span>
-<span class="cstat-no" title="statement not covered" >  defaultValue?: string;</span>
-<span class="cstat-no" title="statement not covered" >}</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export const SearchBar = ({</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use client';
+&nbsp;
+import { ChangeEvent, InputHTMLAttributes, KeyboardEvent, useState } from 'react';
+&nbsp;
+import { Icon } from '@/components/icon';
+import { Input } from '@/components/ui';
+import { cn } from '@/lib/utils';
+&nbsp;
+interface SearchBarProps extends Omit&lt;InputHTMLAttributes&lt;HTMLInputElement&gt;, 'value' | 'onChange'&gt; {
+  onSearch?: (value: string) =&gt; void;
+  onChange?: (value: string) =&gt; void;
+  value?: string;
+  defaultValue?: string;
+}
+&nbsp;
+export const SearchBar = <span class="fstat-no" title="function not covered" >({</span>
 <span class="cstat-no" title="statement not covered" >  className,</span>
 <span class="cstat-no" title="statement not covered" >  placeholder = '검색어를 입력하세요',</span>
 <span class="cstat-no" title="statement not covered" >  onSearch,</span>
@@ -301,7 +301,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-22T11:37:49.468Z
+                at 2025-12-23T00:10:55.686Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

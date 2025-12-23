@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">34.61% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/26</span>
+                <span class='fraction'>26/26</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">34.61% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/26</span>
+                <span class='fraction'>26/26</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -98,23 +98,23 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-yes">68x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { AnyFieldApi } from '@tanstack/react-form';
 &nbsp;
 import { Hint, Input, Label } from '@/components/ui';
@@ -123,24 +123,24 @@ interface Props {
   field: AnyFieldApi;
 }
 &nbsp;
-export const MessageField = <span class="fstat-no" title="function not covered" >({ field }: Props) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const isInvalid = field.state.meta.isTouched &amp;&amp; !field.state.meta.isValid;</span>
-<span class="cstat-no" title="statement not covered" >  const fieldId = 'profile-message';</span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;div className='mt-3 flex w-full flex-col gap-1'&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;Label htmlFor={fieldId}&gt;한 줄 소개&lt;/Label&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;Input</span>
-<span class="cstat-no" title="statement not covered" >        id={fieldId}</span>
-<span class="cstat-no" title="statement not covered" >        className='bg-mono-white focus:border-mint-500 rounded-2xl border border-gray-300'</span>
-<span class="cstat-no" title="statement not covered" >        placeholder='한 줄 소개를 입력해주세요'</span>
-<span class="cstat-no" title="statement not covered" >        type='text'</span>
-<span class="cstat-no" title="statement not covered" >        value={field.state.value}</span>
-<span class="cstat-no" title="statement not covered" >        onChange={(e) =&gt; field.handleChange(e.target.value)}</span>
-<span class="cstat-no" title="statement not covered" >      /&gt;</span>
-<span class="cstat-no" title="statement not covered" >      {isInvalid &amp;&amp; &lt;Hint message={field.state.meta.errors[0].message} /&gt;}</span>
-<span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" >};</span>
+export const MessageField = ({ field }: Props) =&gt; {
+  const isInvalid = field.state.meta.isTouched &amp;&amp; !field.state.meta.isValid;
+  const fieldId = 'profile-message';
+  return (
+    &lt;div className='mt-3 flex w-full flex-col gap-1'&gt;
+      &lt;Label htmlFor={fieldId}&gt;한 줄 소개&lt;/Label&gt;
+      &lt;Input
+        id={fieldId}
+        className='bg-mono-white focus:border-mint-500 rounded-2xl border border-gray-300'
+        placeholder='한 줄 소개를 입력해주세요'
+        type='text'
+        value={field.state.value}
+        onChange={(e) =&gt; field.handleChange(e.target.value)}
+      /&gt;
+      {isInvalid &amp;&amp; &lt;Hint message={field.state.meta.errors[0].message} /&gt;}
+    &lt;/div&gt;
+  );
+};
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -148,7 +148,7 @@ export const MessageField = <span class="fstat-no" title="function not covered" 
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-23T00:10:55.686Z
+                at 2025-12-23T06:45:57.170Z
             </div>
         <script src="../../../../../../prettify.js"></script>
         <script>

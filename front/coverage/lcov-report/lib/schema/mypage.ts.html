@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.22% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>26/36</span>
+                <span class='fraction'>36/36</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">76.47% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>13/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
-                <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.22% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>26/36</span>
+                <span class='fraction'>36/36</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -118,21 +118,21 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">20x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { z } from 'zod';
@@ -153,23 +153,23 @@ export const profileMessageOnChangeSchema = z
   .max(20, '소개글은 20글자까지 작성 가능합니다.');
 &nbsp;
 export const mbtiOnChangeSchema = z.string().refine(
-<span class="fstat-no" title="function not covered" >  (val) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (val === '') return true;</span>
-<span class="cstat-no" title="statement not covered" >    if (val.length &gt;= 1 &amp;&amp; !['I', 'E', 'i', 'e'].includes(val[0])) return false;</span>
-<span class="cstat-no" title="statement not covered" >    if (val.length &gt;= 2 &amp;&amp; !['S', 'N', 's', 'n'].includes(val[1])) return false;</span>
-<span class="cstat-no" title="statement not covered" >    if (val.length &gt;= 3 &amp;&amp; !['T', 'F', 't', 'f'].includes(val[2])) return false;</span>
-<span class="cstat-no" title="statement not covered" >    if (val.length === 4 &amp;&amp; !['J', 'P', 'j', 'p'].includes(val[3])) return false;</span>
-<span class="cstat-no" title="statement not covered" >    return true;</span>
-<span class="cstat-no" title="statement not covered" >  },</span>
-  { message: '유효한 MBTI가 아닙니다' },
+  (val) =&gt; {
+    if (val === '') return true;
+    if (val.length &gt;= 1 &amp;&amp; !['I', 'E', 'i', 'e'].includes(val[0])) return false;
+    if (val.length &gt;= 2 &amp;&amp; !['S', 'N', 's', 'n'].includes(val[1])) <span class="branch-0 cbranch-no" title="branch not covered" >return false;</span>
+    if (val.length &gt;= 3 &amp;&amp; !['T', 'F', 't', 'f'].includes(val[2])) <span class="branch-0 cbranch-no" title="branch not covered" >return false;</span>
+    if (val.length === 4 &amp;&amp; !['J', 'P', 'j', 'p'].includes(val[3])) <span class="branch-0 cbranch-no" title="branch not covered" >return false;</span>
+    return true;
+  },
+  { message: '유효한 MBTI가 아닙니다.' },
 );
 &nbsp;
 export const mbtiOnBlurSchema = z.string().refine(
-<span class="fstat-no" title="function not covered" >  (val) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (val === '') return true;</span>
-<span class="cstat-no" title="statement not covered" >    return val.length === 4 &amp;&amp; /^[IEie][SNsn][TFtf][JPjp]$/.test(val);</span>
-<span class="cstat-no" title="statement not covered" >  },</span>
-  { message: 'MBTI 4글자를 모두 입력해주세요' },
+  (val) =&gt; {
+    if (val === '') <span class="branch-0 cbranch-no" title="branch not covered" >return true;</span>
+    return val.length === 4 &amp;&amp; /^[IEie][SNsn][TFtf][JPjp]$/.test(val);
+  },
+  { message: '유효한 MBTI가 아닙니다.' },
 );
 &nbsp;</pre></td></tr></table></pre>
 
@@ -178,7 +178,7 @@ export const mbtiOnBlurSchema = z.string().refine(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-23T00:10:55.686Z
+                at 2025-12-23T06:45:57.170Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

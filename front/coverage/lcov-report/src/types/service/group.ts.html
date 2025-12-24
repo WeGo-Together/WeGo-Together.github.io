@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/206</span>
+                <span class='fraction'>0/235</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/206</span>
+                <span class='fraction'>0/235</span>
             </div>
         
             
@@ -269,7 +269,36 @@
 <a name='L204'></a><a href='#L204'>204</a>
 <a name='L205'></a><a href='#L205'>205</a>
 <a name='L206'></a><a href='#L206'>206</a>
-<a name='L207'></a><a href='#L207'>207</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L207'></a><a href='#L207'>207</a>
+<a name='L208'></a><a href='#L208'>208</a>
+<a name='L209'></a><a href='#L209'>209</a>
+<a name='L210'></a><a href='#L210'>210</a>
+<a name='L211'></a><a href='#L211'>211</a>
+<a name='L212'></a><a href='#L212'>212</a>
+<a name='L213'></a><a href='#L213'>213</a>
+<a name='L214'></a><a href='#L214'>214</a>
+<a name='L215'></a><a href='#L215'>215</a>
+<a name='L216'></a><a href='#L216'>216</a>
+<a name='L217'></a><a href='#L217'>217</a>
+<a name='L218'></a><a href='#L218'>218</a>
+<a name='L219'></a><a href='#L219'>219</a>
+<a name='L220'></a><a href='#L220'>220</a>
+<a name='L221'></a><a href='#L221'>221</a>
+<a name='L222'></a><a href='#L222'>222</a>
+<a name='L223'></a><a href='#L223'>223</a>
+<a name='L224'></a><a href='#L224'>224</a>
+<a name='L225'></a><a href='#L225'>225</a>
+<a name='L226'></a><a href='#L226'>226</a>
+<a name='L227'></a><a href='#L227'>227</a>
+<a name='L228'></a><a href='#L228'>228</a>
+<a name='L229'></a><a href='#L229'>229</a>
+<a name='L230'></a><a href='#L230'>230</a>
+<a name='L231'></a><a href='#L231'>231</a>
+<a name='L232'></a><a href='#L232'>232</a>
+<a name='L233'></a><a href='#L233'>233</a>
+<a name='L234'></a><a href='#L234'>234</a>
+<a name='L235'></a><a href='#L235'>235</a>
+<a name='L236'></a><a href='#L236'>236</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -475,33 +504,95 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >// 모임 목록 조회 응답 (GET /api/v1/groups)</span></span></span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >// Group V2 공통 타입</span></span></span>
+<span class="cstat-no" title="statement not covered" >export type GroupV2Status = 'RECRUITING' | 'FULL' | 'CLOSED' | 'CANCELLED' | 'FINISHED';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >export type GroupV2JoinPolicy = 'FREE' | 'APPROVAL_REQUIRED';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >export type GroupV2ListFilter = 'ACTIVE' | 'ARCHIVED' | 'ALL';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >export type GroupUserV2Status = 'ATTEND' | 'LEFT' | 'KICKED' | 'BANNED' | 'PENDING' | 'REJECTED';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >export interface GroupV2Membership {</span>
+<span class="cstat-no" title="statement not covered" >  groupUserId: number;</span>
+<span class="cstat-no" title="statement not covered" >  role: 'HOST' | 'MANAGER' | 'MEMBER';</span>
+<span class="cstat-no" title="statement not covered" >  status: GroupUserV2Status;</span>
+<span class="cstat-no" title="statement not covered" >  joinedAt: string;</span>
+<span class="cstat-no" title="statement not covered" >  leftAt: string | null;</span>
+<span class="cstat-no" title="statement not covered" >}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >// 모임 목록 조회 응답 (GET /api/v2/groups, GET /api/v2/groups/me)</span>
 <span class="cstat-no" title="statement not covered" >export interface GroupListItemResponse {</span>
 <span class="cstat-no" title="statement not covered" >  id: number;</span>
 <span class="cstat-no" title="statement not covered" >  title: string;</span>
+<span class="cstat-no" title="statement not covered" >  // v2 추가 필드</span>
+<span class="cstat-no" title="statement not covered" >  joinPolicy: GroupV2JoinPolicy;</span>
+<span class="cstat-no" title="statement not covered" >  status: GroupV2Status;</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  location: string;</span>
 <span class="cstat-no" title="statement not covered" >  locationDetail?: string | null;</span>
 <span class="cstat-no" title="statement not covered" >  startTime: string; // ISO 8601 형식: "2026-12-25T19:00:00"</span>
 <span class="cstat-no" title="statement not covered" >  endTime?: string | null; // ISO 8601 형식: "2026-12-25T21:00:00"</span>
-<span class="cstat-no" title="statement not covered" >  images: string[];</span>
+<span class="cstat-no" title="statement not covered" >  images: string[]; // CARD_440_240 URL 배열 (최대 3개)</span>
 <span class="cstat-no" title="statement not covered" >  tags: string[];</span>
 <span class="cstat-no" title="statement not covered" >  description: string;</span>
 <span class="cstat-no" title="statement not covered" >  participantCount: number;</span>
 <span class="cstat-no" title="statement not covered" >  maxParticipants: number;</span>
+<span class="cstat-no" title="statement not covered" >  // v2 추가 필드</span>
+<span class="cstat-no" title="statement not covered" >  remainingSeats: number;</span>
+<span class="cstat-no" title="statement not covered" >  joinable: boolean;</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  createdBy: {</span>
 <span class="cstat-no" title="statement not covered" >    userId: number;</span>
 <span class="cstat-no" title="statement not covered" >    nickName: string;</span>
 <span class="cstat-no" title="statement not covered" >    profileImage: string | null;</span>
+<span class="cstat-no" title="statement not covered" >    profileMessage?: string | null;</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" >  createdAt: string; // ISO 8601 형식</span>
 <span class="cstat-no" title="statement not covered" >  updatedAt: string; // ISO 8601 형식</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  // /api/v2/groups/me 에서만 내려오는 필드 (목록에서는 선택적)</span>
+<span class="cstat-no" title="statement not covered" >  myMembership?: GroupV2Membership | null;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >// 모임 목록 조회 요청 파라미터</span>
+<span class="cstat-no" title="statement not covered" >// 모임 목록 조회 요청 파라미터 (GET /api/v2/groups)</span>
 <span class="cstat-no" title="statement not covered" >export interface GetGroupsPayload {</span>
 <span class="cstat-no" title="statement not covered" >  keyword?: string;</span>
 <span class="cstat-no" title="statement not covered" >  cursor?: number;</span>
 <span class="cstat-no" title="statement not covered" >  size: number;</span>
+<span class="cstat-no" title="statement not covered" >  // v2 필터 옵션들 (선택)</span>
+<span class="cstat-no" title="statement not covered" >  filter?: GroupV2ListFilter;</span>
+<span class="cstat-no" title="statement not covered" >  includeStatuses?: GroupV2Status[];</span>
+<span class="cstat-no" title="statement not covered" >  excludeStatuses?: GroupV2Status[];</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >// 모임 목록 조회 응답</span>
@@ -510,11 +601,16 @@
 <span class="cstat-no" title="statement not covered" >  nextCursor: number | null;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >// 내 모임 목록 조회 요청 파라미터 (GET /api/v1/groups/me)</span>
+<span class="cstat-no" title="statement not covered" >// 내 모임 목록 조회 요청 파라미터 (GET /api/v2/groups/me)</span>
 <span class="cstat-no" title="statement not covered" >export interface GetMyGroupsPayload {</span>
 <span class="cstat-no" title="statement not covered" >  type: 'current' | 'myPost' | 'past';</span>
 <span class="cstat-no" title="statement not covered" >  cursor?: number;</span>
 <span class="cstat-no" title="statement not covered" >  size: number;</span>
+<span class="cstat-no" title="statement not covered" >  // v2 필터 옵션들 (선택)</span>
+<span class="cstat-no" title="statement not covered" >  filter?: GroupV2ListFilter;</span>
+<span class="cstat-no" title="statement not covered" >  includeStatuses?: GroupV2Status[];</span>
+<span class="cstat-no" title="statement not covered" >  excludeStatuses?: GroupV2Status[];</span>
+<span class="cstat-no" title="statement not covered" >  myStatuses?: GroupUserV2Status[];</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >// 내 모임 목록 조회 응답</span>
@@ -578,13 +674,15 @@
 <span class="cstat-no" title="statement not covered" >    imageKey: string;</span>
 <span class="cstat-no" title="statement not covered" >    sortOrder: number;</span>
 <span class="cstat-no" title="statement not covered" >  }[];</span>
-<span class="cstat-no" title="statement not covered" >  joinPolicy: 'FREE' | 'APPROVE';</span>
+<span class="cstat-no" title="statement not covered" >  // v2 기준: FREE / APPROVAL_REQUIRED</span>
+<span class="cstat-no" title="statement not covered" >  joinPolicy: GroupV2JoinPolicy;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >export interface CreateGroupResponse {</span>
 <span class="cstat-no" title="statement not covered" >  id: number;</span>
 <span class="cstat-no" title="statement not covered" >  title: string;</span>
-<span class="cstat-no" title="statement not covered" >  status: 'RECRUITING' | 'FULL' | 'FINISHED';</span>
+<span class="cstat-no" title="statement not covered" >  // v2 상태 타입</span>
+<span class="cstat-no" title="statement not covered" >  status: GroupV2Status;</span>
 <span class="cstat-no" title="statement not covered" >  address: {</span>
 <span class="cstat-no" title="statement not covered" >    location: string;</span>
 <span class="cstat-no" title="statement not covered" >    locationDetail: string;</span>
@@ -600,16 +698,10 @@
 <span class="cstat-no" title="statement not covered" >  createdBy: {</span>
 <span class="cstat-no" title="statement not covered" >    userId: number;</span>
 <span class="cstat-no" title="statement not covered" >    nickName: string;</span>
-<span class="cstat-no" title="statement not covered" >    profileImage: string;</span>
-<span class="cstat-no" title="statement not covered" >    profileMessage: string;</span>
+<span class="cstat-no" title="statement not covered" >    profileImage: string | null;</span>
+<span class="cstat-no" title="statement not covered" >    profileMessage: string | null;</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
-<span class="cstat-no" title="statement not covered" >  myMembership?: {</span>
-<span class="cstat-no" title="statement not covered" >    groupUserId: number;</span>
-<span class="cstat-no" title="statement not covered" >    role: 'HOST' | 'MEMBER';</span>
-<span class="cstat-no" title="statement not covered" >    status: 'ATTEND' | 'LEFT';</span>
-<span class="cstat-no" title="statement not covered" >    joinedAt: string;</span>
-<span class="cstat-no" title="statement not covered" >    leftAt: string;</span>
-<span class="cstat-no" title="statement not covered" >  } | null;</span>
+<span class="cstat-no" title="statement not covered" >  myMembership?: GroupV2Membership | null;</span>
 <span class="cstat-no" title="statement not covered" >  images: {</span>
 <span class="cstat-no" title="statement not covered" >    groupImageId: number;</span>
 <span class="cstat-no" title="statement not covered" >    imageKey: string;</span>
@@ -628,19 +720,20 @@
 <span class="cstat-no" title="statement not covered" >export interface GetGroupDetailsResponse {</span>
 <span class="cstat-no" title="statement not covered" >  id: number;</span>
 <span class="cstat-no" title="statement not covered" >  title: string;</span>
-<span class="cstat-no" title="statement not covered" >  status: 'RECRUITING' | 'FULL' | 'FINISHED';</span>
+<span class="cstat-no" title="statement not covered" >  status: GroupV2Status;</span>
 <span class="cstat-no" title="statement not covered" >  address: {</span>
 <span class="cstat-no" title="statement not covered" >    location: string;</span>
 <span class="cstat-no" title="statement not covered" >    locationDetail: string;</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" >  startTime: string;</span>
-<span class="cstat-no" title="statement not covered" >  endTime: string;</span>
+<span class="cstat-no" title="statement not covered" >  endTime?: string | null;</span>
 <span class="cstat-no" title="statement not covered" >  images: {</span>
 <span class="cstat-no" title="statement not covered" >    groupImageId: number;</span>
 <span class="cstat-no" title="statement not covered" >    imageKey: string;</span>
 <span class="cstat-no" title="statement not covered" >    sortOrder: number;</span>
 <span class="cstat-no" title="statement not covered" >    variants: {</span>
 <span class="cstat-no" title="statement not covered" >      variantId: number;</span>
+<span class="cstat-no" title="statement not covered" >      // v2 이미지 타입</span>
 <span class="cstat-no" title="statement not covered" >      type: 'CARD_440_240' | 'THUMBNAIL_100_100';</span>
 <span class="cstat-no" title="statement not covered" >      width: number;</span>
 <span class="cstat-no" title="statement not covered" >      height: number;</span>
@@ -655,26 +748,20 @@
 <span class="cstat-no" title="statement not covered" >  createdBy: {</span>
 <span class="cstat-no" title="statement not covered" >    userId: number;</span>
 <span class="cstat-no" title="statement not covered" >    nickName: string;</span>
-<span class="cstat-no" title="statement not covered" >    profileImage: string;</span>
-<span class="cstat-no" title="statement not covered" >    profileMessage: string;</span>
+<span class="cstat-no" title="statement not covered" >    profileImage: string | null;</span>
+<span class="cstat-no" title="statement not covered" >    profileMessage: string | null;</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" >  createdAt: string;</span>
 <span class="cstat-no" title="statement not covered" >  updatedAt: string;</span>
-<span class="cstat-no" title="statement not covered" >  myMembership?: {</span>
-<span class="cstat-no" title="statement not covered" >    groupUserId: number;</span>
-<span class="cstat-no" title="statement not covered" >    role: 'HOST' | 'MEMBER';</span>
-<span class="cstat-no" title="statement not covered" >    status: 'ATTEND' | 'LEFT';</span>
-<span class="cstat-no" title="statement not covered" >    joinedAt: string;</span>
-<span class="cstat-no" title="statement not covered" >    leftAt: string;</span>
-<span class="cstat-no" title="statement not covered" >  } | null;</span>
+<span class="cstat-no" title="statement not covered" >  myMembership?: GroupV2Membership | null;</span>
 <span class="cstat-no" title="statement not covered" >  joinedMembers: {</span>
-<span class="cstat-no" title="statement not covered" >    userId: 0;</span>
-<span class="cstat-no" title="statement not covered" >    groupRole: 'HOST' | 'MEMBER';</span>
-<span class="cstat-no" title="statement not covered" >    status: 'ATTEND' | 'LEFT';</span>
+<span class="cstat-no" title="statement not covered" >    userId: number;</span>
+<span class="cstat-no" title="statement not covered" >    role: 'HOST' | 'MANAGER' | 'MEMBER';</span>
+<span class="cstat-no" title="statement not covered" >    status: GroupUserV2Status;</span>
 <span class="cstat-no" title="statement not covered" >    nickName: string;</span>
-<span class="cstat-no" title="statement not covered" >    profileImage: string;</span>
+<span class="cstat-no" title="statement not covered" >    profileImage: string | null;</span>
 <span class="cstat-no" title="statement not covered" >    joinedAt: string;</span>
-<span class="cstat-no" title="statement not covered" >    leftAt: string;</span>
+<span class="cstat-no" title="statement not covered" >    leftAt: string | null;</span>
 <span class="cstat-no" title="statement not covered" >  }[];</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -688,7 +775,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-24T01:50:58.140Z
+                at 2025-12-24T02:45:51.663Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/110</span>
+                <span class='fraction'>0/93</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/110</span>
+                <span class='fraction'>0/93</span>
             </div>
         
             
@@ -156,24 +156,7 @@
 <a name='L91'></a><a href='#L91'>91</a>
 <a name='L92'></a><a href='#L92'>92</a>
 <a name='L93'></a><a href='#L93'>93</a>
-<a name='L94'></a><a href='#L94'>94</a>
-<a name='L95'></a><a href='#L95'>95</a>
-<a name='L96'></a><a href='#L96'>96</a>
-<a name='L97'></a><a href='#L97'>97</a>
-<a name='L98'></a><a href='#L98'>98</a>
-<a name='L99'></a><a href='#L99'>99</a>
-<a name='L100'></a><a href='#L100'>100</a>
-<a name='L101'></a><a href='#L101'>101</a>
-<a name='L102'></a><a href='#L102'>102</a>
-<a name='L103'></a><a href='#L103'>103</a>
-<a name='L104'></a><a href='#L104'>104</a>
-<a name='L105'></a><a href='#L105'>105</a>
-<a name='L106'></a><a href='#L106'>106</a>
-<a name='L107'></a><a href='#L107'>107</a>
-<a name='L108'></a><a href='#L108'>108</a>
-<a name='L109'></a><a href='#L109'>109</a>
-<a name='L110'></a><a href='#L110'>110</a>
-<a name='L111'></a><a href='#L111'>111</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L94'></a><a href='#L94'>94</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -266,43 +249,44 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import Link from 'next/link';</span></span></span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import { useRouter } from 'next/navigation';</span></span></span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { Icon } from '@/components/icon';</span>
+<span class="cstat-no" title="statement not covered" >import { useUpdateNotificationRead } from '@/hooks/use-notification/use-notification-update-read';</span>
 <span class="cstat-no" title="statement not covered" >import { formatTimeAgo } from '@/lib/formatDateTime';</span>
-<span class="cstat-no" title="statement not covered" >import { Notification, NotificationType } from '@/types/service/notification';</span>
+<span class="cstat-no" title="statement not covered" >import { cn } from '@/lib/utils';</span>
+<span class="cstat-no" title="statement not covered" >import { NotificationItem, NotificationType } from '@/types/service/notification';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >interface Props {</span>
-<span class="cstat-no" title="statement not covered" >  data: Notification;</span>
+<span class="cstat-no" title="statement not covered" >  item: NotificationItem;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export const NotificationCard = ({ data }: Props) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const NotificationIcon = IconMap[data.type];</span>
-<span class="cstat-no" title="statement not covered" >  const title = getTitle(data);</span>
-<span class="cstat-no" title="statement not covered" >  const description = getDescription(data);</span>
-<span class="cstat-no" title="statement not covered" >  const route = getRoute(data);</span>
-<span class="cstat-no" title="statement not covered" >  const routeCaption = getRouteCaption(data);</span>
-<span class="cstat-no" title="statement not covered" >  const timeAgo = getTimeAgo(data);</span>
+<span class="cstat-no" title="statement not covered" >export const NotificationCard = ({ item }: Props) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const router = useRouter();</span>
+<span class="cstat-no" title="statement not covered" >  const { mutateAsync } = useUpdateNotificationRead();</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const NotificationIcon = IconMap[item.type];</span>
+<span class="cstat-no" title="statement not covered" >  const title = getTitle(item);</span>
+<span class="cstat-no" title="statement not covered" >  const description = getDescription(item);</span>
+<span class="cstat-no" title="statement not covered" >  const timeAgo = getTimeAgo(item);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const handleNotificationClick = () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >      mutateAsync(item.id);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >      router.push(`${item.redirectUrl}`);</span>
+<span class="cstat-no" title="statement not covered" >    } catch {}</span>
+<span class="cstat-no" title="statement not covered" >  };</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;article className='bg-mono-white flex flex-row gap-3 px-5 py-6'&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className='flex-center mt-0.5 size-10 shrink-0 rounded-xl bg-gray-100'&gt;</span>
+<span class="cstat-no" title="statement not covered" >    &lt;article</span>
+<span class="cstat-no" title="statement not covered" >      className={cn(</span>
+<span class="cstat-no" title="statement not covered" >        'bg-mono-white flex cursor-pointer flex-row gap-3 px-5 py-6',</span>
+<span class="cstat-no" title="statement not covered" >        !item.readAt &amp;&amp; 'bg-mint-100',</span>
+<span class="cstat-no" title="statement not covered" >      )}</span>
+<span class="cstat-no" title="statement not covered" >      onClick={handleNotificationClick}</span>
+<span class="cstat-no" title="statement not covered" >    &gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;div className={cn('flex-center mt-0.5 size-10 shrink-0 rounded-xl bg-gray-100')}&gt;</span>
 <span class="cstat-no" title="statement not covered" >        {NotificationIcon}</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;div className='w-full'&gt;</span>
@@ -311,85 +295,50 @@
 <span class="cstat-no" title="statement not covered" >          &lt;span className='text-text-xs-medium text-gray-500'&gt;{timeAgo}&lt;/span&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;p className='text-gray-600'&gt;{description}&lt;/p&gt;</span>
-<span class="cstat-no" title="statement not covered" >        {route &amp;&amp; (</span>
-<span class="cstat-no" title="statement not covered" >          &lt;Link href={route} className='text-mint-500'&gt;</span>
-<span class="cstat-no" title="statement not covered" >            {routeCaption}</span>
-<span class="cstat-no" title="statement not covered" >          &lt;/Link&gt;</span>
-<span class="cstat-no" title="statement not covered" >        )}</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/article&gt;</span>
 <span class="cstat-no" title="statement not covered" >  );</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >const IconMap: Record&lt;NotificationType, React.ReactNode&gt; = {</span>
-<span class="cstat-no" title="statement not covered" >  follow: &lt;Icon id='heart' className='text-mint-500 size-6' /&gt;,</span>
-<span class="cstat-no" title="statement not covered" >  'group-create': &lt;Icon id='map-pin-2' className='size-6 text-[#FFBA1A]' /&gt;,</span>
-<span class="cstat-no" title="statement not covered" >  'group-delete': &lt;Icon id='x-2' className='size-6 text-gray-500' /&gt;,</span>
-<span class="cstat-no" title="statement not covered" >  'group-join': &lt;Icon id='symbol' className='text-mint-500 size-6' /&gt;,</span>
-<span class="cstat-no" title="statement not covered" >  'group-leave': &lt;Icon id='x-2' className='size-6 text-gray-500' /&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  FOLLOW: &lt;Icon id='heart' className='text-mint-500 size-6' /&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  CREATE: &lt;Icon id='map-pin-2' className='size-6 text-[#FFBA1A]' /&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  CANCLE: &lt;Icon id='x-2' className='size-6 text-gray-500' /&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  ENTER: &lt;Icon id='symbol' className='text-mint-500 size-6' /&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  EXIT: &lt;Icon id='x-2' className='size-6 text-gray-500' /&gt;,</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >const getTitle = (data: Notification) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >const getTitle = (data: NotificationItem) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  switch (data.type) {</span>
-<span class="cstat-no" title="statement not covered" >    case 'follow':</span>
+<span class="cstat-no" title="statement not covered" >    case 'FOLLOW':</span>
 <span class="cstat-no" title="statement not covered" >      return `새 팔로워`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-create':</span>
+<span class="cstat-no" title="statement not covered" >    case 'CREATE':</span>
 <span class="cstat-no" title="statement not covered" >      return `모임 생성`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-delete':</span>
+<span class="cstat-no" title="statement not covered" >    case 'CANCLE':</span>
 <span class="cstat-no" title="statement not covered" >      return `모임 취소`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-join':</span>
+<span class="cstat-no" title="statement not covered" >    case 'ENTER':</span>
 <span class="cstat-no" title="statement not covered" >      return `모임 현황`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-leave':</span>
+<span class="cstat-no" title="statement not covered" >    case 'EXIT':</span>
 <span class="cstat-no" title="statement not covered" >      return `모임 현황`;</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >const getDescription = (data: Notification) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >const getDescription = (data: NotificationItem) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  switch (data.type) {</span>
-<span class="cstat-no" title="statement not covered" >    case 'follow':</span>
-<span class="cstat-no" title="statement not covered" >      return `${data.user.nickName} 님이 팔로우 했습니다.`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-create':</span>
-<span class="cstat-no" title="statement not covered" >      return `${data.user.nickName} 님이 "${data.group?.title}" 모임을 생성했습니다.`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-delete':</span>
-<span class="cstat-no" title="statement not covered" >      return `${data.user.nickName} 님이 "${data.group?.title}" 모임을 취소했습니다.`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-join':</span>
-<span class="cstat-no" title="statement not covered" >      return `${data.user.nickName} 님이 "${data.group?.title}" 모임에 참가했습니다.`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-leave':</span>
-<span class="cstat-no" title="statement not covered" >      return `${data.user.nickName} 님이 "${data.group?.title}" 모임을 떠났습니다.`;</span>
+<span class="cstat-no" title="statement not covered" >    case 'FOLLOW':</span>
+<span class="cstat-no" title="statement not covered" >      return `${data.actorNickname} 님이 팔로우 했습니다.`;</span>
+<span class="cstat-no" title="statement not covered" >    case 'CREATE':</span>
+<span class="cstat-no" title="statement not covered" >      return `${data.actorNickname} 님이 "${data.actorNickname}" 모임을 생성했습니다.`;</span>
+<span class="cstat-no" title="statement not covered" >    case 'CANCLE':</span>
+<span class="cstat-no" title="statement not covered" >      return `${data.actorNickname} 님이 "${data.actorNickname}" 모임을 취소했습니다.`;</span>
+<span class="cstat-no" title="statement not covered" >    case 'ENTER':</span>
+<span class="cstat-no" title="statement not covered" >      return `${data.actorNickname} 님이 "${data.actorNickname}" 모임에 참가했습니다.`;</span>
+<span class="cstat-no" title="statement not covered" >    case 'EXIT':</span>
+<span class="cstat-no" title="statement not covered" >      return `${data.actorNickname} 님이 "${data.actorNickname}" 모임을 떠났습니다.`;</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >const getRoute = (data: Notification) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  switch (data.type) {</span>
-<span class="cstat-no" title="statement not covered" >    case 'follow':</span>
-<span class="cstat-no" title="statement not covered" >      return `/profile/${data.user.userId}`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-create':</span>
-<span class="cstat-no" title="statement not covered" >      return `/profile/${data.user.userId}`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-delete':</span>
-<span class="cstat-no" title="statement not covered" >      return ``;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-join':</span>
-<span class="cstat-no" title="statement not covered" >      return `/meetup/${data.group?.id}`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-leave':</span>
-<span class="cstat-no" title="statement not covered" >      return ``;</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >};</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >const getRouteCaption = (data: Notification) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  switch (data.type) {</span>
-<span class="cstat-no" title="statement not covered" >    case 'follow':</span>
-<span class="cstat-no" title="statement not covered" >      return `프로필 바로가기`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-create':</span>
-<span class="cstat-no" title="statement not covered" >      return `프로필 바로가기`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-delete':</span>
-<span class="cstat-no" title="statement not covered" >      return ``;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-join':</span>
-<span class="cstat-no" title="statement not covered" >      return `모임 바로가기`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-leave':</span>
-<span class="cstat-no" title="statement not covered" >      return ``;</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >};</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >const getTimeAgo = (data: Notification) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >const getTimeAgo = (data: NotificationItem) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const { createdAt } = data;</span>
 <span class="cstat-no" title="statement not covered" >  return formatTimeAgo(createdAt);</span>
 <span class="cstat-no" title="statement not covered" >};</span>
@@ -400,7 +349,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-24T00:57:45.259Z
+                at 2025-12-24T01:50:58.140Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

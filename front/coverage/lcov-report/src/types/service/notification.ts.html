@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/16</span>
+                <span class='fraction'>0/25</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/16</span>
+                <span class='fraction'>0/25</span>
             </div>
         
             
@@ -79,7 +79,16 @@
 <a name='L14'></a><a href='#L14'>14</a>
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
-<a name='L17'></a><a href='#L17'>17</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -95,21 +104,39 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import { Group } from './group';</span></span></span>
-<span class="cstat-no" title="statement not covered" >import { User } from './user';</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >export type NotificationType = 'FOLLOW' | 'ENTER' | 'EXIT' | 'CREATE' | 'CANCLE';</span></span></span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export type NotificationType =</span>
-<span class="cstat-no" title="statement not covered" >  | 'follow'</span>
-<span class="cstat-no" title="statement not covered" >  | 'group-join'</span>
-<span class="cstat-no" title="statement not covered" >  | 'group-leave'</span>
-<span class="cstat-no" title="statement not covered" >  | 'group-create'</span>
-<span class="cstat-no" title="statement not covered" >  | 'group-delete';</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export interface Notification {</span>
+<span class="cstat-no" title="statement not covered" >export interface NotificationItem {</span>
+<span class="cstat-no" title="statement not covered" >  id: number;</span>
+<span class="cstat-no" title="statement not covered" >  receiverId: number;</span>
+<span class="cstat-no" title="statement not covered" >  actorId: number;</span>
+<span class="cstat-no" title="statement not covered" >  actorNickname: string;</span>
+<span class="cstat-no" title="statement not covered" >  actorProfileImage: string;</span>
 <span class="cstat-no" title="statement not covered" >  type: NotificationType;</span>
-<span class="cstat-no" title="statement not covered" >  user: User;</span>
-<span class="cstat-no" title="statement not covered" >  group?: Group;</span>
+<span class="cstat-no" title="statement not covered" >  readAt: string | null;</span>
+<span class="cstat-no" title="statement not covered" >  relatedId: number;</span>
+<span class="cstat-no" title="statement not covered" >  relatedType: NotificationType;</span>
+<span class="cstat-no" title="statement not covered" >  redirectUrl: string;</span>
 <span class="cstat-no" title="statement not covered" >  createdAt: string;</span>
+<span class="cstat-no" title="statement not covered" >}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >export interface NotificationList {</span>
+<span class="cstat-no" title="statement not covered" >  notifications: NotificationItem[];</span>
+<span class="cstat-no" title="statement not covered" >  nextCursor: number | null;</span>
+<span class="cstat-no" title="statement not covered" >}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >export interface GetNotificationListQueryParams {</span>
+<span class="cstat-no" title="statement not covered" >  cursor?: number;</span>
+<span class="cstat-no" title="statement not covered" >  size?: number;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;</pre></td></tr></table></pre>
 
@@ -118,7 +145,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-24T00:57:45.259Z
+                at 2025-12-24T01:50:58.140Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

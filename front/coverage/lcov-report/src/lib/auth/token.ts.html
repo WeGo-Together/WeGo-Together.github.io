@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">21.73% </span>
+                <span class="strong">18.75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/23</span>
+                <span class='fraction'>6/32</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">21.73% </span>
+                <span class="strong">18.75% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/23</span>
+                <span class='fraction'>6/32</span>
             </div>
         
             
@@ -86,7 +86,33 @@
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -97,19 +123,12 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const ACCESS_TOKEN_KEY = 'accessToken';
+const COOKIE_DOMAIN = '.wego.monster';
 &nbsp;
 export const setAccessToken = <span class="fstat-no" title="function not covered" >(token: string, maxAgeSeconds?: number) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  if (typeof document === 'undefined') return;</span>
@@ -117,7 +136,7 @@ export const setAccessToken = <span class="fstat-no" title="function not covered
 <span class="cstat-no" title="statement not covered" >  const parts = [</span>
 <span class="cstat-no" title="statement not covered" >    `${ACCESS_TOKEN_KEY}=${encodeURIComponent(token)}`,</span>
 <span class="cstat-no" title="statement not covered" >    'path=/',</span>
-<span class="cstat-no" title="statement not covered" >    'domain=.wego.monster',</span>
+<span class="cstat-no" title="statement not covered" >    `domain=${COOKIE_DOMAIN}`,</span>
 <span class="cstat-no" title="statement not covered" >  ];</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  if (typeof maxAgeSeconds === 'number' &amp;&amp; maxAgeSeconds &gt; 0) {</span>
@@ -130,6 +149,14 @@ export const setAccessToken = <span class="fstat-no" title="function not covered
 export const clearAccessToken = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  if (typeof document === 'undefined') return;</span>
 <span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  document.cookie = [</span>
+<span class="cstat-no" title="statement not covered" >    `${ACCESS_TOKEN_KEY}=`,</span>
+<span class="cstat-no" title="statement not covered" >    'Max-Age=0',</span>
+<span class="cstat-no" title="statement not covered" >    'Expires=Thu, 01 Jan 1970 00:00:00 GMT',</span>
+<span class="cstat-no" title="statement not covered" >    'path=/',</span>
+<span class="cstat-no" title="statement not covered" >    `domain=${COOKIE_DOMAIN}`,</span>
+<span class="cstat-no" title="statement not covered" >  ].join('; ');</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  document.cookie = `${ACCESS_TOKEN_KEY}=; Max-Age=0; path=/`;</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;</pre></td></tr></table></pre>
@@ -139,7 +166,7 @@ export const clearAccessToken = <span class="fstat-no" title="function not cover
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-24T06:44:40.358Z
+                at 2025-12-24T08:07:33.427Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

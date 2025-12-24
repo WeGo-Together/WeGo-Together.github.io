@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/18</span>
+                <span class='fraction'>0/25</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/18</span>
+                <span class='fraction'>0/25</span>
             </div>
         
             
@@ -81,7 +81,14 @@
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
-<a name='L19'></a><a href='#L19'>19</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -99,19 +106,33 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import Link from 'next/link';</span></span></span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >'use client';</span></span></span>
+<span class="cstat-no" title="statement not covered" >import Link from 'next/link';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { Icon } from '@/components/icon';</span>
+<span class="cstat-no" title="statement not covered" >import { useNotification } from '@/providers';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >export const Header = () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const { unReadCount } = useNotification();</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
 <span class="cstat-no" title="statement not covered" >    &lt;header className={`sticky top-0 z-100 w-full bg-white`}&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;nav className='flex-between px-4 py-2'&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;Link href={'/'}&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;Icon id='wego-logo' width={92} height={40} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/Link&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;Link href={'/notification'} className='flex-center h-10 w-10'&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;Link href={'/notification'} className='flex-center relative h-10 w-10'&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;Icon id='bell-read' className='size-10 text-gray-700' /&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;span className='bg-mint-500 text-mono-white text-text-2xs-semibold flex-center absolute top-1 right-1.75 aspect-square size-3.5 rounded-full'&gt;</span>
+<span class="cstat-no" title="statement not covered" >            {unReadCount}</span>
+<span class="cstat-no" title="statement not covered" >          &lt;/span&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/Link&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/nav&gt;</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/header&gt;</span>
@@ -124,7 +145,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-24T08:19:04.443Z
+                at 2025-12-24T08:22:29.352Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/93</span>
+                <span class='fraction'>0/94</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/93</span>
+                <span class='fraction'>0/94</span>
             </div>
         
             
@@ -156,7 +156,9 @@
 <a name='L91'></a><a href='#L91'>91</a>
 <a name='L92'></a><a href='#L92'>92</a>
 <a name='L93'></a><a href='#L93'>93</a>
-<a name='L94'></a><a href='#L94'>94</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -302,9 +304,9 @@
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >const IconMap: Record&lt;NotificationType, React.ReactNode&gt; = {</span>
 <span class="cstat-no" title="statement not covered" >  FOLLOW: &lt;Icon id='heart' className='text-mint-500 size-6' /&gt;,</span>
-<span class="cstat-no" title="statement not covered" >  CREATE: &lt;Icon id='map-pin-2' className='size-6 text-[#FFBA1A]' /&gt;,</span>
-<span class="cstat-no" title="statement not covered" >  CANCLE: &lt;Icon id='x-2' className='size-6 text-gray-500' /&gt;,</span>
-<span class="cstat-no" title="statement not covered" >  ENTER: &lt;Icon id='symbol' className='text-mint-500 size-6' /&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  GROUP_CREATE: &lt;Icon id='map-pin-2' className='size-6 text-[#FFBA1A]' /&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  GROUP_DELETE: &lt;Icon id='x-2' className='size-6 text-gray-500' /&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  GROUP_JOIN: &lt;Icon id='symbol' className='text-mint-500 size-6' /&gt;,</span>
 <span class="cstat-no" title="statement not covered" >  EXIT: &lt;Icon id='x-2' className='size-6 text-gray-500' /&gt;,</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -312,11 +314,11 @@
 <span class="cstat-no" title="statement not covered" >  switch (data.type) {</span>
 <span class="cstat-no" title="statement not covered" >    case 'FOLLOW':</span>
 <span class="cstat-no" title="statement not covered" >      return `새 팔로워`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'CREATE':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_CREATE':</span>
 <span class="cstat-no" title="statement not covered" >      return `모임 생성`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'CANCLE':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_DELETE':</span>
 <span class="cstat-no" title="statement not covered" >      return `모임 취소`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'ENTER':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_JOIN':</span>
 <span class="cstat-no" title="statement not covered" >      return `모임 현황`;</span>
 <span class="cstat-no" title="statement not covered" >    case 'EXIT':</span>
 <span class="cstat-no" title="statement not covered" >      return `모임 현황`;</span>
@@ -324,18 +326,19 @@
 <span class="cstat-no" title="statement not covered" >};</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >const getDescription = (data: NotificationItem) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  switch (data.type) {</span>
-<span class="cstat-no" title="statement not covered" >    case 'FOLLOW':</span>
-<span class="cstat-no" title="statement not covered" >      return `${data.actorNickname} 님이 팔로우 했습니다.`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'CREATE':</span>
-<span class="cstat-no" title="statement not covered" >      return `${data.actorNickname} 님이 "${data.actorNickname}" 모임을 생성했습니다.`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'CANCLE':</span>
-<span class="cstat-no" title="statement not covered" >      return `${data.actorNickname} 님이 "${data.actorNickname}" 모임을 취소했습니다.`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'ENTER':</span>
-<span class="cstat-no" title="statement not covered" >      return `${data.actorNickname} 님이 "${data.actorNickname}" 모임에 참가했습니다.`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'EXIT':</span>
-<span class="cstat-no" title="statement not covered" >      return `${data.actorNickname} 님이 "${data.actorNickname}" 모임을 떠났습니다.`;</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+<span class="cstat-no" title="statement not covered" >  // switch (data.type) {</span>
+<span class="cstat-no" title="statement not covered" >  //   case 'FOLLOW':</span>
+<span class="cstat-no" title="statement not covered" >  //     return `${data.actorNickname} 님이 팔로우 했습니다.`;</span>
+<span class="cstat-no" title="statement not covered" >  //   case 'GROUP_CREATE':</span>
+<span class="cstat-no" title="statement not covered" >  //     return `${data.actorNickname} 님이 "${data.actorNickname}" 모임을 생성했습니다.`;</span>
+<span class="cstat-no" title="statement not covered" >  //   case 'CANCLE':</span>
+<span class="cstat-no" title="statement not covered" >  //     return `${data.actorNickname} 님이 "${data.actorNickname}" 모임을 취소했습니다.`;</span>
+<span class="cstat-no" title="statement not covered" >  //   case 'ENTER':</span>
+<span class="cstat-no" title="statement not covered" >  //     return `${data.actorNickname} 님이 "${data.actorNickname}" 모임에 참가했습니다.`;</span>
+<span class="cstat-no" title="statement not covered" >  //   case 'EXIT':</span>
+<span class="cstat-no" title="statement not covered" >  //     return `${data.actorNickname} 님이 "${data.actorNickname}" 모임을 떠났습니다.`;</span>
+<span class="cstat-no" title="statement not covered" >  // }</span>
+<span class="cstat-no" title="statement not covered" >  return data.message;</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >const getTimeAgo = (data: NotificationItem) =&gt; {</span>
@@ -349,7 +352,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-26T14:27:32.466Z
+                at 2025-12-27T08:21:08.535Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

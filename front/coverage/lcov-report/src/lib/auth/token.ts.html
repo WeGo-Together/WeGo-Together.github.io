@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.75% </span>
+                <span class="strong">56.25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/32</span>
+                <span class='fraction'>18/32</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.75% </span>
+                <span class="strong">56.25% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/32</span>
+                <span class='fraction'>18/32</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -115,18 +115,18 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const ACCESS_TOKEN_KEY = 'accessToken';
 const COOKIE_DOMAIN = '.wego.monster';
 &nbsp;
@@ -146,19 +146,19 @@ export const setAccessToken = <span class="fstat-no" title="function not covered
 <span class="cstat-no" title="statement not covered" >  document.cookie = parts.join('; ');</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
-export const clearAccessToken = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  if (typeof document === 'undefined') return;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  document.cookie = [</span>
-<span class="cstat-no" title="statement not covered" >    `${ACCESS_TOKEN_KEY}=`,</span>
-<span class="cstat-no" title="statement not covered" >    'Max-Age=0',</span>
-<span class="cstat-no" title="statement not covered" >    'Expires=Thu, 01 Jan 1970 00:00:00 GMT',</span>
-<span class="cstat-no" title="statement not covered" >    'path=/',</span>
-<span class="cstat-no" title="statement not covered" >    `domain=${COOKIE_DOMAIN}`,</span>
-<span class="cstat-no" title="statement not covered" >  ].join('; ');</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  document.cookie = `${ACCESS_TOKEN_KEY}=; Max-Age=0; path=/`;</span>
-<span class="cstat-no" title="statement not covered" >};</span>
+export const clearAccessToken = () =&gt; {
+  if (typeof document === 'undefined') <span class="branch-0 cbranch-no" title="branch not covered" >return;</span>
+&nbsp;
+  document.cookie = [
+    `${ACCESS_TOKEN_KEY}=`,
+    'Max-Age=0',
+    'Expires=Thu, 01 Jan 1970 00:00:00 GMT',
+    'path=/',
+    `domain=${COOKIE_DOMAIN}`,
+  ].join('; ');
+&nbsp;
+  document.cookie = `${ACCESS_TOKEN_KEY}=; Max-Age=0; path=/`;
+};
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -166,7 +166,7 @@ export const clearAccessToken = <span class="fstat-no" title="function not cover
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-28T15:06:19.633Z
+                at 2025-12-29T04:01:20.545Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

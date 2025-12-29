@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/29</span>
+                <span class='fraction'>29/29</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/29</span>
+                <span class='fraction'>29/29</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -92,64 +92,64 @@
 <a name='L27'></a><a href='#L27'>27</a>
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >'use client';</span></span></span>
-<span class="cstat-no" title="statement not covered" >import { useLogout, useWithdraw } from '@/hooks/use-auth';</span>
-<span class="cstat-no" title="statement not covered" >import { useUpdateMyNotification } from '@/hooks/use-user/use-user-notification';</span>
-<span class="cstat-no" title="statement not covered" >import { User } from '@/types/service/user';</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import { MyPageActionButton, MyPageToggleButton } from '../mypage-setting-button';</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >interface Props {</span>
-<span class="cstat-no" title="statement not covered" >  user: User;</span>
-<span class="cstat-no" title="statement not covered" >}</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export const MyPageSetting = ({ user }: Props) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const { mutate } = useUpdateMyNotification();</span>
-<span class="cstat-no" title="statement not covered" >  const logout = useLogout();</span>
-<span class="cstat-no" title="statement not covered" >  const withdraw = useWithdraw();</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;section className='bg-mono-white flex flex-col gap-3 px-3 py-6'&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;MyPageToggleButton</span>
-<span class="cstat-no" title="statement not covered" >        value={user.isNotificationEnabled}</span>
-<span class="cstat-no" title="statement not covered" >        onClick={() =&gt; mutate({ isNotificationEnabled: !user.isNotificationEnabled })}</span>
-<span class="cstat-no" title="statement not covered" >      &gt;</span>
-<span class="cstat-no" title="statement not covered" >        알림 받기</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/MyPageToggleButton&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;MyPageActionButton onClick={logout}&gt;로그아웃&lt;/MyPageActionButton&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;MyPageActionButton onClick={withdraw}&gt;회원탈퇴&lt;/MyPageActionButton&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;/section&gt;</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" >};</span>
+<a name='L30'></a><a href='#L30'>30</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use client';
+import { useLogout, useWithdraw } from '@/hooks/use-auth';
+import { useUpdateMyNotification } from '@/hooks/use-user/use-user-notification';
+import { User } from '@/types/service/user';
+&nbsp;
+import { MyPageActionButton, MyPageToggleButton } from '../mypage-setting-button';
+&nbsp;
+interface Props {
+  user: User;
+}
+&nbsp;
+export const MyPageSetting = ({ user }: Props) =&gt; {
+  const { mutate } = useUpdateMyNotification();
+  const logout = useLogout();
+  const withdraw = useWithdraw();
+&nbsp;
+  return (
+    &lt;section className='bg-mono-white flex flex-col gap-3 px-3 py-6'&gt;
+      &lt;MyPageToggleButton
+        value={user.isNotificationEnabled}
+        onClick={() =&gt; mutate({ isNotificationEnabled: !user.isNotificationEnabled })}
+      &gt;
+        알림 받기
+      &lt;/MyPageToggleButton&gt;
+      &lt;MyPageActionButton onClick={logout}&gt;로그아웃&lt;/MyPageActionButton&gt;
+      &lt;MyPageActionButton onClick={withdraw}&gt;회원탈퇴&lt;/MyPageActionButton&gt;
+    &lt;/section&gt;
+  );
+};
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -157,7 +157,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-28T15:06:19.633Z
+                at 2025-12-29T04:01:20.545Z
             </div>
         <script src="../../../../../../prettify.js"></script>
         <script>

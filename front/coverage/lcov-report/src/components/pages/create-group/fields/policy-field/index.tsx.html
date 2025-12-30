@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/43</span>
+                <span class='fraction'>0/47</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/43</span>
+                <span class='fraction'>0/47</span>
             </div>
         
             
@@ -106,7 +106,15 @@
 <a name='L41'></a><a href='#L41'>41</a>
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -155,29 +163,33 @@
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >interface Props {</span>
 <span class="cstat-no" title="statement not covered" >  field: AnyFieldApi;</span>
+<span class="cstat-no" title="statement not covered" >  isEditMode: boolean;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export const GroupPolicyField = ({ field }: Props) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >export const GroupPolicyField = ({ field, isEditMode }: Props) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
 <span class="cstat-no" title="statement not covered" >    &lt;div className='mt-6 space-y-4'&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;Label htmlFor='create-group-policy'&gt;참여 방식&lt;/Label&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;Label htmlFor='create-group-joinPolicy'&gt;참여 방식&lt;/Label&gt;</span>
 <span class="cstat-no" title="statement not covered" >      {POLICY_OPTIONS.map(({ type, name, description }) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        return (</span>
-<span class="cstat-no" title="statement not covered" >          &lt;div key={name} className='flex items-start gap-2'&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;input</span>
-<span class="cstat-no" title="statement not covered" >              id={name}</span>
-<span class="cstat-no" title="statement not covered" >              className='size-6'</span>
-<span class="cstat-no" title="statement not covered" >              checked={field.state.value === type}</span>
-<span class="cstat-no" title="statement not covered" >              name='create-group-policy'</span>
-<span class="cstat-no" title="statement not covered" >              type='radio'</span>
-<span class="cstat-no" title="statement not covered" >              value={type}</span>
-<span class="cstat-no" title="statement not covered" >              onChange={(e) =&gt; field.handleChange(e.target.value)}</span>
-<span class="cstat-no" title="statement not covered" >            /&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;Label htmlFor={name}&gt;</span>
-<span class="cstat-no" title="statement not covered" >              &lt;p&gt;{name}&lt;/p&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;label key={name} className='flex gap-2 px-2 select-none'&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;span className='flex-center has-focus:border-mint-500 size-6 cursor-pointer rounded-full border-1 border-gray-200 bg-white has-disabled:cursor-auto has-disabled:bg-gray-200'&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;input</span>
+<span class="cstat-no" title="statement not covered" >                className='checked:bg-mint-500 size-3 cursor-pointer appearance-none rounded-full outline-none disabled:cursor-auto'</span>
+<span class="cstat-no" title="statement not covered" >                checked={field.state.value === type}</span>
+<span class="cstat-no" title="statement not covered" >                disabled={isEditMode}</span>
+<span class="cstat-no" title="statement not covered" >                name='create-group-policy'</span>
+<span class="cstat-no" title="statement not covered" >                type='radio'</span>
+<span class="cstat-no" title="statement not covered" >                value={type}</span>
+<span class="cstat-no" title="statement not covered" >                onChange={(e) =&gt; field.handleChange(e.target.value)}</span>
+<span class="cstat-no" title="statement not covered" >              /&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;/span&gt;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >            &lt;div className='text-text-sm-medium'&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;p className='text-gray-700'&gt;{name}&lt;/p&gt;</span>
 <span class="cstat-no" title="statement not covered" >              &lt;p className='text-gray-500'&gt;{description}&lt;/p&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;/Label&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;/label&gt;</span>
 <span class="cstat-no" title="statement not covered" >        );</span>
 <span class="cstat-no" title="statement not covered" >      })}</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
@@ -199,7 +211,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-30T09:56:23.876Z
+                at 2025-12-30T12:53:17.236Z
             </div>
         <script src="../../../../../../prettify.js"></script>
         <script>

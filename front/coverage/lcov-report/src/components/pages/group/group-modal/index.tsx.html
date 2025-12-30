@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/78</span>
+                <span class='fraction'>0/86</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/78</span>
+                <span class='fraction'>0/86</span>
             </div>
         
             
@@ -141,7 +141,23 @@
 <a name='L76'></a><a href='#L76'>76</a>
 <a name='L77'></a><a href='#L77'>77</a>
 <a name='L78'></a><a href='#L78'>78</a>
-<a name='L79'></a><a href='#L79'>79</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -221,37 +237,40 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >'use client';</span></span></span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import { useRouter } from 'next/navigation';</span>
-<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { Button } from '@/components/ui';</span>
 <span class="cstat-no" title="statement not covered" >import { ModalContent, ModalDescription, ModalTitle, useModal } from '@/components/ui/modal';</span>
 <span class="cstat-no" title="statement not covered" >import { useAttendGroup } from '@/hooks/use-group/use-group-attend';</span>
 <span class="cstat-no" title="statement not covered" >import { useDeleteGroup } from '@/hooks/use-group/use-group-delete';</span>
+<span class="cstat-no" title="statement not covered" >import { useKickGroupMember } from '@/hooks/use-group/use-group-kick';</span>
 <span class="cstat-no" title="statement not covered" >import { useLeaveGroup } from '@/hooks/use-group/use-group-leave';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >interface Props {</span>
-<span class="cstat-no" title="statement not covered" >  type: 'attend' | 'leave' | 'delete';</span>
+<span class="cstat-no" title="statement not covered" >  type: 'attend' | 'leave' | 'delete' | 'kick';</span>
 <span class="cstat-no" title="statement not covered" >  groupId: string;</span>
+<span class="cstat-no" title="statement not covered" >  targetUserId?: string;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export const GroupModal = ({ type, groupId }: Props) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const { replace } = useRouter();</span>
+<span class="cstat-no" title="statement not covered" >export const GroupModal = ({ type, groupId, targetUserId = '' }: Props) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const { close } = useModal();</span>
-<span class="cstat-no" title="statement not covered" >  const { mutate: attendMutate, isPending: isAttending } = useAttendGroup({ groupId }, close);</span>
-<span class="cstat-no" title="statement not covered" >  const { mutate: leaveMutate, isPending: isCanceling } = useLeaveGroup({ groupId }, close);</span>
-<span class="cstat-no" title="statement not covered" >  const { mutate: deleteMutate, isPending: isDeleting } = useDeleteGroup({ groupId }, () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    close();</span>
-<span class="cstat-no" title="statement not covered" >    replace('/');</span>
+<span class="cstat-no" title="statement not covered" >  const { mutateAsync: attendMutate, isPending: isAttending } = useAttendGroup({ groupId });</span>
+<span class="cstat-no" title="statement not covered" >  const { mutateAsync: leaveMutate, isPending: isCanceling } = useLeaveGroup({ groupId });</span>
+<span class="cstat-no" title="statement not covered" >  const { mutateAsync: deleteMutate, isPending: isDeleting } = useDeleteGroup({ groupId });</span>
+<span class="cstat-no" title="statement not covered" >  const { mutateAsync: kickMutate, isPending: isKicking } = useKickGroupMember({</span>
+<span class="cstat-no" title="statement not covered" >    groupId,</span>
+<span class="cstat-no" title="statement not covered" >    targetUserId,</span>
 <span class="cstat-no" title="statement not covered" >  });</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const isPending = isAttending || isCanceling || isDeleting;</span>
+<span class="cstat-no" title="statement not covered" >  const isPending = isAttending || isCanceling || isDeleting || isKicking;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  const { title, description, confirm } = MODAL_MESSAGE[type];</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const handleConfirmClick = () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (type === 'attend') attendMutate();</span>
-<span class="cstat-no" title="statement not covered" >    else if (type === 'leave') leaveMutate();</span>
-<span class="cstat-no" title="statement not covered" >    else if (type === 'delete') deleteMutate();</span>
+<span class="cstat-no" title="statement not covered" >  const handleConfirmClick = async () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (type === 'attend') await attendMutate();</span>
+<span class="cstat-no" title="statement not covered" >    else if (type === 'leave') await leaveMutate();</span>
+<span class="cstat-no" title="statement not covered" >    else if (type === 'delete') await deleteMutate();</span>
+<span class="cstat-no" title="statement not covered" >    else if (type === 'kick') await kickMutate();</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    close();</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
@@ -296,6 +315,11 @@
 <span class="cstat-no" title="statement not covered" >    description: '취소 후에는 다시 복구할 수 없어요.',</span>
 <span class="cstat-no" title="statement not covered" >    confirm: '취소하기',</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
+<span class="cstat-no" title="statement not covered" >  kick: {</span>
+<span class="cstat-no" title="statement not covered" >    title: `을 내보내시겠어요?`,</span>
+<span class="cstat-no" title="statement not covered" >    description: '이 작업은 취소할 수 없습니다.',</span>
+<span class="cstat-no" title="statement not covered" >    confirm: '내보내기',</span>
+<span class="cstat-no" title="statement not covered" >  },</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;</pre></td></tr></table></pre>
 
@@ -304,7 +328,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-30T07:13:59.495Z
+                at 2025-12-30T08:00:15.106Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

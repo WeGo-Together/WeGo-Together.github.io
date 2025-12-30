@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">10.25% </span>
+                <span class="strong">11.25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/78</span>
+                <span class='fraction'>9/80</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">10.25% </span>
+                <span class="strong">11.25% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/78</span>
+                <span class='fraction'>9/80</span>
             </div>
         
             
@@ -141,7 +141,9 @@
 <a name='L76'></a><a href='#L76'>76</a>
 <a name='L77'></a><a href='#L77'>77</a>
 <a name='L78'></a><a href='#L78'>78</a>
-<a name='L79'></a><a href='#L79'>79</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -149,6 +151,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -222,6 +226,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useEffect, useRef, useState } from 'react';
 &nbsp;
 import { useQueryClient } from '@tanstack/react-query';
+import Cookies from 'js-cookie';
 &nbsp;
 import { notificationKeys } from '@/lib/query-key/query-key-notification';
 import { useAuth } from '@/providers/provider-auth';
@@ -229,7 +234,7 @@ import { useAuth } from '@/providers/provider-auth';
 export const useConnectSSE = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const [receivedNewNotification, setReceivedNewNotification] = useState(false);</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const { accessToken } = useAuth();</span>
+<span class="cstat-no" title="statement not covered" >  const { isAuthenticated } = useAuth();</span>
 <span class="cstat-no" title="statement not covered" >  const eventSourceRef = useRef&lt;EventSource | null&gt;(null);</span>
 <span class="cstat-no" title="statement not covered" >  const queryClient = useQueryClient();</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -246,54 +251,55 @@ export const useConnectSSE = <span class="fstat-no" title="function not covered"
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  // SSE 연결 관련 로직</span>
 <span class="cstat-no" title="statement not covered" >  useEffect(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (!accessToken.value) return;</span>
+<span class="cstat-no" title="statement not covered" >    if (!isAuthenticated) return;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    // 기존 연결이 있으면 정리</span>
 <span class="cstat-no" title="statement not covered" >    if (eventSourceRef.current) {</span>
-<span class="cstat-no" title="statement not covered" >      console.log('SSE 기존 연결 정리');</span>
+<span class="cstat-no" title="statement not covered" >      console.log('[DEBUG] SSE 기존 연결 정리');</span>
 <span class="cstat-no" title="statement not covered" >      eventSourceRef.current.close();</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    const token = Cookies.get('accessToken');</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    // SSE 연결 시도</span>
 <span class="cstat-no" title="statement not covered" >    const es = new EventSource(</span>
-<span class="cstat-no" title="statement not covered" >      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/notifications/subscribe?accessToken=${accessToken.value}`,</span>
+<span class="cstat-no" title="statement not covered" >      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/notifications/subscribe?accessToken=${token}`,</span>
 <span class="cstat-no" title="statement not covered" >    );</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    eventSourceRef.current = es;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    // SSE 연결 성공 시</span>
 <span class="cstat-no" title="statement not covered" >    es.addEventListener('connect', (event) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      console.log('SSE 연결 확인:', event.data);</span>
+<span class="cstat-no" title="statement not covered" >      console.log('[DEBUG] SSE 연결 확인:', event.data);</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    // SSE 알림 수신 시</span>
 <span class="cstat-no" title="statement not covered" >    es.addEventListener('notification', (event) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      try {</span>
 <span class="cstat-no" title="statement not covered" >        const data = JSON.parse(event.data);</span>
-<span class="cstat-no" title="statement not covered" >        console.log('SSE 수신 성공:', data);</span>
+<span class="cstat-no" title="statement not covered" >        console.log('[DEBUG] SSE 수신 성공:', data);</span>
 <span class="cstat-no" title="statement not covered" >        setReceivedNewNotification(true);</span>
 <span class="cstat-no" title="statement not covered" >        queryClient.invalidateQueries({ queryKey: notificationKeys.unReadCount() });</span>
 <span class="cstat-no" title="statement not covered" >        queryClient.invalidateQueries({ queryKey: notificationKeys.list() });</span>
 <span class="cstat-no" title="statement not covered" >        // TODO: 알림 타입별 처리 추가 예정</span>
 <span class="cstat-no" title="statement not covered" >      } catch (error) {</span>
-<span class="cstat-no" title="statement not covered" >        console.error('SSE 데이터 파싱 실패:', error);</span>
+<span class="cstat-no" title="statement not covered" >        console.error('[DEBUG] SSE 데이터 파싱 실패:', error);</span>
 <span class="cstat-no" title="statement not covered" >      }</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    // SSE 연결 실패 시</span>
 <span class="cstat-no" title="statement not covered" >    es.onerror = (_error) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      console.log('SSE 오류 발생:');</span>
+<span class="cstat-no" title="statement not covered" >      console.log('[DEBUG] SSE 오류 발생:');</span>
 <span class="cstat-no" title="statement not covered" >      // todo: 재 연결 로직 추가 필요</span>
-<span class="cstat-no" title="statement not covered" >      accessToken.value = null;</span>
 <span class="cstat-no" title="statement not covered" >    };</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    // SSE Cleanup</span>
 <span class="cstat-no" title="statement not covered" >    return () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      console.log('SSE 연결 정리');</span>
+<span class="cstat-no" title="statement not covered" >      console.log('[DEBUG] SSE 연결 정리');</span>
 <span class="cstat-no" title="statement not covered" >      es.close();</span>
 <span class="cstat-no" title="statement not covered" >      eventSourceRef.current = null;</span>
 <span class="cstat-no" title="statement not covered" >    };</span>
-<span class="cstat-no" title="statement not covered" >  }, [accessToken, accessToken.value, queryClient]);</span>
+<span class="cstat-no" title="statement not covered" >  }, [isAuthenticated, queryClient]);</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  return { receivedNewNotification };</span>
 <span class="cstat-no" title="statement not covered" >};</span>
@@ -304,7 +310,7 @@ export const useConnectSSE = <span class="fstat-no" title="function not covered"
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-29T09:47:53.733Z
+                at 2025-12-30T00:22:57.618Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

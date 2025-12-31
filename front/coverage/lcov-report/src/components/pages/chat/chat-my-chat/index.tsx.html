@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">46.15% </span>
+                <span class="strong">35.71% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/26</span>
+                <span class='fraction'>10/28</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">46.15% </span>
+                <span class="strong">35.71% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/26</span>
+                <span class='fraction'>10/28</span>
             </div>
         
             
@@ -89,7 +89,9 @@
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -99,8 +101,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -115,27 +115,33 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ExpandableText } from '../chat-long-text';
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { formatKoreanTime } from '@/lib/formatDateTime';
+import { ChatMessage } from '@/types/service/chat';
+&nbsp;
+import { ExpandableText } from '../chat-long-text';
 &nbsp;
 interface IProps {
-  item: {
-    nickName: string;
-    profileImage: string;
-    text: string;
-    time: string;
-  };
+  item: ChatMessage;
 }
 &nbsp;
 export const MyChat = <span class="fstat-no" title="function not covered" >({ item }: IProps) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const { text, time } = item;</span>
+<span class="cstat-no" title="statement not covered" >  const { content, timestamp, createdAt } = item;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const time = timestamp ?? createdAt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
 <span class="cstat-no" title="statement not covered" >    &lt;div className='mr-3 flex justify-end'&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className='text-text-2xs-regular flex items-end py-1 text-gray-500'&gt;{time}&lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;div className='text-text-2xs-regular flex items-end py-1 text-gray-500'&gt;</span>
+<span class="cstat-no" title="statement not covered" >        {time &amp;&amp; formatKoreanTime(time)}</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >      &lt;div className='ml-1.5'&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;div className='bg-mint-200 mt-1 max-w-60 rounded-tl-2xl rounded-tr-sm rounded-br-2xl rounded-bl-2xl px-4 py-3'&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;ExpandableText text={text} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;ExpandableText text={content} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
@@ -148,7 +154,7 @@ export const MyChat = <span class="fstat-no" title="function not covered" >({ it
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-31T02:19:02.615Z
+                at 2025-12-31T05:38:22.584Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

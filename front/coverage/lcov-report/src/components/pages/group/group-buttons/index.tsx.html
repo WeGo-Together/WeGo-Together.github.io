@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/59</span>
+                <span class='fraction'>0/58</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/59</span>
+                <span class='fraction'>0/58</span>
             </div>
         
             
@@ -121,9 +121,7 @@
 <a name='L56'></a><a href='#L56'>56</a>
 <a name='L57'></a><a href='#L57'>57</a>
 <a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L59'></a><a href='#L59'>59</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -194,14 +192,14 @@
 <span class="cstat-no" title="statement not covered" >    isJoined: boolean;</span>
 <span class="cstat-no" title="statement not covered" >    isHost: boolean;</span>
 <span class="cstat-no" title="statement not covered" >    isPast: boolean;</span>
+<span class="cstat-no" title="statement not covered" >    isPending: boolean;</span>
 <span class="cstat-no" title="statement not covered" >    isAttendDisabled: boolean;</span>
+<span class="cstat-no" title="statement not covered" >    isFreeGroup: boolean;</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
-<span class="cstat-no" title="statement not covered" >  groupId: string;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >export const GroupButtons = ({</span>
-<span class="cstat-no" title="statement not covered" >  conditions: { isJoined, isHost, isPast, isAttendDisabled },</span>
-<span class="cstat-no" title="statement not covered" >  groupId,</span>
+<span class="cstat-no" title="statement not covered" >  conditions: { isJoined, isHost, isPast, isFreeGroup, isAttendDisabled },</span>
 <span class="cstat-no" title="statement not covered" >}: Props) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const { open } = useModal();</span>
 <span class="cstat-no" title="statement not covered" >  // const { push } = useRouter();</span>
@@ -218,10 +216,9 @@
 <span class="cstat-no" title="statement not covered" >        &lt;div className='flex gap-[10px]'&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;Button</span>
 <span class="cstat-no" title="statement not covered" >            className='flex-[1.2]'</span>
+<span class="cstat-no" title="statement not covered" >            disabled={isPast}</span>
 <span class="cstat-no" title="statement not covered" >            variant='tertiary'</span>
-<span class="cstat-no" title="statement not covered" >            onClick={() =&gt;</span>
-<span class="cstat-no" title="statement not covered" >              open(&lt;GroupModal groupId={groupId} type={isHost ? 'delete' : 'leave'} /&gt;)</span>
-<span class="cstat-no" title="statement not covered" >            }</span>
+<span class="cstat-no" title="statement not covered" >            onClick={() =&gt; open(&lt;GroupModal type={isHost ? 'delete' : 'leave'} /&gt;)}</span>
 <span class="cstat-no" title="statement not covered" >          &gt;</span>
 <span class="cstat-no" title="statement not covered" >            {isHost ? '모임 취소' : '모임 탈퇴'}</span>
 <span class="cstat-no" title="statement not covered" >          &lt;/Button&gt;</span>
@@ -232,9 +229,9 @@
 <span class="cstat-no" title="statement not covered" >      ) : (</span>
 <span class="cstat-no" title="statement not covered" >        &lt;Button</span>
 <span class="cstat-no" title="statement not covered" >          disabled={isAttendDisabled}</span>
-<span class="cstat-no" title="statement not covered" >          onClick={() =&gt; open(&lt;GroupModal groupId={groupId} type='attend' /&gt;)}</span>
+<span class="cstat-no" title="statement not covered" >          onClick={() =&gt; open(&lt;GroupModal type={isFreeGroup ? 'attend' : 'approval'} /&gt;)}</span>
 <span class="cstat-no" title="statement not covered" >        &gt;</span>
-<span class="cstat-no" title="statement not covered" >          참여하기</span>
+<span class="cstat-no" title="statement not covered" >          {isFreeGroup ? '참여하기' : '참여 신청하기'}</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/Button&gt;</span>
 <span class="cstat-no" title="statement not covered" >      )}</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
@@ -247,7 +244,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-30T12:53:17.236Z
+                at 2025-12-31T02:03:28.832Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

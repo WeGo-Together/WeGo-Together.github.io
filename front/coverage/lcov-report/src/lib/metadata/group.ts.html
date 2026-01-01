@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/lib/metadata/profile.ts</title>
+    <title>Code coverage report for src/lib/metadata/group.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/lib/metadata</a> profile.ts</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/lib/metadata</a> group.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/71</span>
+                <span class='fraction'>0/75</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/71</span>
+                <span class='fraction'>0/75</span>
             </div>
         
             
@@ -134,7 +134,15 @@
 <a name='L69'></a><a href='#L69'>69</a>
 <a name='L70'></a><a href='#L70'>70</a>
 <a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -210,37 +218,41 @@
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { API } from '@/api';</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export const generateProfileMetadata = async (userId: number): Promise&lt;Metadata&gt; =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >export const generateGroupMetadata = async (groupId: string): Promise&lt;Metadata&gt; =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const headersList = headers();</span>
 <span class="cstat-no" title="statement not covered" >  const host = (await headersList).get('host') || process.env.DOMAIN;</span>
-<span class="cstat-no" title="statement not covered" >  const currentUrl = `https://${host}/profile/${userId}`;</span>
+<span class="cstat-no" title="statement not covered" >  const currentUrl = `https://${host}/group/${groupId}`;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  try {</span>
-<span class="cstat-no" title="statement not covered" >    const userProfile = await API.userService.getUser({ userId });</span>
+<span class="cstat-no" title="statement not covered" >    const {</span>
+<span class="cstat-no" title="statement not covered" >      createdBy: { nickName },</span>
+<span class="cstat-no" title="statement not covered" >      title,</span>
+<span class="cstat-no" title="statement not covered" >      images,</span>
+<span class="cstat-no" title="statement not covered" >    } = await API.groupService.getGroupDetails({ groupId });</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const { nickName, followersCnt, profileImage, profileMessage } = userProfile;</span>
+<span class="cstat-no" title="statement not covered" >    const metaTitle = `${nickName}님의 모임 | WeGo`;</span>
+<span class="cstat-no" title="statement not covered" >    const metaDescription = title;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const metaTitle = `${nickName}님의 프로필 | WeGo`;</span>
-<span class="cstat-no" title="statement not covered" >    const metaDescription = `${nickName}님의 프로필 | 팔로워 ${followersCnt}명\n\n${profileMessage}`;</span>
+<span class="cstat-no" title="statement not covered" >    const thumbnails = images[0]?.variants ? images[0].variants[0].imageUrl : '';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    return {</span>
 <span class="cstat-no" title="statement not covered" >      title: metaTitle,</span>
 <span class="cstat-no" title="statement not covered" >      description: metaDescription,</span>
-<span class="cstat-no" title="statement not covered" >      keywords: [nickName, '프로필', 'WeGo'],</span>
+<span class="cstat-no" title="statement not covered" >      keywords: [nickName, '모임', 'WeGo'],</span>
 <span class="cstat-no" title="statement not covered" >      openGraph: {</span>
 <span class="cstat-no" title="statement not covered" >        title: metaTitle,</span>
 <span class="cstat-no" title="statement not covered" >        description: metaDescription,</span>
 <span class="cstat-no" title="statement not covered" >        siteName: 'WeGo',</span>
 <span class="cstat-no" title="statement not covered" >        locale: 'ko_KR',</span>
-<span class="cstat-no" title="statement not covered" >        type: 'profile',</span>
+<span class="cstat-no" title="statement not covered" >        type: 'website',</span>
 <span class="cstat-no" title="statement not covered" >        url: currentUrl,</span>
-<span class="cstat-no" title="statement not covered" >        images: profileImage</span>
+<span class="cstat-no" title="statement not covered" >        images: thumbnails</span>
 <span class="cstat-no" title="statement not covered" >          ? [</span>
 <span class="cstat-no" title="statement not covered" >              {</span>
-<span class="cstat-no" title="statement not covered" >                url: profileImage,</span>
+<span class="cstat-no" title="statement not covered" >                url: thumbnails,</span>
 <span class="cstat-no" title="statement not covered" >                width: 400,</span>
 <span class="cstat-no" title="statement not covered" >                height: 400,</span>
-<span class="cstat-no" title="statement not covered" >                alt: `${nickName}님의 프로필 사진`,</span>
+<span class="cstat-no" title="statement not covered" >                alt: `${nickName}님의 모임 사진`,</span>
 <span class="cstat-no" title="statement not covered" >              },</span>
 <span class="cstat-no" title="statement not covered" >            ]</span>
 <span class="cstat-no" title="statement not covered" >          : [],</span>
@@ -249,7 +261,7 @@
 <span class="cstat-no" title="statement not covered" >        card: 'summary',</span>
 <span class="cstat-no" title="statement not covered" >        title: metaTitle,</span>
 <span class="cstat-no" title="statement not covered" >        description: metaDescription,</span>
-<span class="cstat-no" title="statement not covered" >        images: profileImage ? [profileImage] : undefined,</span>
+<span class="cstat-no" title="statement not covered" >        images: thumbnails ? [thumbnails] : undefined,</span>
 <span class="cstat-no" title="statement not covered" >      },</span>
 <span class="cstat-no" title="statement not covered" >      robots: {</span>
 <span class="cstat-no" title="statement not covered" >        index: true,</span>
@@ -260,15 +272,15 @@
 <span class="cstat-no" title="statement not covered" >      },</span>
 <span class="cstat-no" title="statement not covered" >    };</span>
 <span class="cstat-no" title="statement not covered" >  } catch (error) {</span>
-<span class="cstat-no" title="statement not covered" >    console.error('Failed to fetch user profile for metadata:', error);</span>
+<span class="cstat-no" title="statement not covered" >    console.error('Failed to fetch group data for metadata:', error);</span>
 <span class="cstat-no" title="statement not covered" >    return {</span>
-<span class="cstat-no" title="statement not covered" >      title: `사용자 프로필 | WeGo`,</span>
-<span class="cstat-no" title="statement not covered" >      description: '사용자의 프로필과 리뷰를 확인해보세요.',</span>
+<span class="cstat-no" title="statement not covered" >      title: `모임 상세 정보 | WeGo`,</span>
+<span class="cstat-no" title="statement not covered" >      description: '사용자의 모임을 확인해보세요.',</span>
 <span class="cstat-no" title="statement not covered" >      openGraph: {</span>
-<span class="cstat-no" title="statement not covered" >        title: '사용자 프로필 | WeGo',</span>
-<span class="cstat-no" title="statement not covered" >        description: '사용자의 프로필과 리뷰를 확인해보세요.',</span>
+<span class="cstat-no" title="statement not covered" >        title: '사용자 모임 | WeGo',</span>
+<span class="cstat-no" title="statement not covered" >        description: '사용자의 모임을 확인해보세요.',</span>
 <span class="cstat-no" title="statement not covered" >        url: currentUrl,</span>
-<span class="cstat-no" title="statement not covered" >        type: 'profile',</span>
+<span class="cstat-no" title="statement not covered" >        type: 'website',</span>
 <span class="cstat-no" title="statement not covered" >      },</span>
 <span class="cstat-no" title="statement not covered" >      twitter: {</span>
 <span class="cstat-no" title="statement not covered" >        card: 'summary',</span>

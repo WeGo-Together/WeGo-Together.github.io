@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/47</span>
+                <span class='fraction'>0/52</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/47</span>
+                <span class='fraction'>0/52</span>
             </div>
         
             
@@ -110,7 +110,17 @@
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -160,22 +170,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import Link from 'next/link';</span></span></span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { ImageWithFallback } from '@/components/ui';</span>
+<span class="cstat-no" title="statement not covered" >import { PendingBadge } from '@/components/ui';</span>
 <span class="cstat-no" title="statement not covered" >import { GetGroupDetailsResponse } from '@/types/service/group';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >interface Props {</span>
 <span class="cstat-no" title="statement not covered" >  hostInfo: GetGroupDetailsResponse['createdBy'];</span>
+<span class="cstat-no" title="statement not covered" >  groupId: number;</span>
 <span class="cstat-no" title="statement not covered" >  conditions: {</span>
 <span class="cstat-no" title="statement not covered" >    isHost: boolean;</span>
-<span class="cstat-no" title="statement not covered" >    isPast: boolean;</span>
+<span class="cstat-no" title="statement not covered" >    isPending: boolean;</span>
+<span class="cstat-no" title="statement not covered" >    isFinished: boolean;</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
-<span class="cstat-no" title="statement not covered" >  groupId: number;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >export const DescriptionProfile = ({</span>
 <span class="cstat-no" title="statement not covered" >  hostInfo: { userId, nickName, profileImage, profileMessage },</span>
-<span class="cstat-no" title="statement not covered" >  conditions: { isHost, isPast },</span>
+<span class="cstat-no" title="statement not covered" >  conditions: { isHost, isPending, isFinished },</span>
 <span class="cstat-no" title="statement not covered" >  groupId,</span>
 <span class="cstat-no" title="statement not covered" >}: Props) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const isEditable = isHost &amp;&amp; !isFinished;</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
 <span class="cstat-no" title="statement not covered" >    &lt;div className='flex-between w-full select-none'&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;Link href={`/profile/${userId}`} className='flex gap-3'&gt;</span>
@@ -192,8 +206,9 @@
 <span class="cstat-no" title="statement not covered" >          {profileMessage &amp;&amp; &lt;p className='text-text-xs-regular text-gray-600'&gt;{profileMessage}&lt;/p&gt;}</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/Link&gt;</span>
-<span class="cstat-no" title="statement not covered" >      {isPast &amp;&amp; &lt;p className='text-text-xs-semibold pr-1 text-gray-500'&gt;모임 마감&lt;/p&gt;}</span>
-<span class="cstat-no" title="statement not covered" >      {isHost &amp;&amp; !isPast &amp;&amp; (</span>
+<span class="cstat-no" title="statement not covered" >      {isFinished &amp;&amp; &lt;p className='text-text-xs-semibold pr-1 text-gray-500'&gt;모임 마감&lt;/p&gt;}</span>
+<span class="cstat-no" title="statement not covered" >      {isPending &amp;&amp; &lt;PendingBadge children={'대기중'} variant='md' /&gt;}</span>
+<span class="cstat-no" title="statement not covered" >      {isEditable &amp;&amp; (</span>
 <span class="cstat-no" title="statement not covered" >        &lt;Link</span>
 <span class="cstat-no" title="statement not covered" >          href={`/create-group/${groupId}`}</span>
 <span class="cstat-no" title="statement not covered" >          className='text-text-xs-semibold text-mint-500 pr-1'</span>
@@ -211,7 +226,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-01T07:23:02.778Z
+                at 2026-01-01T12:07:41.267Z
             </div>
         <script src="../../../../../../../prettify.js"></script>
         <script>

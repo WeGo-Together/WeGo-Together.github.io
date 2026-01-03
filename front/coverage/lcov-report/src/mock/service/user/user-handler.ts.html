@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">51.31% </span>
+                <span class="strong">44.73% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>78/152</span>
+                <span class='fraction'>68/152</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.88% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>8/9</span>
+                <span class='fraction'>7/8</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">51.31% </span>
+                <span class="strong">44.73% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>78/152</span>
+                <span class='fraction'>68/152</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -266,16 +266,16 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -310,10 +310,10 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -418,16 +418,16 @@ const updateUserItemMock = http.patch(`*/users/profile`, async ({ request }) =&g
 &nbsp;
 // 4. 알림 설정 변경 모킹
 const updateMyNotificationMock = http.patch(`*/users/notification`, async ({ request }) =&gt; {
-  const url = new URL(request.url);
-  const isNotificationEnabled = url.searchParams.get('isNotificationEnabled');
-&nbsp;
-  return HttpResponse.json(
-    createMockSuccessResponse({
-      ...mockUserItems[0],
-      isNotificationEnabled: !!isNotificationEnabled,
-    }),
-  );
-});
+<span class="cstat-no" title="statement not covered" >  const url = new URL(request.url);</span>
+<span class="cstat-no" title="statement not covered" >  const isNotificationEnabled = url.searchParams.get('isNotificationEnabled');</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  return HttpResponse.json(</span>
+<span class="cstat-no" title="statement not covered" >    createMockSuccessResponse({</span>
+<span class="cstat-no" title="statement not covered" >      ...mockUserItems[0],</span>
+<span class="cstat-no" title="statement not covered" >      isNotificationEnabled: !!isNotificationEnabled,</span>
+<span class="cstat-no" title="statement not covered" >    }),</span>
+<span class="cstat-no" title="statement not covered" >  );</span>
+<span class="cstat-no" title="statement not covered" >});</span>
 &nbsp;
 // 5. 유저 프로필 조회 모킹
 const getUserItemMock = http.get(`*/users/:userId`, ({ params }) =&gt; {
@@ -526,7 +526,7 @@ export const userHandlers = [
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-03T13:45:48.300Z
+                at 2026-01-03T13:48:01.533Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

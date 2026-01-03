@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">21.11% </span>
+                <span class="strong">20.65% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>19/90</span>
+                <span class='fraction'>19/92</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">21.11% </span>
+                <span class="strong">20.65% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>19/90</span>
+                <span class='fraction'>19/92</span>
             </div>
         
             
@@ -153,7 +153,9 @@
 <a name='L88'></a><a href='#L88'>88</a>
 <a name='L89'></a><a href='#L89'>89</a>
 <a name='L90'></a><a href='#L90'>90</a>
-<a name='L91'></a><a href='#L91'>91</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -172,6 +174,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -287,48 +291,50 @@ export const ChatList = <span class="fstat-no" title="function not covered" >({ 
 <span class="cstat-no" title="statement not covered" >      {chatList?.chatRooms.length === 0 ? (</span>
 <span class="cstat-no" title="statement not covered" >        &lt;ChattingNone /&gt;</span>
 <span class="cstat-no" title="statement not covered" >      ) : (</span>
-<span class="cstat-no" title="statement not covered" >        chatList?.chatRooms?.map((chat) =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >          &lt;li</span>
-<span class="cstat-no" title="statement not covered" >            key={chat.chatRoomId}</span>
-<span class="cstat-no" title="statement not covered" >            className='flex cursor-pointer items-center gap-3 bg-white p-5 transition hover:bg-gray-50'</span>
-<span class="cstat-no" title="statement not covered" >            onClick={() =&gt; handleClick(chat.chatRoomId)}</span>
-<span class="cstat-no" title="statement not covered" >          &gt;</span>
-<span class="cstat-no" title="statement not covered" >            {/* 프로필 이미지 - 이미지 수정 필요💥💥*/}</span>
-<span class="cstat-no" title="statement not covered" >            &lt;div className='relative size-12 overflow-hidden rounded-full'&gt;</span>
-<span class="cstat-no" title="statement not covered" >              &lt;Image</span>
-<span class="cstat-no" title="statement not covered" >                className='object-cover'</span>
-<span class="cstat-no" title="statement not covered" >                alt='프로필 이미지'</span>
-<span class="cstat-no" title="statement not covered" >                fill</span>
-<span class="cstat-no" title="statement not covered" >                loading='eager'</span>
-<span class="cstat-no" title="statement not covered" >                src={DEFAULT_PROFILE_IMAGE}</span>
-<span class="cstat-no" title="statement not covered" >              /&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >        chatList?.chatRooms</span>
+<span class="cstat-no" title="statement not covered" >          ?.filter((chatRoom) =&gt; chatRoom.lastMessage !== null)</span>
+<span class="cstat-no" title="statement not covered" >          .map((chat) =&gt; (</span>
+<span class="cstat-no" title="statement not covered" >            &lt;li</span>
+<span class="cstat-no" title="statement not covered" >              key={chat.chatRoomId}</span>
+<span class="cstat-no" title="statement not covered" >              className='flex cursor-pointer items-center gap-3 bg-white p-5 transition hover:bg-gray-50'</span>
+<span class="cstat-no" title="statement not covered" >              onClick={() =&gt; handleClick(chat.chatRoomId)}</span>
+<span class="cstat-no" title="statement not covered" >            &gt;</span>
+<span class="cstat-no" title="statement not covered" >              {/* 프로필 이미지 - 이미지 수정 필요💥💥*/}</span>
+<span class="cstat-no" title="statement not covered" >              &lt;div className='relative size-12 overflow-hidden rounded-full'&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;Image</span>
+<span class="cstat-no" title="statement not covered" >                  className='object-cover'</span>
+<span class="cstat-no" title="statement not covered" >                  alt='프로필 이미지'</span>
+<span class="cstat-no" title="statement not covered" >                  fill</span>
+<span class="cstat-no" title="statement not covered" >                  loading='eager'</span>
+<span class="cstat-no" title="statement not covered" >                  src={chat.thumbnail || DEFAULT_PROFILE_IMAGE}</span>
+<span class="cstat-no" title="statement not covered" >                /&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >            {/* 텍스트 영역 */}</span>
-<span class="cstat-no" title="statement not covered" >            &lt;div className='flex flex-1 flex-col'&gt;</span>
-<span class="cstat-no" title="statement not covered" >              &lt;span className='text-text-md-bold text-gray-800'&gt;{chat.chatRoomName}&lt;/span&gt;</span>
+<span class="cstat-no" title="statement not covered" >              {/* 텍스트 영역 */}</span>
+<span class="cstat-no" title="statement not covered" >              &lt;div className='flex flex-1 flex-col'&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;span className='text-text-md-bold text-gray-800'&gt;{chat.chatRoomName}&lt;/span&gt;</span>
+<span class="cstat-no" title="statement not covered" >                &lt;span</span>
+<span class="cstat-no" title="statement not covered" >                  className={cn(</span>
+<span class="cstat-no" title="statement not covered" >                    'text-text-sm-medium line-clamp-1 overflow-hidden break-all text-gray-700',</span>
+<span class="cstat-no" title="statement not covered" >                  )}</span>
+<span class="cstat-no" title="statement not covered" >                &gt;</span>
+<span class="cstat-no" title="statement not covered" >                  {chat.lastMessage ? chat.lastMessage.content : '아직 대화가 없습니다.'}</span>
+<span class="cstat-no" title="statement not covered" >                &lt;/span&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >              {/* 안 읽은 메시지 수 */}</span>
 <span class="cstat-no" title="statement not covered" >              &lt;span</span>
 <span class="cstat-no" title="statement not covered" >                className={cn(</span>
-<span class="cstat-no" title="statement not covered" >                  'text-text-sm-medium line-clamp-1 overflow-hidden break-all text-gray-700',</span>
+<span class="cstat-no" title="statement not covered" >                  'text-mono-white text-text-xs-bold bg-mint-500 flex items-center justify-center rounded-full',</span>
+<span class="cstat-no" title="statement not covered" >                  chat.unreadCount === 0 &amp;&amp; 'opacity-0',</span>
+<span class="cstat-no" title="statement not covered" >                  chat.unreadCount &lt; 10 &amp;&amp; 'size-6',</span>
+<span class="cstat-no" title="statement not covered" >                  chat.unreadCount &gt;= 10 &amp;&amp; 'h-6 w-7',</span>
 <span class="cstat-no" title="statement not covered" >                )}</span>
 <span class="cstat-no" title="statement not covered" >              &gt;</span>
-<span class="cstat-no" title="statement not covered" >                {chat.lastMessage ? chat.lastMessage.content : '아직 대화가 없습니다.'}</span>
+<span class="cstat-no" title="statement not covered" >                {chat.unreadCount &gt; 99 ? '99' : chat.unreadCount}</span>
 <span class="cstat-no" title="statement not covered" >              &lt;/span&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >            {/* 안 읽은 메시지 수 */}</span>
-<span class="cstat-no" title="statement not covered" >            &lt;span</span>
-<span class="cstat-no" title="statement not covered" >              className={cn(</span>
-<span class="cstat-no" title="statement not covered" >                'text-mono-white text-text-xs-bold bg-mint-500 flex items-center justify-center rounded-full',</span>
-<span class="cstat-no" title="statement not covered" >                chat.unreadCount === 0 &amp;&amp; 'opacity-0',</span>
-<span class="cstat-no" title="statement not covered" >                chat.unreadCount &lt; 10 &amp;&amp; 'size-6',</span>
-<span class="cstat-no" title="statement not covered" >                chat.unreadCount &gt;= 10 &amp;&amp; 'h-6 w-7',</span>
-<span class="cstat-no" title="statement not covered" >              )}</span>
-<span class="cstat-no" title="statement not covered" >            &gt;</span>
-<span class="cstat-no" title="statement not covered" >              {chat.unreadCount &gt; 99 ? '99' : chat.unreadCount}</span>
-<span class="cstat-no" title="statement not covered" >            &lt;/span&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;/li&gt;</span>
-<span class="cstat-no" title="statement not covered" >        ))</span>
+<span class="cstat-no" title="statement not covered" >            &lt;/li&gt;</span>
+<span class="cstat-no" title="statement not covered" >          ))</span>
 <span class="cstat-no" title="statement not covered" >      )}</span>
 <span class="cstat-no" title="statement not covered" >    &lt;/ul&gt;</span>
 <span class="cstat-no" title="statement not covered" >  );</span>
@@ -340,7 +346,7 @@ export const ChatList = <span class="fstat-no" title="function not covered" >({ 
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-03T12:47:28.702Z
+                at 2026-01-03T13:07:28.308Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

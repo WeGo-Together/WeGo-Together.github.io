@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64.86% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>24/37</span>
+                <span class='fraction'>38/57</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20% </span>
+                <span class="strong">12.5% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/5</span>
+                <span class='fraction'>1/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64.86% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>24/37</span>
+                <span class='fraction'>38/57</span>
             </div>
         
             
@@ -100,7 +100,32 @@
 <a name='L35'></a><a href='#L35'>35</a>
 <a name='L36'></a><a href='#L36'>36</a>
 <a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -129,6 +154,21 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
@@ -143,7 +183,12 @@ import {
   CreateDMPayloads,
   GetChatMessagesParams,
   GetChatMessagesResponse,
+  GetChatRoomParams,
+  getChatRoomResponse,
   GetChatRoomsResponse,
+  GetParticipantsParams,
+  GetParticipantsResponse,
+  KickUserPayloads,
   ReadMessagesParams,
   ReadMessagesResponse,
 } from '@/types/service/chat';
@@ -173,6 +218,21 @@ export const chatServiceRemote = () =&gt; ({
   readMessages: <span class="fstat-no" title="function not covered" >async ({ roomId }: ReadMessagesParams) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    return apiV1.put&lt;ReadMessagesResponse&gt;(`/chat/rooms/${roomId}/read`);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
+&nbsp;
+  // 채팅방 상세 조회
+  getChatRoom: <span class="fstat-no" title="function not covered" >async ({ roomId }: GetChatRoomParams) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return apiV1.get&lt;getChatRoomResponse&gt;(`/chat/rooms/${roomId}`);</span>
+<span class="cstat-no" title="statement not covered" >  },</span>
+&nbsp;
+  // 참여자 목록 조회
+  getParticipants: <span class="fstat-no" title="function not covered" >async ({ roomId }: GetParticipantsParams) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return apiV1.get&lt;GetParticipantsResponse&gt;(`/chat/rooms/${roomId}/participants`);</span>
+<span class="cstat-no" title="statement not covered" >  },</span>
+&nbsp;
+  // 추방하기
+  kickUser: <span class="fstat-no" title="function not covered" >async (roomId: number, payload: KickUserPayloads) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return apiV1.post(`/chat/rooms/${roomId}/kick`, payload);</span>
+<span class="cstat-no" title="statement not covered" >  },</span>
 });
 &nbsp;</pre></td></tr></table></pre>
 
@@ -181,7 +241,7 @@ export const chatServiceRemote = () =&gt; ({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-03T01:20:40.740Z
+                at 2026-01-03T01:22:56.357Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

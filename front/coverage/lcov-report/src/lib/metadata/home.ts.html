@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/components/pages/group/group-pending-members/index.tsx</title>
+    <title>Code coverage report for src/lib/metadata/home.ts</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../../../../prettify.css" />
-    <link rel="stylesheet" href="../../../../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.png" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../../../../sort-arrow-sprite.png);
+            background-image: url(../../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../../../index.html">All files</a> / <a href="index.html">src/components/pages/group/group-pending-members</a> index.tsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/lib/metadata</a> home.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/83</span>
+                <span class='fraction'>0/87</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/83</span>
+                <span class='fraction'>0/87</span>
             </div>
         
             
@@ -146,7 +146,11 @@
 <a name='L81'></a><a href='#L81'>81</a>
 <a name='L82'></a><a href='#L82'>82</a>
 <a name='L83'></a><a href='#L83'>83</a>
-<a name='L84'></a><a href='#L84'>84</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -229,88 +233,96 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >'use client';</span></span></span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import { Metadata } from 'next';</span></span></span>
+<span class="cstat-no" title="statement not covered" >import { headers } from 'next/headers';</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import { useCallback } from 'react';</span>
+<span class="cstat-no" title="statement not covered" >export const generateHomeMetadata = async (keyword?: string): Promise&lt;Metadata&gt; =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const headersList = headers();</span>
+<span class="cstat-no" title="statement not covered" >  const host = (await headersList).get('host') || process.env.DOMAIN;</span>
+<span class="cstat-no" title="statement not covered" >  const currentUrl = keyword</span>
+<span class="cstat-no" title="statement not covered" >    ? `https://${host}/?keyword=${encodeURIComponent(keyword)}`</span>
+<span class="cstat-no" title="statement not covered" >    : `https://${host}/`;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import { EmptyState } from '@/components/layout/empty-state';</span>
-<span class="cstat-no" title="statement not covered" >import { GetPendingMembersResponse } from '@/types/service/group';</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    if (keyword) {</span>
+<span class="cstat-no" title="statement not covered" >      const metaTitle = `${keyword} 검색결과 | WeGo`;</span>
+<span class="cstat-no" title="statement not covered" >      const metaDescription = `"${keyword}"에 대한 모임 검색 결과를 확인해보세요.`;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import { PendingMemberCard } from './pending-member-card';</span>
+<span class="cstat-no" title="statement not covered" >      return {</span>
+<span class="cstat-no" title="statement not covered" >        title: metaTitle,</span>
+<span class="cstat-no" title="statement not covered" >        description: metaDescription,</span>
+<span class="cstat-no" title="statement not covered" >        keywords: [keyword, '모임 검색', 'WeGo'],</span>
+<span class="cstat-no" title="statement not covered" >        openGraph: {</span>
+<span class="cstat-no" title="statement not covered" >          title: metaTitle,</span>
+<span class="cstat-no" title="statement not covered" >          description: metaDescription,</span>
+<span class="cstat-no" title="statement not covered" >          siteName: 'WeGo',</span>
+<span class="cstat-no" title="statement not covered" >          locale: 'ko_KR',</span>
+<span class="cstat-no" title="statement not covered" >          type: 'website',</span>
+<span class="cstat-no" title="statement not covered" >          url: currentUrl,</span>
+<span class="cstat-no" title="statement not covered" >        },</span>
+<span class="cstat-no" title="statement not covered" >        twitter: {</span>
+<span class="cstat-no" title="statement not covered" >          card: 'summary',</span>
+<span class="cstat-no" title="statement not covered" >          title: metaTitle,</span>
+<span class="cstat-no" title="statement not covered" >          description: metaDescription,</span>
+<span class="cstat-no" title="statement not covered" >        },</span>
+<span class="cstat-no" title="statement not covered" >        robots: {</span>
+<span class="cstat-no" title="statement not covered" >          index: true,</span>
+<span class="cstat-no" title="statement not covered" >          follow: true,</span>
+<span class="cstat-no" title="statement not covered" >        },</span>
+<span class="cstat-no" title="statement not covered" >        alternates: {</span>
+<span class="cstat-no" title="statement not covered" >          canonical: currentUrl,</span>
+<span class="cstat-no" title="statement not covered" >        },</span>
+<span class="cstat-no" title="statement not covered" >      };</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >interface Props {</span>
-<span class="cstat-no" title="statement not covered" >  groupId: string;</span>
-<span class="cstat-no" title="statement not covered" >  pendingMembers?: GetPendingMembersResponse['pendingMembers'];</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+<span class="cstat-no" title="statement not covered" >    const metaTitle = 'WeGo - 함께하는 모임 플랫폼';</span>
+<span class="cstat-no" title="statement not covered" >    const metaDescription = 'WeGo에서 함께할 다양한 모임을 탐색하고 참여하세요.';</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >const MOCK_PENDING_MEMBERS: GetPendingMembersResponse['pendingMembers'] = [</span>
-<span class="cstat-no" title="statement not covered" >  {</span>
-<span class="cstat-no" title="statement not covered" >    userId: 101,</span>
-<span class="cstat-no" title="statement not covered" >    groupUserId: 1,</span>
-<span class="cstat-no" title="statement not covered" >    nickName: 'Hope Lee',</span>
-<span class="cstat-no" title="statement not covered" >    profileImage: null,</span>
-<span class="cstat-no" title="statement not covered" >    profileMessage: 'Here We Go Again :)',</span>
-<span class="cstat-no" title="statement not covered" >    requestMessage: '안녕하세요 함께하고 싶습니다!',</span>
-<span class="cstat-no" title="statement not covered" >    requestedAt: '2025-12-24T13:20:10.123456',</span>
-<span class="cstat-no" title="statement not covered" >  },</span>
-<span class="cstat-no" title="statement not covered" >  {</span>
-<span class="cstat-no" title="statement not covered" >    userId: 102,</span>
-<span class="cstat-no" title="statement not covered" >    groupUserId: 2,</span>
-<span class="cstat-no" title="statement not covered" >    nickName: '바다소년',</span>
-<span class="cstat-no" title="statement not covered" >    profileImage: null,</span>
-<span class="cstat-no" title="statement not covered" >    profileMessage: '물고기를 좋아합니다.',</span>
-<span class="cstat-no" title="statement not covered" >    requestMessage: '보드게임 정말 좋아해서 신청합니다! 앞으로 잘 부탁드려요',</span>
-<span class="cstat-no" title="statement not covered" >    requestedAt: '2025-12-24T13:25:15.789012',</span>
-<span class="cstat-no" title="statement not covered" >  },</span>
-<span class="cstat-no" title="statement not covered" >  {</span>
-<span class="cstat-no" title="statement not covered" >    userId: 103,</span>
-<span class="cstat-no" title="statement not covered" >    groupUserId: 3,</span>
-<span class="cstat-no" title="statement not covered" >    nickName: '박디자인',</span>
-<span class="cstat-no" title="statement not covered" >    profileImage: null,</span>
-<span class="cstat-no" title="statement not covered" >    profileMessage: 'UI/UX 디자이너',</span>
-<span class="cstat-no" title="statement not covered" >    requestMessage: null,</span>
-<span class="cstat-no" title="statement not covered" >    requestedAt: '2025-12-24T13:30:20.456789',</span>
-<span class="cstat-no" title="statement not covered" >  },</span>
-<span class="cstat-no" title="statement not covered" >];</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >export const GroupPendingMembers = ({ groupId, pendingMembers = MOCK_PENDING_MEMBERS }: Props) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const handleReject = useCallback(</span>
-<span class="cstat-no" title="statement not covered" >    (memberId: number) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      console.log('거절:', groupId, memberId);</span>
-<span class="cstat-no" title="statement not covered" >    },</span>
-<span class="cstat-no" title="statement not covered" >    [groupId],</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const handleApprove = useCallback(</span>
-<span class="cstat-no" title="statement not covered" >    (memberId: number) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      console.log('승인:', groupId, memberId);</span>
-<span class="cstat-no" title="statement not covered" >    },</span>
-<span class="cstat-no" title="statement not covered" >    [groupId],</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  if (pendingMembers?.length === 0) {</span>
-<span class="cstat-no" title="statement not covered" >    return (</span>
-<span class="cstat-no" title="statement not covered" >      &lt;section className='relative h-[calc(100vh-192px)]'&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;EmptyState&gt;승인 대기 중인 멤버가 없습니다&lt;/EmptyState&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/section&gt;</span>
-<span class="cstat-no" title="statement not covered" >    );</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+<span class="cstat-no" title="statement not covered" >      title: metaTitle,</span>
+<span class="cstat-no" title="statement not covered" >      description: metaDescription,</span>
+<span class="cstat-no" title="statement not covered" >      keywords: ['모임', 'WeGo', '모임 플랫폼', '소모임'],</span>
+<span class="cstat-no" title="statement not covered" >      openGraph: {</span>
+<span class="cstat-no" title="statement not covered" >        title: metaTitle,</span>
+<span class="cstat-no" title="statement not covered" >        description: metaDescription,</span>
+<span class="cstat-no" title="statement not covered" >        siteName: 'WeGo',</span>
+<span class="cstat-no" title="statement not covered" >        locale: 'ko_KR',</span>
+<span class="cstat-no" title="statement not covered" >        type: 'website',</span>
+<span class="cstat-no" title="statement not covered" >        url: currentUrl,</span>
+<span class="cstat-no" title="statement not covered" >      },</span>
+<span class="cstat-no" title="statement not covered" >      twitter: {</span>
+<span class="cstat-no" title="statement not covered" >        card: 'summary',</span>
+<span class="cstat-no" title="statement not covered" >        title: metaTitle,</span>
+<span class="cstat-no" title="statement not covered" >        description: metaDescription,</span>
+<span class="cstat-no" title="statement not covered" >      },</span>
+<span class="cstat-no" title="statement not covered" >      robots: {</span>
+<span class="cstat-no" title="statement not covered" >        index: true,</span>
+<span class="cstat-no" title="statement not covered" >        follow: true,</span>
+<span class="cstat-no" title="statement not covered" >      },</span>
+<span class="cstat-no" title="statement not covered" >      alternates: {</span>
+<span class="cstat-no" title="statement not covered" >        canonical: currentUrl,</span>
+<span class="cstat-no" title="statement not covered" >      },</span>
+<span class="cstat-no" title="statement not covered" >    };</span>
+<span class="cstat-no" title="statement not covered" >  } catch (error) {</span>
+<span class="cstat-no" title="statement not covered" >    console.error('Failed to generate home metadata:', error);</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+<span class="cstat-no" title="statement not covered" >      title: 'WeGo - 함께하는 모임 플랫폼',</span>
+<span class="cstat-no" title="statement not covered" >      description: 'WeGo에서 함께할 다양한 모임을 탐색하고 참여하세요.',</span>
+<span class="cstat-no" title="statement not covered" >      openGraph: {</span>
+<span class="cstat-no" title="statement not covered" >        title: 'WeGo - 함께하는 모임 플랫폼',</span>
+<span class="cstat-no" title="statement not covered" >        description: 'WeGo에서 함께할 다양한 모임을 탐색하고 참여하세요.',</span>
+<span class="cstat-no" title="statement not covered" >        url: currentUrl,</span>
+<span class="cstat-no" title="statement not covered" >        type: 'website',</span>
+<span class="cstat-no" title="statement not covered" >      },</span>
+<span class="cstat-no" title="statement not covered" >      twitter: {</span>
+<span class="cstat-no" title="statement not covered" >        card: 'summary',</span>
+<span class="cstat-no" title="statement not covered" >      },</span>
+<span class="cstat-no" title="statement not covered" >    };</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;section className='mt-5 px-4 pb-5'&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;ul className='space-y-4'&gt;</span>
-<span class="cstat-no" title="statement not covered" >        {pendingMembers.map((member) =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >          &lt;li key={member.groupUserId}&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;PendingMemberCard</span>
-<span class="cstat-no" title="statement not covered" >              member={member}</span>
-<span class="cstat-no" title="statement not covered" >              onApprove={() =&gt; handleApprove(member.groupUserId)}</span>
-<span class="cstat-no" title="statement not covered" >              onReject={() =&gt; handleReject(member.groupUserId)}</span>
-<span class="cstat-no" title="statement not covered" >            /&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;/li&gt;</span>
-<span class="cstat-no" title="statement not covered" >        ))}</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/ul&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;/section&gt;</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;</pre></td></tr></table></pre>
 
@@ -321,14 +333,14 @@
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at 2026-01-03T13:31:50.437Z
             </div>
-        <script src="../../../../../prettify.js"></script>
+        <script src="../../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../../../../sorter.js"></script>
-        <script src="../../../../../block-navigation.js"></script>
+        <script src="../../../sorter.js"></script>
+        <script src="../../../block-navigation.js"></script>
     </body>
 </html>
     

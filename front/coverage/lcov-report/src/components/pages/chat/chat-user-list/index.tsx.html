@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20.38% </span>
+                <span class="strong">20.56% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>21/103</span>
+                <span class='fraction'>22/107</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">20.38% </span>
+                <span class="strong">20.56% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>21/103</span>
+                <span class='fraction'>22/107</span>
             </div>
         
             
@@ -166,7 +166,11 @@
 <a name='L101'></a><a href='#L101'>101</a>
 <a name='L102'></a><a href='#L102'>102</a>
 <a name='L103'></a><a href='#L103'>103</a>
-<a name='L104'></a><a href='#L104'>104</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -187,6 +191,10 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -287,13 +295,18 @@ interface UserListProps {
   onClose: () =&gt; void;
   roomId: number;
   roomType: 'DM' | 'GROUP';
+  userId: number;
 }
 &nbsp;
-export const UserList = <span class="fstat-no" title="function not covered" >({ onClose, roomId, roomType }: UserListProps) =&gt; {</span>
+export const UserList = <span class="fstat-no" title="function not covered" >({ onClose, roomId, roomType, userId }: UserListProps) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const [isManaging, setIsManaging] = useState(false);</span>
 <span class="cstat-no" title="statement not covered" >  const { open } = useModal();</span>
 <span class="cstat-no" title="statement not covered" >  const { data } = useGetParticipants(roomId);</span>
-<span class="cstat-no" title="statement not covered" >  console.log(roomType);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const isCurrentUserOwner = data?.participants.some(</span>
+<span class="cstat-no" title="statement not covered" >    (participant) =&gt; participant.userId === userId &amp;&amp; participant.isOwner,</span>
+<span class="cstat-no" title="statement not covered" >  );</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
 <span class="cstat-no" title="statement not covered" >    &lt;div className='bg-mono-white flex h-[calc(100vh-112px)] flex-col'&gt;</span>
 <span class="cstat-no" title="statement not covered" >      {/* 헤더 */}</span>
@@ -303,19 +316,19 @@ export const UserList = <span class="fstat-no" title="function not covered" >({ 
 <span class="cstat-no" title="statement not covered" >          &lt;span className='text-gray-800'&gt;참여자&lt;/span&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;span className='text-mint-500'&gt;{data?.totalCount}&lt;/span&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/span&gt;</span>
-<span class="cstat-no" title="statement not covered" >        {roomType === 'GROUP' ? (</span>
+<span class="cstat-no" title="statement not covered" >        {roomType === 'GROUP' &amp;&amp; isCurrentUserOwner ? (</span>
 <span class="cstat-no" title="statement not covered" >          &lt;button</span>
 <span class="cstat-no" title="statement not covered" >            className='text-text-sm-semibold cursor-pointer'</span>
 <span class="cstat-no" title="statement not covered" >            onClick={() =&gt; setIsManaging(!isManaging)}</span>
 <span class="cstat-no" title="statement not covered" >          &gt;</span>
 <span class="cstat-no" title="statement not covered" >            {isManaging ? (</span>
-<span class="cstat-no" title="statement not covered" >              &lt;span className='text-gray-600'&gt;완료&lt;/span&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;span className='w-6 text-gray-600'&gt;완료&lt;/span&gt;</span>
 <span class="cstat-no" title="statement not covered" >            ) : (</span>
-<span class="cstat-no" title="statement not covered" >              &lt;span className='text-mint-600'&gt;관리&lt;/span&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;span className='text-mint-600 w-6'&gt;관리&lt;/span&gt;</span>
 <span class="cstat-no" title="statement not covered" >            )}</span>
 <span class="cstat-no" title="statement not covered" >          &lt;/button&gt;</span>
 <span class="cstat-no" title="statement not covered" >        ) : (</span>
-<span class="cstat-no" title="statement not covered" >          &lt;div&gt;&lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;div className='w-6'&gt;&lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >        )}</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -341,8 +354,7 @@ export const UserList = <span class="fstat-no" title="function not covered" >({ 
 <span class="cstat-no" title="statement not covered" >                &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >              &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >              {/* 방장이 0번째로 들어온다면 이렇게, 방장이라는걸 알 수 있는 필드가 있다면 수정 */}</span>
-<span class="cstat-no" title="statement not covered" >              {roomType === 'GROUP' &amp;&amp; index === 0 ? (</span>
+<span class="cstat-no" title="statement not covered" >              {roomType === 'GROUP' &amp;&amp; user.isOwner ? (</span>
 <span class="cstat-no" title="statement not covered" >                &lt;span className='bg-mint-100 text-mint-700 text-text-xs-medium rounded-full px-2.5 py-1'&gt;</span>
 <span class="cstat-no" title="statement not covered" >                  방장</span>
 <span class="cstat-no" title="statement not covered" >                &lt;/span&gt;</span>
@@ -379,7 +391,7 @@ export const UserList = <span class="fstat-no" title="function not covered" >({ 
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-04T15:51:02.501Z
+                at 2026-01-04T23:38:05.230Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/147</span>
+                <span class='fraction'>0/153</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/147</span>
+                <span class='fraction'>0/153</span>
             </div>
         
             
@@ -210,7 +210,19 @@
 <a name='L145'></a><a href='#L145'>145</a>
 <a name='L146'></a><a href='#L146'>146</a>
 <a name='L147'></a><a href='#L147'>147</a>
-<a name='L148'></a><a href='#L148'>148</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -393,6 +405,11 @@
 <span class="cstat-no" title="statement not covered" >    } catch {}</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const handleNotificationHover = () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (!redirectUrl) return;</span>
+<span class="cstat-no" title="statement not covered" >    router.prefetch(redirectUrl);</span>
+<span class="cstat-no" title="statement not covered" >  };</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
 <span class="cstat-no" title="statement not covered" >    &lt;article</span>
 <span class="cstat-no" title="statement not covered" >      className={cn(</span>
@@ -400,6 +417,7 @@
 <span class="cstat-no" title="statement not covered" >        !item.readAt &amp;&amp; 'bg-mint-50',</span>
 <span class="cstat-no" title="statement not covered" >      )}</span>
 <span class="cstat-no" title="statement not covered" >      onClick={handleNotificationClick}</span>
+<span class="cstat-no" title="statement not covered" >      onMouseEnter={handleNotificationHover}</span>
 <span class="cstat-no" title="statement not covered" >    &gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;div className={cn('flex-center mt-0.5 size-10 shrink-0 rounded-xl bg-gray-100')}&gt;</span>
 <span class="cstat-no" title="statement not covered" >        {NotificationIcon}</span>
@@ -416,36 +434,36 @@
 <span class="cstat-no" title="statement not covered" >};</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >const IconMap: Record&lt;NotificationType, React.ReactNode&gt; = {</span>
-<span class="cstat-no" title="statement not covered" >  follow: &lt;Icon id='heart' className='text-mint-500 size-6' /&gt;,</span>
-<span class="cstat-no" title="statement not covered" >  'group-join': &lt;Icon id='symbol' className='text-mint-500 size-6' /&gt;,</span>
-<span class="cstat-no" title="statement not covered" >  'group-leave': &lt;Icon id='x-2' className='size-6 text-gray-500' /&gt;,</span>
-<span class="cstat-no" title="statement not covered" >  'group-create': &lt;Icon id='map-pin-2' className='size-6 text-[#FFBA1A]' /&gt;,</span>
-<span class="cstat-no" title="statement not covered" >  'group-delete': &lt;Icon id='x-2' className='size-6 text-gray-500' /&gt;,</span>
-<span class="cstat-no" title="statement not covered" >  'group-join-request': &lt;Icon id='send' className='text-mint-500 size-6' /&gt;,</span>
-<span class="cstat-no" title="statement not covered" >  'group-join-approved': &lt;Icon id='congratulate' className='size-6' /&gt;,</span>
-<span class="cstat-no" title="statement not covered" >  'group-join-rejected': &lt;Icon id='kick' className='size-6' /&gt;,</span>
-<span class="cstat-no" title="statement not covered" >  'group-join-kicked': &lt;Icon id='kick' className='size-6' /&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  FOLLOW: &lt;Icon id='heart' className='text-mint-500 size-6' /&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  GROUP_JOIN: &lt;Icon id='symbol' className='text-mint-500 size-6' /&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  GROUP_LEAVE: &lt;Icon id='x-2' className='size-6 text-gray-500' /&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  GROUP_CREATE: &lt;Icon id='map-pin-2' className='size-6 text-[#FFBA1A]' /&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  GROUP_DELETE: &lt;Icon id='x-2' className='size-6 text-gray-500' /&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  GROUP_JOIN_REQUEST: &lt;Icon id='send' className='text-mint-500 size-6' /&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  GROUP_JOIN_APPROVED: &lt;Icon id='congratulate' className='size-6' /&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  GROUP_JOIN_REJECTED: &lt;Icon id='kick' className='size-6' /&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  GROUP_JOIN_KICKED: &lt;Icon id='kick' className='size-6' /&gt;,</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >const getTitle = (data: NotificationItem) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  switch (data.type) {</span>
-<span class="cstat-no" title="statement not covered" >    case 'follow':</span>
+<span class="cstat-no" title="statement not covered" >    case 'FOLLOW':</span>
 <span class="cstat-no" title="statement not covered" >      return `새 팔로워`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-join':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_JOIN':</span>
 <span class="cstat-no" title="statement not covered" >      return `모임 현황`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-leave':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_LEAVE':</span>
 <span class="cstat-no" title="statement not covered" >      return `모임 현황`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-create':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_CREATE':</span>
 <span class="cstat-no" title="statement not covered" >      return `모임 생성`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-delete':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_DELETE':</span>
 <span class="cstat-no" title="statement not covered" >      return `모임 취소`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-join-request':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_JOIN_REQUEST':</span>
 <span class="cstat-no" title="statement not covered" >      return `모임 참여 신청`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-join-approved':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_JOIN_APPROVED':</span>
 <span class="cstat-no" title="statement not covered" >      return `모임 신청 승인`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-join-rejected':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_JOIN_REJECTED':</span>
 <span class="cstat-no" title="statement not covered" >      return `모임 신청 거절`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-join-kicked':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_JOIN_KICKED':</span>
 <span class="cstat-no" title="statement not covered" >      return `모임 강퇴`;</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" >};</span>
@@ -453,7 +471,7 @@
 <span class="cstat-no" title="statement not covered" >const getDescription = (data: NotificationItem) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  // user type 알림</span>
 <span class="cstat-no" title="statement not covered" >  switch (data.type) {</span>
-<span class="cstat-no" title="statement not covered" >    case 'follow':</span>
+<span class="cstat-no" title="statement not covered" >    case 'FOLLOW':</span>
 <span class="cstat-no" title="statement not covered" >      return `${data.user.nickname} 님이 팔로우했어요.`;</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -463,21 +481,21 @@
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  // group 필드가 null이 아닐 경우</span>
 <span class="cstat-no" title="statement not covered" >  switch (data.type) {</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-join':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_JOIN':</span>
 <span class="cstat-no" title="statement not covered" >      return `${data.user.nickname} 님이 "${data.group.title}" 모임에 참여했어요.`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-leave':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_LEAVE':</span>
 <span class="cstat-no" title="statement not covered" >      return `${data.user.nickname} 님이 "${data.group.title}" 모임을 탈퇴했어요.`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-create':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_CREATE':</span>
 <span class="cstat-no" title="statement not covered" >      return `${data.user.nickname} 님이 "${data.group.title}" 모임을 생성했어요.`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-delete':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_DELETE':</span>
 <span class="cstat-no" title="statement not covered" >      return `${data.user.nickname} 님이 "${data.group.title}" 모임을 취소했어요.`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-join-request':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_JOIN_REQUEST':</span>
 <span class="cstat-no" title="statement not covered" >      return `${data.user.nickname} 님이 "${data.group.title}" 모임에 참여를 요청했어요.`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-join-approved':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_JOIN_APPROVED':</span>
 <span class="cstat-no" title="statement not covered" >      return `"${data.group.title}" 모임 참여 신청이 승인됐어요.`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-join-rejected':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_JOIN_REJECTED':</span>
 <span class="cstat-no" title="statement not covered" >      return `"${data.group.title}" 모임 참여 신청이 거절됐어요.`;</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-join-kicked':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_JOIN_KICKED':</span>
 <span class="cstat-no" title="statement not covered" >      return `"${data.group.title}" 모임에서 퇴장됐어요.`;</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" >};</span>
@@ -490,7 +508,7 @@
 <span class="cstat-no" title="statement not covered" >const getRedirectUrl = (data: NotificationItem) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  // user type 알림</span>
 <span class="cstat-no" title="statement not covered" >  switch (data.type) {</span>
-<span class="cstat-no" title="statement not covered" >    case 'follow':</span>
+<span class="cstat-no" title="statement not covered" >    case 'FOLLOW':</span>
 <span class="cstat-no" title="statement not covered" >      return `/profile/${data.user.id}`;</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -498,7 +516,7 @@
 <span class="cstat-no" title="statement not covered" >  if (!data.group) return null;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  switch (data.type) {</span>
-<span class="cstat-no" title="statement not covered" >    case 'group-join-request':</span>
+<span class="cstat-no" title="statement not covered" >    case 'GROUP_JOIN_REQUEST':</span>
 <span class="cstat-no" title="statement not covered" >      return `/pending/${data.group.id}`;</span>
 <span class="cstat-no" title="statement not covered" >    default:</span>
 <span class="cstat-no" title="statement not covered" >      return `/group/${data.group.id}`;</span>
@@ -511,7 +529,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-04T09:16:17.845Z
+                at 2026-01-04T12:25:56.333Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

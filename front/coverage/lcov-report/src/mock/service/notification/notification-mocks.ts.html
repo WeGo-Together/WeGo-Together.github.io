@@ -343,7 +343,7 @@
 <span class="cstat-no" title="statement not covered" >    message: 'A 님이 팔로우했습니다.',</span>
 <span class="cstat-no" title="statement not covered" >    readAt: null,</span>
 <span class="cstat-no" title="statement not covered" >    createdAt: '2025-12-25T08:10:38.747958',</span>
-<span class="cstat-no" title="statement not covered" >    type: 'follow',</span>
+<span class="cstat-no" title="statement not covered" >    type: 'FOLLOW',</span>
 <span class="cstat-no" title="statement not covered" >    user: {</span>
 <span class="cstat-no" title="statement not covered" >      id: 1,</span>
 <span class="cstat-no" title="statement not covered" >      nickname: 'A',</span>
@@ -355,7 +355,7 @@
 <span class="cstat-no" title="statement not covered" >    message: 'B님이 "A가 만든 모임" 모임에 참가했습니다.',</span>
 <span class="cstat-no" title="statement not covered" >    readAt: null,</span>
 <span class="cstat-no" title="statement not covered" >    createdAt: '2025-12-25T08:10:38.747958',</span>
-<span class="cstat-no" title="statement not covered" >    type: 'group-join',</span>
+<span class="cstat-no" title="statement not covered" >    type: 'GROUP_JOIN',</span>
 <span class="cstat-no" title="statement not covered" >    user: {</span>
 <span class="cstat-no" title="statement not covered" >      id: 1,</span>
 <span class="cstat-no" title="statement not covered" >      nickname: 'B',</span>
@@ -370,7 +370,7 @@
 <span class="cstat-no" title="statement not covered" >    message: 'B님이 "A가 만든 모임" 모임을 탈퇴했습니다.',</span>
 <span class="cstat-no" title="statement not covered" >    readAt: null,</span>
 <span class="cstat-no" title="statement not covered" >    createdAt: '2025-12-25T08:10:38.747958',</span>
-<span class="cstat-no" title="statement not covered" >    type: 'group-leave',</span>
+<span class="cstat-no" title="statement not covered" >    type: 'GROUP_LEAVE',</span>
 <span class="cstat-no" title="statement not covered" >    user: {</span>
 <span class="cstat-no" title="statement not covered" >      id: 1,</span>
 <span class="cstat-no" title="statement not covered" >      nickname: 'B',</span>
@@ -385,7 +385,7 @@
 <span class="cstat-no" title="statement not covered" >    message: 'A님이 "A가 만든 모임" 모임을 생성했습니다.',</span>
 <span class="cstat-no" title="statement not covered" >    readAt: null,</span>
 <span class="cstat-no" title="statement not covered" >    createdAt: '2025-12-25T08:10:38.747958',</span>
-<span class="cstat-no" title="statement not covered" >    type: 'group-create',</span>
+<span class="cstat-no" title="statement not covered" >    type: 'GROUP_CREATE',</span>
 <span class="cstat-no" title="statement not covered" >    user: {</span>
 <span class="cstat-no" title="statement not covered" >      id: 1,</span>
 <span class="cstat-no" title="statement not covered" >      nickname: 'A',</span>
@@ -400,7 +400,7 @@
 <span class="cstat-no" title="statement not covered" >    message: 'A님이 "A가 만든 모임" 모임을 취소했습니다.',</span>
 <span class="cstat-no" title="statement not covered" >    readAt: null,</span>
 <span class="cstat-no" title="statement not covered" >    createdAt: '2025-12-25T08:10:38.747958',</span>
-<span class="cstat-no" title="statement not covered" >    type: 'group-delete',</span>
+<span class="cstat-no" title="statement not covered" >    type: 'GROUP_DELETE',</span>
 <span class="cstat-no" title="statement not covered" >    user: {</span>
 <span class="cstat-no" title="statement not covered" >      id: 1,</span>
 <span class="cstat-no" title="statement not covered" >      nickname: 'A',</span>
@@ -415,7 +415,7 @@
 <span class="cstat-no" title="statement not covered" >    message: 'B님이 "A가 만든 모임" 모임에 참여 신청했습니다.',</span>
 <span class="cstat-no" title="statement not covered" >    readAt: null,</span>
 <span class="cstat-no" title="statement not covered" >    createdAt: '2025-12-25T08:10:38.747958',</span>
-<span class="cstat-no" title="statement not covered" >    type: 'group-join-request',</span>
+<span class="cstat-no" title="statement not covered" >    type: 'GROUP_JOIN_REQUEST',</span>
 <span class="cstat-no" title="statement not covered" >    user: {</span>
 <span class="cstat-no" title="statement not covered" >      id: 1,</span>
 <span class="cstat-no" title="statement not covered" >      nickname: 'B',</span>
@@ -430,7 +430,7 @@
 <span class="cstat-no" title="statement not covered" >    message: '"A가 만든 모임" 모임 참여 신청이 승인되었습니다.',</span>
 <span class="cstat-no" title="statement not covered" >    readAt: null,</span>
 <span class="cstat-no" title="statement not covered" >    createdAt: '2025-12-25T08:10:38.747958',</span>
-<span class="cstat-no" title="statement not covered" >    type: 'group-join-approved',</span>
+<span class="cstat-no" title="statement not covered" >    type: 'GROUP_JOIN_APPROVED',</span>
 <span class="cstat-no" title="statement not covered" >    user: {</span>
 <span class="cstat-no" title="statement not covered" >      id: 1,</span>
 <span class="cstat-no" title="statement not covered" >      nickname: 'A',</span>
@@ -445,7 +445,7 @@
 <span class="cstat-no" title="statement not covered" >    message: '"A가 만든 모임" 모임 참여 신청이 거절되었습니다.',</span>
 <span class="cstat-no" title="statement not covered" >    readAt: null,</span>
 <span class="cstat-no" title="statement not covered" >    createdAt: '2025-12-25T08:10:38.747958',</span>
-<span class="cstat-no" title="statement not covered" >    type: 'group-join-rejected',</span>
+<span class="cstat-no" title="statement not covered" >    type: 'GROUP_JOIN_REJECTED',</span>
 <span class="cstat-no" title="statement not covered" >    user: {</span>
 <span class="cstat-no" title="statement not covered" >      id: 1,</span>
 <span class="cstat-no" title="statement not covered" >      nickname: 'A',</span>
@@ -460,7 +460,7 @@
 <span class="cstat-no" title="statement not covered" >    message: '"A가 만든 모임" 모임에서 추방되었습니다.',</span>
 <span class="cstat-no" title="statement not covered" >    readAt: null,</span>
 <span class="cstat-no" title="statement not covered" >    createdAt: '2025-12-25T08:10:38.747958',</span>
-<span class="cstat-no" title="statement not covered" >    type: 'group-join-kicked',</span>
+<span class="cstat-no" title="statement not covered" >    type: 'GROUP_JOIN_KICKED',</span>
 <span class="cstat-no" title="statement not covered" >    user: {</span>
 <span class="cstat-no" title="statement not covered" >      id: 1,</span>
 <span class="cstat-no" title="statement not covered" >      nickname: 'A',</span>
@@ -478,7 +478,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-04T09:16:17.845Z
+                at 2026-01-04T12:25:56.333Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

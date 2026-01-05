@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/124</span>
+                <span class='fraction'>0/130</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/124</span>
+                <span class='fraction'>0/130</span>
             </div>
         
             
@@ -187,7 +187,19 @@
 <a name='L122'></a><a href='#L122'>122</a>
 <a name='L123'></a><a href='#L123'>123</a>
 <a name='L124'></a><a href='#L124'>124</a>
-<a name='L125'></a><a href='#L125'>125</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -313,7 +325,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >'use client';</span></span></span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import { useParams, useRouter } from 'next/navigation';</span>
+<span class="cstat-no" title="statement not covered" >import { useParams, usePathname, useRouter } from 'next/navigation';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { revalidateGroupAction } from '@/app/group/[groupId]/actions';</span>
 <span class="cstat-no" title="statement not covered" >import { GroupModalApprovalContent } from '@/components/pages/group/group-modal/approval-content';</span>
@@ -331,6 +343,7 @@
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >interface BaseProps {</span>
 <span class="cstat-no" title="statement not covered" >  type: Exclude&lt;ModalType, 'kick'&gt;;</span>
+<span class="cstat-no" title="statement not covered" >  groupId?: string;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >interface KickProps {</span>
@@ -339,6 +352,7 @@
 <span class="cstat-no" title="statement not covered" >    targetUserId: string;</span>
 <span class="cstat-no" title="statement not covered" >    targetUserName: string;</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
+<span class="cstat-no" title="statement not covered" >  groupId?: string;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >type Props = BaseProps | KickProps;</span>
@@ -346,8 +360,10 @@
 <span class="cstat-no" title="statement not covered" >export const GroupModal = (props: Props) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const { type } = props;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const { groupId } = useParams() as { groupId: string };</span>
+<span class="cstat-no" title="statement not covered" >  const params = useParams();</span>
+<span class="cstat-no" title="statement not covered" >  const groupId = props.groupId || (params as { groupId: string }).groupId;</span>
 <span class="cstat-no" title="statement not covered" >  const { replace } = useRouter();</span>
+<span class="cstat-no" title="statement not covered" >  const pathname = usePathname();</span>
 <span class="cstat-no" title="statement not covered" >  const { run } = useToast();</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  const { mutateAsync: attendMutate, isPending: isAttending } = useAttendGroup({ groupId });</span>
@@ -375,7 +391,9 @@
 <span class="cstat-no" title="statement not covered" >    delete: async () =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      await deleteMutate();</span>
 <span class="cstat-no" title="statement not covered" >      await revalidateGroupAction(groupId);</span>
-<span class="cstat-no" title="statement not covered" >      replace('/');</span>
+<span class="cstat-no" title="statement not covered" >      if (!pathname.startsWith('/schedule')) {</span>
+<span class="cstat-no" title="statement not covered" >        replace('/');</span>
+<span class="cstat-no" title="statement not covered" >      }</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
 <span class="cstat-no" title="statement not covered" >    kick: () =&gt; kickMutate(),</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
@@ -442,7 +460,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-04T23:38:05.230Z
+                at 2026-01-05T00:29:27.042Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

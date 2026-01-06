@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/128</span>
+                <span class='fraction'>0/123</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/128</span>
+                <span class='fraction'>0/123</span>
             </div>
         
             
@@ -186,17 +186,7 @@
 <a name='L121'></a><a href='#L121'>121</a>
 <a name='L122'></a><a href='#L122'>122</a>
 <a name='L123'></a><a href='#L123'>123</a>
-<a name='L124'></a><a href='#L124'>124</a>
-<a name='L125'></a><a href='#L125'>125</a>
-<a name='L126'></a><a href='#L126'>126</a>
-<a name='L127'></a><a href='#L127'>127</a>
-<a name='L128'></a><a href='#L128'>128</a>
-<a name='L129'></a><a href='#L129'>129</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L124'></a><a href='#L124'>124</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -323,7 +313,7 @@
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { useRouter } from 'next/navigation';</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import { useCallback, useEffect } from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import { useCallback, useEffect, useMemo } from 'react';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -334,7 +324,9 @@
 <span class="cstat-no" title="statement not covered" >import { groupKeys } from '@/lib/query-key/query-key-group';</span>
 <span class="cstat-no" title="statement not covered" >import { GetJoinRequestsResponse } from '@/types/service/group';</span>
 <span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >import { PENDING_MEMBERS_MIN_HEIGHT } from './constants';</span>
 <span class="cstat-no" title="statement not covered" >import { PendingMemberCard } from './pending-member-card';</span>
+<span class="cstat-no" title="statement not covered" >import { PendingMembersSkeleton } from './pending-members-loading';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >interface Props {</span>
 <span class="cstat-no" title="statement not covered" >  groupId: string;</span>
@@ -350,8 +342,10 @@
 <span class="cstat-no" title="statement not covered" >    queryFn: () =&gt; API.groupService.getJoinRequests({ groupId }, 'PENDING'),</span>
 <span class="cstat-no" title="statement not covered" >  });</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  const isForbidden =</span>
-<span class="cstat-no" title="statement not covered" >    error &amp;&amp; typeof error === 'object' &amp;&amp; 'status' in error &amp;&amp; error.status === 403;</span>
+<span class="cstat-no" title="statement not covered" >  const isForbidden = useMemo(</span>
+<span class="cstat-no" title="statement not covered" >    () =&gt; error &amp;&amp; typeof error === 'object' &amp;&amp; 'status' in error &amp;&amp; error.status === 403,</span>
+<span class="cstat-no" title="statement not covered" >    [error],</span>
+<span class="cstat-no" title="statement not covered" >  );</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  useEffect(() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (isForbidden) {</span>
@@ -363,13 +357,10 @@
 <span class="cstat-no" title="statement not covered" >    mutationFn: (targetUserId: string) =&gt;</span>
 <span class="cstat-no" title="statement not covered" >      API.groupService.approveJoinRequest({ groupId, targetUserId }),</span>
 <span class="cstat-no" title="statement not covered" >    onSuccess: async () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      // 가입 신청 목록 캐시 무효화 및 자동 refetch</span>
-<span class="cstat-no" title="statement not covered" >      // GroupPendingSummary의 count도 자동으로 업데이트됨</span>
 <span class="cstat-no" title="statement not covered" >      await queryClient.invalidateQueries({</span>
 <span class="cstat-no" title="statement not covered" >        queryKey: groupKeys.joinRequests(groupId, 'PENDING'),</span>
-<span class="cstat-no" title="statement not covered" >        refetchType: 'active', // 활성화된 모든 쿼리 자동 refetch</span>
+<span class="cstat-no" title="statement not covered" >        refetchType: 'active',</span>
 <span class="cstat-no" title="statement not covered" >      });</span>
-<span class="cstat-no" title="statement not covered" >      // 모임 상세 정보도 갱신</span>
 <span class="cstat-no" title="statement not covered" >      await queryClient.invalidateQueries({ queryKey: groupKeys.detail(groupId) });</span>
 <span class="cstat-no" title="statement not covered" >      run(&lt;Toast type='success'&gt;모임 신청이 수락되었습니다.&lt;/Toast&gt;);</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
@@ -379,11 +370,9 @@
 <span class="cstat-no" title="statement not covered" >    mutationFn: (targetUserId: string) =&gt;</span>
 <span class="cstat-no" title="statement not covered" >      API.groupService.rejectJoinRequest({ groupId, targetUserId }),</span>
 <span class="cstat-no" title="statement not covered" >    onSuccess: async () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      // 가입 신청 목록 캐시 무효화 및 모든 활성 쿼리 refetch</span>
-<span class="cstat-no" title="statement not covered" >      // GroupPendingSummary의 count도 자동으로 업데이트됨</span>
 <span class="cstat-no" title="statement not covered" >      await queryClient.invalidateQueries({</span>
 <span class="cstat-no" title="statement not covered" >        queryKey: groupKeys.joinRequests(groupId, 'PENDING'),</span>
-<span class="cstat-no" title="statement not covered" >        refetchType: 'active', // 활성화된 모든 쿼리 자동 refetch</span>
+<span class="cstat-no" title="statement not covered" >        refetchType: 'active',</span>
 <span class="cstat-no" title="statement not covered" >      });</span>
 <span class="cstat-no" title="statement not covered" >      run(&lt;Toast&gt;모임 신청이 거절되었습니다.&lt;/Toast&gt;);</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
@@ -403,12 +392,8 @@
 <span class="cstat-no" title="statement not covered" >    [rejectMutation],</span>
 <span class="cstat-no" title="statement not covered" >  );</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  if (isLoading) {</span>
-<span class="cstat-no" title="statement not covered" >    return (</span>
-<span class="cstat-no" title="statement not covered" >      &lt;section className='relative h-[calc(100vh-192px)]'&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div className='flex-center h-full'&gt;로딩 중...&lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/section&gt;</span>
-<span class="cstat-no" title="statement not covered" >    );</span>
+<span class="cstat-no" title="statement not covered" >  if (isLoading &amp;&amp; !data &amp;&amp; !error) {</span>
+<span class="cstat-no" title="statement not covered" >    return &lt;PendingMembersSkeleton /&gt;;</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  if (isForbidden) {</span>
@@ -417,7 +402,7 @@
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  if (error &amp;&amp; (!('status' in error) || error.status !== 403)) {</span>
 <span class="cstat-no" title="statement not covered" >    return (</span>
-<span class="cstat-no" title="statement not covered" >      &lt;section className='relative h-[calc(100vh-192px)]'&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;section className={`relative ${PENDING_MEMBERS_MIN_HEIGHT}`}&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;div className='flex-center h-full text-gray-600'&gt;데이터를 불러오는데 실패했습니다.&lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/section&gt;</span>
 <span class="cstat-no" title="statement not covered" >    );</span>
@@ -425,7 +410,7 @@
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  if (!data || data.items.length === 0) {</span>
 <span class="cstat-no" title="statement not covered" >    return (</span>
-<span class="cstat-no" title="statement not covered" >      &lt;section className='relative h-[calc(100vh-192px)]'&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;section className={`relative ${PENDING_MEMBERS_MIN_HEIGHT}`}&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;EmptyState&gt;승인 대기 중인 멤버가 없습니다&lt;/EmptyState&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/section&gt;</span>
 <span class="cstat-no" title="statement not covered" >    );</span>
@@ -454,7 +439,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-06T06:27:44.582Z
+                at 2026-01-06T07:51:21.311Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

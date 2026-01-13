@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/39</span>
+                <span class='fraction'>0/27</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/39</span>
+                <span class='fraction'>0/27</span>
             </div>
         
             
@@ -90,31 +90,7 @@
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a>
-<a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -143,12 +119,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >'use client';</span></span></span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import { DEFAULT_GROUP_IMAGE } from 'constants/default-images';</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import { ImageWithFallback } from '@/components/ui';</span>
+<span class="cstat-no" title="statement not covered" >import { GroupImage } from '@/components/shared';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >interface Props {</span>
-<span class="cstat-no" title="statement not covered" >  thumbnail?: string | null;</span>
+<span class="cstat-no" title="statement not covered" >  thumbnail: string | null;</span>
 <span class="cstat-no" title="statement not covered" >  title?: string;</span>
 <span class="cstat-no" title="statement not covered" >  pendingCount?: number;</span>
 <span class="cstat-no" title="statement not covered" >}</span>
@@ -156,24 +130,14 @@
 <span class="cstat-no" title="statement not covered" >export const GroupPendingSummary = ({ thumbnail, title, pendingCount }: Props) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
 <span class="cstat-no" title="statement not covered" >    &lt;div className='flex h-22 items-center gap-3 border-b border-gray-200 bg-white p-4'&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className='relative h-14 w-14 shrink-0 overflow-hidden rounded-[10px] bg-gray-200'&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;ImageWithFallback</span>
-<span class="cstat-no" title="statement not covered" >          width={56}</span>
-<span class="cstat-no" title="statement not covered" >          className='h-full w-full object-cover'</span>
-<span class="cstat-no" title="statement not covered" >          alt={title || '모임 썸네일'}</span>
-<span class="cstat-no" title="statement not covered" >          fallbackSrc={DEFAULT_GROUP_IMAGE}</span>
-<span class="cstat-no" title="statement not covered" >          height={56}</span>
-<span class="cstat-no" title="statement not covered" >          src={thumbnail ?? ''}</span>
-<span class="cstat-no" title="statement not covered" >          unoptimized</span>
-<span class="cstat-no" title="statement not covered" >        /&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;GroupImage className='shrink-0' size='sm' src={thumbnail} /&gt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className='flex min-w-0 flex-1 flex-col justify-between'&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;h3 className='text-text-md-semibold mt-[5px] h-6 truncate text-gray-800'&gt;{title}&lt;/h3&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;div className='min-w-0 space-y-0.5'&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;h3 className='text-text-md-semibold h-6 truncate text-gray-800'&gt;{title}&lt;/h3&gt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        &lt;div className='text-text-sm-medium mb-[5px] flex h-5 items-center'&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;div className='text-text-sm-medium flex h-5 items-center'&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;span className='text-gray-600'&gt;신청한 유저&lt;/span&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;span className='text-mint-600 ml-1'&gt;{pendingCount ?? 0}&lt;/span&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;span className='text-mint-600 ml-1'&gt;{pendingCount}&lt;/span&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;span className='text-gray-600'&gt;명&lt;/span&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
@@ -187,7 +151,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-12T14:57:12.306Z
+                at 2026-01-13T14:23:50.097Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

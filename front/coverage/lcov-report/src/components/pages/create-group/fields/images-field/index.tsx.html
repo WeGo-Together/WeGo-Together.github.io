@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/127</span>
+                <span class='fraction'>0/128</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/127</span>
+                <span class='fraction'>0/128</span>
             </div>
         
             
@@ -190,7 +190,9 @@
 <a name='L125'></a><a href='#L125'>125</a>
 <a name='L126'></a><a href='#L126'>126</a>
 <a name='L127'></a><a href='#L127'>127</a>
-<a name='L128'></a><a href='#L128'>128</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -319,14 +321,13 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >'use client';</span></span></span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >import Image from 'next/image';</span>
-<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { useRef, useState } from 'react';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { AnyFieldApi } from '@tanstack/react-form';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { Icon } from '@/components/icon';</span>
 <span class="cstat-no" title="statement not covered" >import { ImageLoadingBar } from '@/components/pages/create-group/fields/images-field/image-loading-bar';</span>
+<span class="cstat-no" title="statement not covered" >import { GroupImage } from '@/components/shared';</span>
 <span class="cstat-no" title="statement not covered" >import { Hint } from '@/components/ui';</span>
 <span class="cstat-no" title="statement not covered" >import { useUploadGroupImages } from '@/hooks/use-group/use-group-upload-images';</span>
 <span class="cstat-no" title="statement not covered" >import { cn } from '@/lib/utils';</span>
@@ -377,55 +378,56 @@
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
 <span class="cstat-no" title="statement not covered" >    &lt;div className='space-y-1'&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className='mt-6 flex flex-row gap-2'&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;button</span>
-<span class="cstat-no" title="statement not covered" >          className={cn(</span>
-<span class="cstat-no" title="statement not covered" >            'flex-center bg-mono-white group relative aspect-square w-full max-w-20 cursor-pointer rounded-2xl border-1 border-gray-300', // 기본 스타일</span>
-<span class="cstat-no" title="statement not covered" >            'hover:bg-gray-50', // hover 스타일</span>
-<span class="cstat-no" title="statement not covered" >            'transition-all duration-300', // animation 스타일</span>
-<span class="cstat-no" title="statement not covered" >          )}</span>
-<span class="cstat-no" title="statement not covered" >          aria-label='이미지 선택 버튼'</span>
-<span class="cstat-no" title="statement not covered" >          disabled={isPending}</span>
-<span class="cstat-no" title="statement not covered" >          type='button'</span>
-<span class="cstat-no" title="statement not covered" >          onClick={onUploadImageButtonClick}</span>
-<span class="cstat-no" title="statement not covered" >        &gt;</span>
-<span class="cstat-no" title="statement not covered" >          {isPending ? (</span>
-<span class="cstat-no" title="statement not covered" >            &lt;ImageLoadingBar /&gt;</span>
-<span class="cstat-no" title="statement not covered" >          ) : (</span>
-<span class="cstat-no" title="statement not covered" >            &lt;Icon</span>
-<span class="cstat-no" title="statement not covered" >              id='plus'</span>
-<span class="cstat-no" title="statement not covered" >              className={cn(</span>
-<span class="cstat-no" title="statement not covered" >                'size-6 text-gray-600', // 기본 스타일</span>
-<span class="cstat-no" title="statement not covered" >                'group-hover:scale-120', // hover 스타일</span>
-<span class="cstat-no" title="statement not covered" >                'transition-all duration-300', // animation 스타일</span>
-<span class="cstat-no" title="statement not covered" >              )}</span>
+<span class="cstat-no" title="statement not covered" >      &lt;ul className='mt-6 flex gap-2'&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;li className='relative aspect-square w-full max-w-20'&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;button</span>
+<span class="cstat-no" title="statement not covered" >            className={cn(</span>
+<span class="cstat-no" title="statement not covered" >              'flex-center bg-mono-white group size-full cursor-pointer rounded-2xl border-1 border-gray-300', // 기본 스타일</span>
+<span class="cstat-no" title="statement not covered" >              'hover:bg-gray-50',</span>
+<span class="cstat-no" title="statement not covered" >              'transition-all duration-300',</span>
+<span class="cstat-no" title="statement not covered" >            )}</span>
+<span class="cstat-no" title="statement not covered" >            aria-label='이미지 선택 버튼'</span>
+<span class="cstat-no" title="statement not covered" >            disabled={isPending}</span>
+<span class="cstat-no" title="statement not covered" >            type='button'</span>
+<span class="cstat-no" title="statement not covered" >            onClick={onUploadImageButtonClick}</span>
+<span class="cstat-no" title="statement not covered" >          &gt;</span>
+<span class="cstat-no" title="statement not covered" >            {isPending ? (</span>
+<span class="cstat-no" title="statement not covered" >              &lt;ImageLoadingBar /&gt;</span>
+<span class="cstat-no" title="statement not covered" >            ) : (</span>
+<span class="cstat-no" title="statement not covered" >              &lt;Icon</span>
+<span class="cstat-no" title="statement not covered" >                id='plus'</span>
+<span class="cstat-no" title="statement not covered" >                className={cn(</span>
+<span class="cstat-no" title="statement not covered" >                  'size-6 text-gray-600',</span>
+<span class="cstat-no" title="statement not covered" >                  'group-hover:scale-120',</span>
+<span class="cstat-no" title="statement not covered" >                  'transition-all duration-300',</span>
+<span class="cstat-no" title="statement not covered" >                )}</span>
+<span class="cstat-no" title="statement not covered" >              /&gt;</span>
+<span class="cstat-no" title="statement not covered" >            )}</span>
+<span class="cstat-no" title="statement not covered" >            &lt;input</span>
+<span class="cstat-no" title="statement not covered" >              ref={inputRef}</span>
+<span class="cstat-no" title="statement not covered" >              className='hidden'</span>
+<span class="cstat-no" title="statement not covered" >              accept='image/*'</span>
+<span class="cstat-no" title="statement not covered" >              multiple</span>
+<span class="cstat-no" title="statement not covered" >              type='file'</span>
+<span class="cstat-no" title="statement not covered" >              onChange={(e) =&gt; onUploadImage(e)}</span>
 <span class="cstat-no" title="statement not covered" >            /&gt;</span>
-<span class="cstat-no" title="statement not covered" >          )}</span>
-<span class="cstat-no" title="statement not covered" >          &lt;input</span>
-<span class="cstat-no" title="statement not covered" >            ref={inputRef}</span>
-<span class="cstat-no" title="statement not covered" >            className='hidden'</span>
-<span class="cstat-no" title="statement not covered" >            accept='image/*'</span>
-<span class="cstat-no" title="statement not covered" >            multiple</span>
-<span class="cstat-no" title="statement not covered" >            type='file'</span>
-<span class="cstat-no" title="statement not covered" >            onChange={(e) =&gt; onUploadImage(e)}</span>
-<span class="cstat-no" title="statement not covered" >          /&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/button&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;/button&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;/li&gt;</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >        {field.state.value.map(</span>
 <span class="cstat-no" title="statement not covered" >          ({ imageUrl100x100 }: PreUploadGroupImageResponse['images'][0], idx: number) =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >            &lt;div key={imageUrl100x100} className='relative aspect-square w-full max-w-20'&gt;</span>
-<span class="cstat-no" title="statement not covered" >              &lt;Image</span>
-<span class="cstat-no" title="statement not covered" >                className='border-mono-black/5 h-full w-full rounded-2xl border-1 object-cover select-none'</span>
-<span class="cstat-no" title="statement not covered" >                alt='썸네일 이미지'</span>
-<span class="cstat-no" title="statement not covered" >                draggable={false}</span>
-<span class="cstat-no" title="statement not covered" >                fill</span>
+<span class="cstat-no" title="statement not covered" >            &lt;li key={imageUrl100x100} className='relative aspect-square w-full max-w-20'&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;GroupImage</span>
+<span class="cstat-no" title="statement not covered" >                className='border-mono-black/5 size-full border-1'</span>
+<span class="cstat-no" title="statement not covered" >                size='md'</span>
 <span class="cstat-no" title="statement not covered" >                src={imageUrl100x100}</span>
 <span class="cstat-no" title="statement not covered" >              /&gt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >              &lt;button</span>
 <span class="cstat-no" title="statement not covered" >                className={cn(</span>
-<span class="cstat-no" title="statement not covered" >                  'flex-center bg-mono-white/80 group absolute top-1.5 right-2 size-4 cursor-pointer rounded-full', // 기본 스타일</span>
-<span class="cstat-no" title="statement not covered" >                  'hover:bg-mono-white hover:scale-110', // hover 스타일</span>
-<span class="cstat-no" title="statement not covered" >                  'transition-all duration-300', // animation 스타일</span>
+<span class="cstat-no" title="statement not covered" >                  'flex-center bg-mono-white/80 absolute top-1.5 right-2 size-4 cursor-pointer rounded-full',</span>
+<span class="cstat-no" title="statement not covered" >                  'hover:bg-mono-white hover:scale-110',</span>
+<span class="cstat-no" title="statement not covered" >                  'transition-all duration-300',</span>
 <span class="cstat-no" title="statement not covered" >                )}</span>
 <span class="cstat-no" title="statement not covered" >                aria-label='이미지 삭제 버튼'</span>
 <span class="cstat-no" title="statement not covered" >                type='button'</span>
@@ -433,10 +435,11 @@
 <span class="cstat-no" title="statement not covered" >              &gt;</span>
 <span class="cstat-no" title="statement not covered" >                &lt;Icon id='small-x-1' className='size-1.5 text-gray-700' /&gt;</span>
 <span class="cstat-no" title="statement not covered" >              &lt;/button&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;/li&gt;</span>
 <span class="cstat-no" title="statement not covered" >          ),</span>
 <span class="cstat-no" title="statement not covered" >        )}</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/ul&gt;</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >      {preUploadError &amp;&amp; &lt;Hint message={preUploadError} /&gt;}</span>
 <span class="cstat-no" title="statement not covered" >      &lt;p className='text-text-sm-medium px-2 text-gray-500 select-none'&gt;</span>
 <span class="cstat-no" title="statement not covered" >        최대 3개까지 업로드할 수 있어요.</span>
@@ -451,7 +454,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-12T14:57:12.306Z
+                at 2026-01-13T14:23:50.097Z
             </div>
         <script src="../../../../../../prettify.js"></script>
         <script>

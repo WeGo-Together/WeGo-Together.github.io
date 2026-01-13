@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/57</span>
+                <span class='fraction'>0/46</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/57</span>
+                <span class='fraction'>0/46</span>
             </div>
         
             
@@ -109,29 +109,7 @@
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L47'></a><a href='#L47'>47</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -182,10 +160,9 @@
 <span class="cstat-no" title="statement not covered" >import Link from 'next/link';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { useQuery } from '@tanstack/react-query';</span>
-<span class="cstat-no" title="statement not covered" >import { DEFAULT_GROUP_IMAGE } from 'constants/default-images';</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >import { API } from '@/api';</span>
-<span class="cstat-no" title="statement not covered" >import { ImageWithFallback } from '@/components/ui';</span>
+<span class="cstat-no" title="statement not covered" >import { GroupImage } from '@/components/shared';</span>
 <span class="cstat-no" title="statement not covered" >import { groupKeys } from '@/lib/query-key/query-key-group';</span>
 <span class="cstat-no" title="statement not covered" >import { GetJoinRequestsResponse } from '@/types/service/group';</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -210,22 +187,12 @@
 <span class="cstat-no" title="statement not covered" >      href={`/group/${groupId}`}</span>
 <span class="cstat-no" title="statement not covered" >      className='flex h-22 items-center gap-3 border-b border-gray-200 bg-white p-4 transition-colors hover:bg-gray-50 active:bg-gray-100'</span>
 <span class="cstat-no" title="statement not covered" >    &gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className='relative h-14 w-14 shrink-0 overflow-hidden rounded-[10px] bg-gray-200'&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;ImageWithFallback</span>
-<span class="cstat-no" title="statement not covered" >          width={56}</span>
-<span class="cstat-no" title="statement not covered" >          className='h-full w-full object-cover'</span>
-<span class="cstat-no" title="statement not covered" >          alt={title || '모임 썸네일'}</span>
-<span class="cstat-no" title="statement not covered" >          fallbackSrc={DEFAULT_GROUP_IMAGE}</span>
-<span class="cstat-no" title="statement not covered" >          height={56}</span>
-<span class="cstat-no" title="statement not covered" >          src={thumbnail ?? ''}</span>
-<span class="cstat-no" title="statement not covered" >          unoptimized</span>
-<span class="cstat-no" title="statement not covered" >        /&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;GroupImage className='shrink-0' size='sm' src={thumbnail} /&gt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className='flex min-w-0 flex-1 flex-col justify-between'&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;h3 className='text-text-md-semibold mt-[5px] h-6 truncate text-gray-800'&gt;{title}&lt;/h3&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;div className='min-w-0 space-y-0.5'&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;h3 className='text-text-md-semibold h-6 truncate text-gray-800'&gt;{title}&lt;/h3&gt;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        &lt;div className='text-text-sm-medium mb-[5px] flex h-5 items-center'&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;div className='text-text-sm-medium flex h-5 items-center'&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;span className='text-gray-600'&gt;신청한 유저&lt;/span&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;span className='text-mint-600 ml-1'&gt;{pendingCount}&lt;/span&gt;</span>
 <span class="cstat-no" title="statement not covered" >          &lt;span className='text-gray-600'&gt;명&lt;/span&gt;</span>
@@ -241,7 +208,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-12T14:57:12.306Z
+                at 2026-01-13T14:23:50.097Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

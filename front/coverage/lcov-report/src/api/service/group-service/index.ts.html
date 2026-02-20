@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40.32% </span>
+                <span class="strong">39.37% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>50/124</span>
+                <span class='fraction'>50/127</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40.32% </span>
+                <span class="strong">39.37% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>50/124</span>
+                <span class='fraction'>50/127</span>
             </div>
         
             
@@ -187,7 +187,10 @@
 <a name='L122'></a><a href='#L122'>122</a>
 <a name='L123'></a><a href='#L123'>123</a>
 <a name='L124'></a><a href='#L124'>124</a>
-<a name='L125'></a><a href='#L125'>125</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -269,30 +272,17 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -306,12 +296,28 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { apiV2 } from '@/api/core';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { baseAPI } from '@/api/core';
 import {
   AttendGroupPayload,
   CreateGroupPayload,
@@ -340,7 +346,7 @@ export const groupServiceRemote = () =&gt; ({
 <span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" >    params.append('size', payload.size.toString());</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    return apiV2.get&lt;GetGroupsResponse&gt;(`/groups?${params.toString()}`);</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.get&lt;GetGroupsResponse&gt;(`/api/v2/groups?${params.toString()}`);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
   // 내 모임 목록 조회 (GET /api/v2/groups/me) :스케줄러 페이지
   getMyGroups: <span class="fstat-no" title="function not covered" >async (payload: GetMyGroupsPayload): Promise&lt;GetMyGroupsResponse&gt; =&gt; {</span>
@@ -369,42 +375,45 @@ export const groupServiceRemote = () =&gt; ({
 <span class="cstat-no" title="statement not covered" >      });</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    return apiV2.get&lt;GetMyGroupsResponse&gt;(`/groups/me?${params.toString()}`);</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.get&lt;GetMyGroupsResponse&gt;(`/api/v2/groups/me?${params.toString()}`);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   // 모임 이미지 사전 업로드 (POST /groups/images/upload) - multipart/form-data
 &nbsp;
   createGroup: <span class="fstat-no" title="function not covered" >(payload: CreateGroupPayload) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return apiV2.post&lt;CreateGroupResponse&gt;('/groups/create', payload);</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.post&lt;CreateGroupResponse&gt;('/api/v2/groups/create', payload);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   editGroup: <span class="fstat-no" title="function not covered" >(params: GroupIdParams, payload: CreateGroupPayload) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return apiV2.patch&lt;CreateGroupResponse&gt;(`/groups/${params.groupId}`, payload);</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.patch&lt;CreateGroupResponse&gt;(`/api/v2/groups/${params.groupId}`, payload);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   getGroupDetails: <span class="fstat-no" title="function not covered" >(params: GroupIdParams) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return apiV2.get&lt;GetGroupDetailsResponse&gt;(`/groups/${params.groupId}`);</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.get&lt;GetGroupDetailsResponse&gt;(`/api/v2/groups/${params.groupId}`);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   attendGroup: <span class="fstat-no" title="function not covered" >(params: GroupIdParams, payload?: AttendGroupPayload) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    // 승인제 모임 신청 시 message 포함해서 API 요청</span>
 <span class="cstat-no" title="statement not covered" >    if (payload) {</span>
-<span class="cstat-no" title="statement not covered" >      return apiV2.post&lt;GetGroupDetailsResponse&gt;(`/groups/${params.groupId}/attend`, payload);</span>
+<span class="cstat-no" title="statement not covered" >      return baseAPI.post&lt;GetGroupDetailsResponse&gt;(</span>
+<span class="cstat-no" title="statement not covered" >        `/api/v2/groups/${params.groupId}/attend`,</span>
+<span class="cstat-no" title="statement not covered" >        payload,</span>
+<span class="cstat-no" title="statement not covered" >      );</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >    return apiV2.post&lt;GetGroupDetailsResponse&gt;(`/groups/${params.groupId}/attend`);</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.post&lt;GetGroupDetailsResponse&gt;(`/api/v2/groups/${params.groupId}/attend`);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   leaveGroup: <span class="fstat-no" title="function not covered" >(params: GroupIdParams) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return apiV2.post&lt;GetGroupDetailsResponse&gt;(`/groups/${params.groupId}/left`);</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.post&lt;GetGroupDetailsResponse&gt;(`/api/v2/groups/${params.groupId}/left`);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   deleteGroup: <span class="fstat-no" title="function not covered" >(params: GroupIdParams) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return apiV2.delete&lt;void&gt;(`/groups/${params.groupId}`);</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.delete&lt;void&gt;(`/api/v2/groups/${params.groupId}`);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   kickGroupMember: <span class="fstat-no" title="function not covered" >(params: KickGroupMemberParams) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return apiV2.post&lt;KickGroupMemberResponse&gt;(</span>
-<span class="cstat-no" title="statement not covered" >      `/groups/${params.groupId}/attendance/${params.targetUserId}/kick`,</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.post&lt;KickGroupMemberResponse&gt;(</span>
+<span class="cstat-no" title="statement not covered" >      `/api/v2/groups/${params.groupId}/attendance/${params.targetUserId}/kick`,</span>
 <span class="cstat-no" title="statement not covered" >    );</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
@@ -412,27 +421,27 @@ export const groupServiceRemote = () =&gt; ({
   getJoinRequests: <span class="fstat-no" title="function not covered" >(params: GroupIdParams, status: string = 'PENDING') =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    const queryParams = new URLSearchParams();</span>
 <span class="cstat-no" title="statement not covered" >    queryParams.append('status', status);</span>
-<span class="cstat-no" title="statement not covered" >    return apiV2.get&lt;GetJoinRequestsResponse&gt;(</span>
-<span class="cstat-no" title="statement not covered" >      `/groups/${params.groupId}/attendance?${queryParams.toString()}`,</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.get&lt;GetJoinRequestsResponse&gt;(</span>
+<span class="cstat-no" title="statement not covered" >      `/api/v2/groups/${params.groupId}/attendance?${queryParams.toString()}`,</span>
 <span class="cstat-no" title="statement not covered" >    );</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   // 승인 (POST /api/v2/groups/{groupId}/attendance/{targetUserId}/approve)
   approveJoinRequest: <span class="fstat-no" title="function not covered" >(params: KickGroupMemberParams) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return apiV2.post&lt;GetGroupDetailsResponse&gt;(</span>
-<span class="cstat-no" title="statement not covered" >      `/groups/${params.groupId}/attendance/${params.targetUserId}/approve`,</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.post&lt;GetGroupDetailsResponse&gt;(</span>
+<span class="cstat-no" title="statement not covered" >      `/api/v2/groups/${params.groupId}/attendance/${params.targetUserId}/approve`,</span>
 <span class="cstat-no" title="statement not covered" >    );</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   // 거절 (POST /api/v2/groups/{groupId}/attendance/{targetUserId}/reject)
   rejectJoinRequest: <span class="fstat-no" title="function not covered" >(params: KickGroupMemberParams) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return apiV2.post&lt;GetGroupDetailsResponse&gt;(</span>
-<span class="cstat-no" title="statement not covered" >      `/groups/${params.groupId}/attendance/${params.targetUserId}/reject`,</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.post&lt;GetGroupDetailsResponse&gt;(</span>
+<span class="cstat-no" title="statement not covered" >      `/api/v2/groups/${params.groupId}/attendance/${params.targetUserId}/reject`,</span>
 <span class="cstat-no" title="statement not covered" >    );</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   uploadGroupImages: <span class="fstat-no" title="function not covered" >(payload: FormData) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return apiV2.post&lt;PreUploadGroupImageResponse&gt;('/groups/images/upload', payload);</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.post&lt;PreUploadGroupImageResponse&gt;('/api/v2/groups/images/upload', payload);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 });
 &nbsp;</pre></td></tr></table></pre>
@@ -442,7 +451,7 @@ export const groupServiceRemote = () =&gt; ({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-17T14:22:15.302Z
+                at 2026-02-20T06:06:19.723Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

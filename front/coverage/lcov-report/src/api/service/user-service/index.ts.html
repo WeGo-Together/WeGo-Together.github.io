@@ -223,7 +223,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { apiV1 } from '@/api/core';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { baseAPI } from '@/api/core';
 import {
   Availability,
   FollowPathParams,
@@ -240,33 +240,33 @@ import {
 export const userServiceRemote = () =&gt; ({
   // 1. 사용자 팔로우
   followUser: <span class="fstat-no" title="function not covered" >async (pathParams: FollowPathParams) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return apiV1.post&lt;string&gt;(`/users/follow`, null, {</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.post&lt;string&gt;(`/api/v1/users/follow`, null, {</span>
 <span class="cstat-no" title="statement not covered" >      params: { followNickname: pathParams.followNickname },</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   // 2. 유저 프로필 변경
   updateMyInfo: async (payloads: UpdateMyInfoPayloads) =&gt; {
-    return apiV1.patch&lt;User&gt;('/users/profile', payloads);
+    return baseAPI.patch&lt;User&gt;('/api/v1/users/profile', payloads);
   },
 &nbsp;
   // 3. 프로필 이미지 변경
   updateMyImage: <span class="fstat-no" title="function not covered" >async (payloads: UpdateMyImagePayloads) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    const formData = new FormData();</span>
 <span class="cstat-no" title="statement not covered" >    formData.append('file', payloads.file);</span>
-<span class="cstat-no" title="statement not covered" >    return apiV1.patch&lt;User&gt;(`/users/profile-image`, formData);</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.patch&lt;User&gt;(`/api/v1/users/profile-image`, formData);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   // 4. 알림 설정 변경
   updateMyNotification: <span class="fstat-no" title="function not covered" >async (queryParams: UpdateMyNotificationQueryParams) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return apiV1.patch&lt;User&gt;(`/users/notification`, null, {</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.patch&lt;User&gt;(`/api/v1/users/notification`, null, {</span>
 <span class="cstat-no" title="statement not covered" >      params: { ...queryParams },</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   // 5. 유저 프로필 조회
   getUser: async (pathParams: GetUserPathParams) =&gt; {
-    return apiV1.get&lt;User&gt;(`/users/${pathParams.userId}`);
+    return baseAPI.get&lt;User&gt;(`/api/v1/users/${pathParams.userId}`);
   },
 &nbsp;
   // 6. 팔로우 리스트 조회
@@ -274,31 +274,31 @@ export const userServiceRemote = () =&gt; ({
 &nbsp;
   // 7. 닉네임 중복 검사
   getNicknameAvailability: async (queryParams: GetNicknameAvailabilityQueryParams) =&gt; {
-    return apiV1.get&lt;Availability&gt;(`/users/nickname/availability`, {
+    return baseAPI.get&lt;Availability&gt;(`/api/v1/users/nickname/availability`, {
       params: { nickname: queryParams.nickName },
     });
   },
 &nbsp;
   // 8. 본인 프로필 조회
   getMe: async () =&gt; {
-    return apiV1.get&lt;User&gt;(`/users/me`);
+    return baseAPI.get&lt;User&gt;(`/api/v1/users/me`);
   },
 &nbsp;
   // 8-1. 본인 프로필 조회(redirect skip)
   getMeSkipRedirect: <span class="fstat-no" title="function not covered" >async () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return apiV1.get&lt;User&gt;(`/users/me`, { skipAuthRedirect: false });</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.get&lt;User&gt;(`/api/v1/users/me`);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   // 9. 이메일 중복 검사
   getEmailAvailability: <span class="fstat-no" title="function not covered" >async (queryParams: GetEmailAvailabilityQueryParams) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return apiV1.get&lt;Availability&gt;(`/users/email/availability`, {</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.get&lt;Availability&gt;(`/api/v1/users/email/availability`, {</span>
 <span class="cstat-no" title="statement not covered" >      params: { email: queryParams.email },</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 &nbsp;
   // 10. 사용자 언팔로우
   unfollowUser: <span class="fstat-no" title="function not covered" >async (params: UnfollowQueryParams) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return apiV1.delete&lt;string&gt;(`/users/unfollow`, {</span>
+<span class="cstat-no" title="statement not covered" >    return baseAPI.delete&lt;string&gt;(`/api/v1/users/unfollow`, {</span>
 <span class="cstat-no" title="statement not covered" >      params: { unFollowNickname: params.unFollowNickname },</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
@@ -310,7 +310,7 @@ export const userServiceRemote = () =&gt; ({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-17T14:22:15.302Z
+                at 2026-02-20T06:06:19.723Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

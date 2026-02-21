@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/api/core/auth/index.ts</title>
+    <title>Code coverage report for src/api/core/refresh/index.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../../prettify.css" />
     <link rel="stylesheet" href="../../../../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">src/api/core/auth</a> index.ts</h1>
+        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">src/api/core/refresh</a> index.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">74.41% </span>
+                <span class="strong">54.05% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>32/43</span>
+                <span class='fraction'>20/37</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">74.41% </span>
+                <span class="strong">54.05% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>32/43</span>
+                <span class='fraction'>20/37</span>
             </div>
         
             
@@ -100,13 +100,7 @@
 <a name='L35'></a><a href='#L35'>35</a>
 <a name='L36'></a><a href='#L36'>36</a>
 <a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a>
-<a name='L40'></a><a href='#L40'>40</a>
-<a name='L41'></a><a href='#L41'>41</a>
-<a name='L42'></a><a href='#L42'>42</a>
-<a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L38'></a><a href='#L38'>38</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -119,10 +113,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -130,19 +120,17 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -151,21 +139,20 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import axios from 'axios';
 &nbsp;
-import { getAccessToken } from '@/lib/auth/token';
 import { CommonErrorResponse } from '@/types/service/common';
 &nbsp;
 import { createApiHelper } from '../lib/apiHelper';
 &nbsp;
-const authInstance = axios.create({
+const refreshInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
   timeout: 20000,
   withCredentials: true,
 });
 &nbsp;
-authInstance.interceptors.request.use(async (config) =&gt; {
-  const isServer = typeof window === 'undefined';
-&nbsp;
-  if (isServer) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+refreshInstance.interceptors.request.use(async (config) =&gt; {
+<span class="cstat-no" title="statement not covered" >  const isServer = typeof window === 'undefined';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  if (isServer) {</span>
 <span class="cstat-no" title="statement not covered" >    const { cookies } = await import('next/headers');</span>
 <span class="cstat-no" title="statement not covered" >    const cookieStore = await cookies();</span>
 <span class="cstat-no" title="statement not covered" >    const refreshToken = cookieStore.get('refreshToken')?.value;</span>
@@ -173,25 +160,20 @@ authInstance.interceptors.request.use(async (config) =&gt; {
 <span class="cstat-no" title="statement not covered" >      config.headers.Cookie = `refreshToken=${refreshToken}`;</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  return config;</span>
+<span class="cstat-no" title="statement not covered" >});</span>
 &nbsp;
-  const accessToken = await getAccessToken();
-  if (<span class="branch-0 cbranch-no" title="branch not covered" >accessToken &amp;&amp; config.headers)</span> <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >    config.headers.Authorization = `Bearer ${accessToken}`;</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-&nbsp;
-  return config;
-});
-&nbsp;
-authInstance.interceptors.response.use(
+refreshInstance.interceptors.response.use(
   (response) =&gt; {
-    return response;
-  },
+<span class="cstat-no" title="statement not covered" >    return response;</span>
+<span class="cstat-no" title="statement not covered" >  },</span>
   async (error) =&gt; {
 <span class="cstat-no" title="statement not covered" >    throw new CommonErrorResponse(error.response?.data);</span>
 <span class="cstat-no" title="statement not covered" >  },</span>
 );
 &nbsp;
-export const authAPI = createApiHelper(authInstance);
+export const refreshAPI = createApiHelper(refreshInstance);
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -199,7 +181,7 @@ export const authAPI = createApiHelper(authInstance);
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-20T08:45:10.961Z
+                at 2026-02-21T13:27:37.908Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

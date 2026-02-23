@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/hooks/use-notification/use-notification-connect-sse/index.ts</title>
+    <title>Code coverage report for src/hooks/use-sse/use-sse-connect/index.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../../prettify.css" />
     <link rel="stylesheet" href="../../../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">src/hooks/use-notification/use-notification-connect-sse</a> index.ts</h1>
+        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">src/hooks/use-sse/use-sse-connect</a> index.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">8.9% </span>
+                <span class="strong">6.55% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/146</span>
+                <span class='fraction'>8/122</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">8.9% </span>
+                <span class="strong">6.55% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/146</span>
+                <span class='fraction'>8/122</span>
             </div>
         
             
@@ -185,31 +185,7 @@
 <a name='L120'></a><a href='#L120'>120</a>
 <a name='L121'></a><a href='#L121'>121</a>
 <a name='L122'></a><a href='#L122'>122</a>
-<a name='L123'></a><a href='#L123'>123</a>
-<a name='L124'></a><a href='#L124'>124</a>
-<a name='L125'></a><a href='#L125'>125</a>
-<a name='L126'></a><a href='#L126'>126</a>
-<a name='L127'></a><a href='#L127'>127</a>
-<a name='L128'></a><a href='#L128'>128</a>
-<a name='L129'></a><a href='#L129'>129</a>
-<a name='L130'></a><a href='#L130'>130</a>
-<a name='L131'></a><a href='#L131'>131</a>
-<a name='L132'></a><a href='#L132'>132</a>
-<a name='L133'></a><a href='#L133'>133</a>
-<a name='L134'></a><a href='#L134'>134</a>
-<a name='L135'></a><a href='#L135'>135</a>
-<a name='L136'></a><a href='#L136'>136</a>
-<a name='L137'></a><a href='#L137'>137</a>
-<a name='L138'></a><a href='#L138'>138</a>
-<a name='L139'></a><a href='#L139'>139</a>
-<a name='L140'></a><a href='#L140'>140</a>
-<a name='L141'></a><a href='#L141'>141</a>
-<a name='L142'></a><a href='#L142'>142</a>
-<a name='L143'></a><a href='#L143'>143</a>
-<a name='L144'></a><a href='#L144'>144</a>
-<a name='L145'></a><a href='#L145'>145</a>
-<a name='L146'></a><a href='#L146'>146</a>
-<a name='L147'></a><a href='#L147'>147</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L123'></a><a href='#L123'>123</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -217,30 +193,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -357,31 +309,20 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useEffect, useRef, useState } from 'react';
 &nbsp;
-import { useQueryClient } from '@tanstack/react-query';
 import Cookies from 'js-cookie';
 &nbsp;
 import { API } from '@/api';
-import { groupKeys } from '@/lib/query-key/query-key-group';
-import { notificationKeys } from '@/lib/query-key/query-key-notification';
-import { userKeys } from '@/lib/query-key/query-key-user';
-import { useAuth } from '@/providers/provider-auth';
 import { NotificationItem } from '@/types/service/notification';
 &nbsp;
-export const useConnectSSE = <span class="fstat-no" title="function not covered" >(hasRefreshToken: boolean) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const [receivedNewNotification, setReceivedNewNotification] = useState(false);</span>
-<span class="cstat-no" title="statement not covered" >  const { isAuthenticated } = useAuth();</span>
+export const useSSEConnect = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const [data, setData] = useState&lt;NotificationItem | null&gt;(null);</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  const eventSourceRef = useRef&lt;EventSource | null&gt;(null);</span>
 <span class="cstat-no" title="statement not covered" >  const retryRefreshRef = useRef(false);</span>
-<span class="cstat-no" title="statement not covered" >  const queryClient = useQueryClient();</span>
+<span class="cstat-no" title="statement not covered" >  const isMountedRef = useRef(true);</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  // SSE 연결 진입점</span>
 <span class="cstat-no" title="statement not covered" >  const connect = () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (!isAuthenticated) {</span>
-<span class="cstat-no" title="statement not covered" >      console.log('[DEBUG] SSE - 인증되지 않음');</span>
-<span class="cstat-no" title="statement not covered" >      return;</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    const token = Cookies.get('accessToken');</span>
 <span class="cstat-no" title="statement not covered" >    if (!token) {</span>
 <span class="cstat-no" title="statement not covered" >      console.log('[DEBUG] SSE - 토큰 없음');</span>
@@ -403,8 +344,6 @@ export const useConnectSSE = <span class="fstat-no" title="function not covered"
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  // SSE 재연결 시도 함수</span>
 <span class="cstat-no" title="statement not covered" >  const reconnect = async () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (!hasRefreshToken || retryRefreshRef.current) return;</span>
-<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    retryRefreshRef.current = true;</span>
 <span class="cstat-no" title="statement not covered" >    console.log('[DEBUG] SSE - 토큰 갱신 시도');</span>
 <span class="cstat-no" title="statement not covered" ></span>
@@ -422,84 +361,73 @@ export const useConnectSSE = <span class="fstat-no" title="function not covered"
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  // SSE 연결 설정 함수</span>
 <span class="cstat-no" title="statement not covered" >  const setupSSEConnection = (token: string) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    // 기존 연결 정리</span>
+<span class="cstat-no" title="statement not covered" >    if (!isMountedRef.current) {</span>
+<span class="cstat-no" title="statement not covered" >      console.log('[DEBUG] SSE - 언마운트된 컴포넌트, 연결 중단');</span>
+<span class="cstat-no" title="statement not covered" >      return;</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    // 1. 기존 연결 정리</span>
 <span class="cstat-no" title="statement not covered" >    if (eventSourceRef.current) {</span>
 <span class="cstat-no" title="statement not covered" >      console.log('[DEBUG] SSE - 기존 연결 정리');</span>
 <span class="cstat-no" title="statement not covered" >      eventSourceRef.current.close();</span>
 <span class="cstat-no" title="statement not covered" >      eventSourceRef.current = null;</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >    console.log('[DEBUG] SSE - 연결 시도');</span>
 <span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    // 2. SSE 연결 시도</span>
+<span class="cstat-no" title="statement not covered" >    console.log('[DEBUG] SSE - 연결 시도');</span>
 <span class="cstat-no" title="statement not covered" >    const es = new EventSource(</span>
 <span class="cstat-no" title="statement not covered" >      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/notifications/subscribe?accessToken=${token}`,</span>
 <span class="cstat-no" title="statement not covered" >    );</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    eventSourceRef.current = es;</span>
 <span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    // 3. SSE 연결 성공 시</span>
 <span class="cstat-no" title="statement not covered" >    es.addEventListener('connect', (event) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      console.log('[DEBUG] SSE - 연결 확인:', event.data);</span>
 <span class="cstat-no" title="statement not covered" >      retryRefreshRef.current = false;</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    // 4. SSE 이벤트 수신 시</span>
 <span class="cstat-no" title="statement not covered" >    es.addEventListener('notification', (event) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      try {</span>
-<span class="cstat-no" title="statement not covered" >        const data = JSON.parse(event.data) as NotificationItem;</span>
-<span class="cstat-no" title="statement not covered" >        console.log('[DEBUG] SSE - 수신 성공:', data);</span>
-<span class="cstat-no" title="statement not covered" >        setReceivedNewNotification(true);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        queryClient.invalidateQueries({ queryKey: notificationKeys.unReadCount() });</span>
-<span class="cstat-no" title="statement not covered" >        queryClient.invalidateQueries({ queryKey: notificationKeys.list() });</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        switch (data.type) {</span>
-<span class="cstat-no" title="statement not covered" >          case 'FOLLOW':</span>
-<span class="cstat-no" title="statement not covered" >            queryClient.invalidateQueries({ queryKey: userKeys.me() });</span>
-<span class="cstat-no" title="statement not covered" >            queryClient.invalidateQueries({ queryKey: userKeys.item(data.user.id) });</span>
-<span class="cstat-no" title="statement not covered" >            break;</span>
-<span class="cstat-no" title="statement not covered" >          case 'GROUP_CREATE':</span>
-<span class="cstat-no" title="statement not covered" >          case 'GROUP_DELETE':</span>
-<span class="cstat-no" title="statement not covered" >            queryClient.invalidateQueries({ queryKey: groupKeys.lists() });</span>
-<span class="cstat-no" title="statement not covered" >            break;</span>
-<span class="cstat-no" title="statement not covered" >          case 'GROUP_JOIN':</span>
-<span class="cstat-no" title="statement not covered" >          case 'GROUP_LEAVE':</span>
-<span class="cstat-no" title="statement not covered" >          case 'GROUP_JOIN_APPROVED':</span>
-<span class="cstat-no" title="statement not covered" >          case 'GROUP_JOIN_REJECTED':</span>
-<span class="cstat-no" title="statement not covered" >          case 'GROUP_JOIN_KICKED':</span>
-<span class="cstat-no" title="statement not covered" >            if (data.group) {</span>
-<span class="cstat-no" title="statement not covered" >              queryClient.invalidateQueries({ queryKey: groupKeys.detail(String(data.group.id)) });</span>
-<span class="cstat-no" title="statement not covered" >            }</span>
-<span class="cstat-no" title="statement not covered" >            break;</span>
-<span class="cstat-no" title="statement not covered" >          case 'GROUP_JOIN_REQUEST':</span>
-<span class="cstat-no" title="statement not covered" >            if (data.group) {</span>
-<span class="cstat-no" title="statement not covered" >              queryClient.invalidateQueries({</span>
-<span class="cstat-no" title="statement not covered" >                queryKey: groupKeys.joinRequests(String(data.group.id), 'PENDING'),</span>
-<span class="cstat-no" title="statement not covered" >              });</span>
-<span class="cstat-no" title="statement not covered" >            }</span>
-<span class="cstat-no" title="statement not covered" >            break;</span>
-<span class="cstat-no" title="statement not covered" >        }</span>
+<span class="cstat-no" title="statement not covered" >        const receivedData = JSON.parse(event.data) as NotificationItem;</span>
+<span class="cstat-no" title="statement not covered" >        setData(receivedData);</span>
+<span class="cstat-no" title="statement not covered" >        console.log('[DEBUG] SSE - 수신 성공:', receivedData);</span>
 <span class="cstat-no" title="statement not covered" >      } catch (error) {</span>
 <span class="cstat-no" title="statement not covered" >        console.error('[DEBUG] SSE - 데이터 파싱 실패:', error);</span>
 <span class="cstat-no" title="statement not covered" >      }</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    // 5. SSE 연결 오류 발생 시</span>
 <span class="cstat-no" title="statement not covered" >    es.onerror = async (_error) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      console.log('[DEBUG] SSE - 연결 오류 발생');</span>
 <span class="cstat-no" title="statement not covered" >      es.close();</span>
-<span class="cstat-no" title="statement not covered" >      reconnect(); // ✅ 재연결 함수 호출</span>
+<span class="cstat-no" title="statement not covered" >      if (retryRefreshRef.current) return;</span>
+<span class="cstat-no" title="statement not covered" >      reconnect();</span>
 <span class="cstat-no" title="statement not covered" >    };</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  // 알림 수신 후 3초 뒤 receivedNewNotification이 false로 변경됨</span>
 <span class="cstat-no" title="statement not covered" >  useEffect(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (!receivedNewNotification) return;</span>
+<span class="cstat-no" title="statement not covered" >    isMountedRef.current = true;</span>
+<span class="cstat-no" title="statement not covered" >    connect();</span>
+<span class="cstat-no" title="statement not covered" >    return () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      isMountedRef.current = false;</span>
+<span class="cstat-no" title="statement not covered" >      disconnect();</span>
+<span class="cstat-no" title="statement not covered" >    };</span>
+<span class="cstat-no" title="statement not covered" >  }, []);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  // 알림 수신 후 3초 뒤 data가 null로 변경됨</span>
+<span class="cstat-no" title="statement not covered" >  useEffect(() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (!data) return;</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    const timer = setTimeout(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      setReceivedNewNotification(false);</span>
+<span class="cstat-no" title="statement not covered" >      setData(null);</span>
 <span class="cstat-no" title="statement not covered" >    }, 3000);</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    return () =&gt; clearTimeout(timer);</span>
-<span class="cstat-no" title="statement not covered" >  }, [receivedNewNotification]);</span>
+<span class="cstat-no" title="statement not covered" >  }, [data]);</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  return { receivedNewNotification, connect, disconnect };</span>
+<span class="cstat-no" title="statement not covered" >  return { data };</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;</pre></td></tr></table></pre>
 
@@ -508,7 +436,7 @@ export const useConnectSSE = <span class="fstat-no" title="function not covered"
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-22T06:14:01.750Z
+                at 2026-02-23T12:14:29.131Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>
